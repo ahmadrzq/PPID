@@ -9,12 +9,19 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{{asset('admin/assets/modules/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/modules/fontawesome/css/all.min.css')}}"> -->
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="../node_modules/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="../node_modules/weathericons/css/weather-icons.min.css">
     <link rel="stylesheet" href="../node_modules/weathericons/css/weather-icons-wind.min.css">
     <link rel="stylesheet" href="../node_modules/summernote/dist/summernote-bs4.css">
+    <link rel="stylesheet" href="{{asset('admin/assets/modules/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/modules/codemirror/lib/codemirror.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/modules/codemirror/theme/duotone-dark.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/modules/jquery-selectric/selectric.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/modules/prism/prism.css')}}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
@@ -50,6 +57,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="{{asset('admin/assets/js/stisla.js')}}"></script>
 
+
     <!-- JS Libraies -->
     <script src="../node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
     <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
@@ -57,6 +65,10 @@
     <script src="../node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
     <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+    <script src="{{asset('admin/assets/modules/summernote/summernote-bs4.js')}}"></script>
+    <script src="{{asset('admin/assets/modules/codemirror/lib/codemirror.js')}}"></script>
+    <script src="{{asset('admin/assets/modules/codemirror/mode/javascript/javascript.js')}}"></script>
+    <script src="{{asset('admin/assets/modules/jquery-selectric/jquery.selectric.min.js')}}"></script>
 
     <!-- Template JS File -->
     <script src="{{asset('admin/assets/js/scripts.js')}}"></script>
@@ -64,6 +76,7 @@
 
     <!-- Page Specific JS File -->
     <script src="{{asset('admin/assets/js/page/index-0.js')}}"></script>
+    <script src="{{asset('admin/assets/js/page/bootstrap-modal.js')}}"></script>
 </body>
 
 </html>

@@ -37,24 +37,63 @@
                                 <label>Kategori</label>
                                 <select class="form-control">
                                     <option>Berkala</option>
+                                    <option>Serta Merta</option>
+                                    <option>Setiap Saat</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-row col-md-8">
-                                <div class="form-group col-12">
-                                    <label class="">Kandungan Informasi</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <textarea class="summernote"></textarea>
-                                    </div>
+                            <div class="form-group col-md-8">
+                                <label class="">Kandungan Informasi</label>
+                                <div class="col-sm-12 col-md-12">
+                                    <textarea class="summernote"></textarea>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Jenis</label>
+                                <div class="form-group">
+                                    <label>Jenis</label>
+                                    <select class="form-control">
+                                        <option>Profil Badan Publik</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control">
+                                        <option>Audio</option>
+                                        <option>Video</option>
+                                        <option>Teks</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Filename</label>
+                                    <input type="file" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Keterangan</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Status Dokumen</label>
+                                    <select class="form-control">
+                                        <option>Draft</option>
+                                        <option>Terbit</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label>Terbitkan Sebagai</label>
                                 <select class="form-control">
-                                    <option>Profil Badan Publik</option>
+                                    <option>PPID Kota Probolinggo</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-4">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button class="btn btn-primary">Proses</button>
                         </div>
                     </div>
                 </div>

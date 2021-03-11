@@ -23,4 +23,7 @@ Route::get('/dashboard/informasi/pmasuk', function () {
 Route::get('/dashboard/dokumen/input', function () {
     return view('admin.dokumen.input');
 });
+Route::get('/dashboard/dokumen/view', function () {
+    return view('admin.dokumen.view');
+});
 Route::resource('admin','AdminController');
