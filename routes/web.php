@@ -17,8 +17,8 @@ Route::get('dashboard', function () {
 Route::get('/dashboard/informasi/meja', function () {
     return view('admin.informasi.meja');
 });
-Route::get('/dashboard/informasi/pmasuk', function () {
-    return view('admin.informasi.pmasuk');
+Route::get('/dashboard/informasi/masuk', function () {
+    return view('admin.informasi.masuk');
 });
 Route::get('/dashboard/dokumen/input', function () {
     return view('admin.dokumen.input');

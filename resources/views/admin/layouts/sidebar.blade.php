@@ -12,22 +12,22 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-database"></i><span>Permohonan Informasi</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{url('dashboard/informasi/meja')}}">Meja Layanan</a></li>
-                    <li><a class="nav-link" href="index.html">Permohonan Masuk</a></li>
-                    <li><a class="nav-link" href="index.html">Permohonan Diproses</a></li>
-                    <li><a class="nav-link" href="index.html">Permohonan Selesai</a></li>
-                    <li><a class="nav-link" href="index.html">Permohonan Ditolak</a></li>
-                    <li><a class="nav-link" href="index.html">Keberatan</a></li>
-                    <li><a class="nav-link" href="index.html">Semua Permohonan</a></li>
-                    <li><a class="nav-link" href="index.html">Data Pemohon</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/masuk')}}">Permohonan Masuk</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/proses')}}">Permohonan Diproses</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/selesai')}}">Permohonan Selesai</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/ditolak')}}">Permohonan Ditolak</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/keberatan')}}">Keberatan</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view')}}">Semua Permohonan</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/datapemohon')}}">Data Pemohon</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-file-alt"></i><span>Dokumen Informasi Publik</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="index-0.html">Input Dokumen</a></li>
-                    <li><a class="nav-link" href="index.html">Semua Dokumen</a></li>
-                    <li><a class="nav-link" href="index.html">Menunggu Persetujuan</a></li>
-                    <li><a class="nav-link" href="index.html">Dipublikasikan</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/dokumen/input')}}">Input Dokumen</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/dokumen/view')}}">Semua Dokumen</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/dokumen/draft')}}">Menunggu Persetujuan</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/dokumen/publish')}}">Dipublikasikan</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
