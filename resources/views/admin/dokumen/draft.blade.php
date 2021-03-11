@@ -16,11 +16,11 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Semua Dokumen</h1>
+        <h1>Menunggu Persetujuan</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
             <div class="breadcrumb-item">Dokumen Informasi Publik</div>
-            <div class="breadcrumb-item">Permohonan Masuk</div>
+            <div class="breadcrumb-item">Menunggu Persetujuan</div>
         </div>
     </div>
 
@@ -32,47 +32,12 @@
                     <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-print"></i> Cetak Laporan</button>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-header-action col-12">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-row col-md-10">
-                                        <div class="form-group col-md-4">
-                                            <label>Kategori</label>
-                                            <select class="form-control">
-                                                <option>Semua Kategori</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Jenis</label>
-                                            <select class="form-control">
-                                                <option>Semua Jenis</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Penerbit</label>
-                                            <select class="form-control">
-                                                <option>Semua Komponen</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <br>
-                                        <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
-                                        <button class="btn btn-secondary">Reset</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-striped table-md">
                                 <tr>
                                     <th>No</th>
                                     <th>Judul</th>
-                                    <th>Jenis</th>
                                     <th>Kategori</th>
                                     <th>Penerbit</th>
                                     <th></th>
@@ -81,7 +46,6 @@
                                     <td>1</td>
                                     <td><a href="">lorem</a></td>
                                     <td>Berkala</td>
-                                    <td>Regulasi</td>
                                     <td>PPID Kota Probolinggo</td>
                                     <td><a href=""><i class="fas fa-folder-open"></i></a></td>
                                     <td><a href=""><i class="fas fa-edit"></i></a></td>
@@ -154,7 +118,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
                 <button type="button" class="btn btn-primary"><i class="fas fa-print"></i> Cetak Laporan</button>
             </div>
         </div>

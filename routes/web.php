@@ -26,4 +26,10 @@ Route::get('/dashboard/dokumen/input', function () {
 Route::get('/dashboard/dokumen/view', function () {
     return view('admin.dokumen.view');
 });
+Route::get('/dashboard/dokumen/draft', function () {
+    return view('admin.dokumen.draft');
+});
+Route::get('/dashboard/dokumen/publish', function () {
+    return view('admin.dokumen.publish');
+});
 Route::resource('admin','AdminController');
