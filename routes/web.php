@@ -18,7 +18,40 @@ Route::get('/dashboard/informasi/meja', function () {
     return view('admin.informasi.meja');
 });
 Route::get('/dashboard/informasi/masuk', function () {
-    return view('admin.informasi.masuk');
+    return view('admin.informasi.pmasuk.masuk');
+});
+Route::get('/dashboard/informasi/detail', function () {
+    return view('admin.informasi.pmasuk.detail');
+});
+Route::get('/dashboard/informasi/proses-terima', function () {
+    return view('admin.informasi.pmasuk.proses_terima');
+});
+Route::get('/dashboard/informasi/diterima', function () {
+    return view('admin.informasi.pmasuk.diterima');
+});
+Route::get('/dashboard/informasi/proses-tolak', function () {
+    return view('admin.informasi.pmasuk.proses_tolak');
+});
+Route::get('/dashboard/informasi/ditolak', function () {
+    return view('admin.informasi.pmasuk.ditolak');
+});
+Route::get('/dashboard/informasi/view-proses', function () {
+    return view('admin.informasi.v_proses');
+});
+Route::get('/dashboard/informasi/view-selesai', function () {
+    return view('admin.informasi.v_selesai');
+});
+Route::get('/dashboard/informasi/view-ditolak', function () {
+    return view('admin.informasi.v_ditolak');
+});
+Route::get('/dashboard/informasi/view-keberatan', function () {
+    return view('admin.informasi.v_keberatan');
+});
+Route::get('/dashboard/informasi/view-permohonan', function () {
+    return view('admin.informasi.v_permohonan');
+});
+Route::get('/dashboard/informasi/view-pemohon', function () {
+    return view('admin.informasi.v_pemohon');
 });
 Route::get('/dashboard/dokumen/input', function () {
     return view('admin.dokumen.input');

@@ -13,12 +13,12 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{url('dashboard/informasi/meja')}}">Meja Layanan</a></li>
                     <li><a class="nav-link" href="{{url('dashboard/informasi/masuk')}}">Permohonan Masuk</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/proses')}}">Permohonan Diproses</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/selesai')}}">Permohonan Selesai</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/ditolak')}}">Permohonan Ditolak</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/keberatan')}}">Keberatan</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/view')}}">Semua Permohonan</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/datapemohon')}}">Data Pemohon</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-proses')}}">Permohonan Diproses</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-selesai')}}">Permohonan Selesai</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-ditolak')}}">Permohonan Ditolak</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-keberatan')}}">Keberatan</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-permohonan')}}">Semua Permohonan</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-pemohon')}}">Data Pemohon</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
