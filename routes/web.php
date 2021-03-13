@@ -65,4 +65,19 @@ Route::get('/dashboard/dokumen/draft', function () {
 Route::get('/dashboard/dokumen/publish', function () {
     return view('admin.dokumen.publish');
 });
+Route::get('/dashboard/pengguna/view', function () {
+    return view('admin.pengguna.v_pengguna');
+});
+Route::get('/dashboard/pengguna/tambah-pengguna', function () {
+    return view('admin.pengguna.tambah_pengguna');
+});
+Route::get('/dashboard/pengguna/edit-pengguna', function () {
+    return view('admin.pengguna.edit_pengguna');
+});
+Route::get('/dashboard/pengguna-publik/view', function () {
+    return view('admin.pengguna-publik.v_publik');
+});
+Route::get('/dashboard/pengguna-publik/riwayat', function () {
+    return view('admin.pengguna-publik.riwayat');
+});
 Route::resource('admin','AdminController');
