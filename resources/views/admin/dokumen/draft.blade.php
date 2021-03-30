@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="form-group">
-                    <button class="btn btn-success"><i class="fas fa-plus-square"></i> Input Dokumen</button>
+                <a href="{{route('tambah-dokumen')}}" class="btn btn-success"><i class="fas fa-plus-square"></i>Tambah Dokumen<a>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-print"></i> Cetak Laporan</button>
                 </div>
                 <div class="card">
@@ -42,15 +42,17 @@
                                     <th>Penerbit</th>
                                     <th></th>
                                 </tr>
+                                @foreach ($draft as $no => $dok)
                                 <tr>
-                                    <td>1</td>
-                                    <td><a href="">lorem</a></td>
-                                    <td>Berkala</td>
-                                    <td>PPID Kota Probolinggo</td>
+                                    <td>{{ ++$no }}</td>
+                                    <td>{{$dok->judul}}</a></td>
+                                    <td>{{$dok->kategori->nama}}</td>
+                                    <td>{{$dok->dinas->nama}}</td>
                                     <td><a href=""><i class="fas fa-folder-open"></i></a></td>
-                                    <td><a href=""><i class="fas fa-edit"></i></a></td>
-                                    <td><a href=""><i class="fas fa-trash"></i></a></td>
+                                    <td><a href="{{route('edit-dokumen', $dok->id)}}"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="{{route('hapus-dokumen', $dok->id)}}"><i class="fas fa-trash"></i></a></td>
                                 </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

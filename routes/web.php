@@ -58,18 +58,24 @@ Route::get('/dashboard/informasi/view-pemohon', 'PermohonanController@pemohon');
 // Route::get('/dashboard/dokumen/input', function () {
 //     return view('admin.dokumen.input');
 // });
-Route::get('/dashboard/dokumen/input', 'DokumenController@input');
+Route::get('/dashboard/dokumen/input', 'DokumenController@input')->name('tambah-dokumen');
 Route::post('/dashboard/dokumen/input', 'DokumenController@store')->name('input-dokumen');
+Route::get('/dashboard/dokumen/edit/{id}', 'DokumenController@edit')->name('edit-dokumen');
+Route::post('/dashboard/dokumen/update/{id}', 'DokumenController@update')->name('update-dokumen');
+Route::get('/dashboard/dokumen/hapus/{id}', 'DokumenController@hapus')->name('hapus-dokumen');
+Route::get('/dashboard/dokumen/download/{id}', 'DokumenController@download')->name('download-dokumen');
 // Route::get('/dashboard/dokumen/view', function () {
 //     return view('admin.dokumen.view');
 // });
 Route::get('/dashboard/dokumen/view', 'DokumenController@view');
-Route::get('/dashboard/dokumen/draft', function () {
-    return view('admin.dokumen.draft');
-});
-Route::get('/dashboard/dokumen/publish', function () {
-    return view('admin.dokumen.publish');
-});
+// Route::get('/dashboard/dokumen/draft', function () {
+//     return view('admin.dokumen.draft');
+// });
+Route::get('/dashboard/dokumen/draft', 'DokumenController@draft');
+// Route::get('/dashboard/dokumen/publish', function () {
+//     return view('admin.dokumen.publish');
+// });
+Route::get('/dashboard/dokumen/publish', 'DokumenController@publish');
 Route::get('/dashboard/pengguna/view', function () {
     return view('admin.pengguna.v_pengguna');
 });

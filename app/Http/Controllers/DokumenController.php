@@ -10,6 +10,7 @@ use App\Tipe;
 use App\StatusDokumen;
 use App\Kategori;
 use File;
+use Response;
 
 class DokumenController extends Controller
 {
@@ -28,13 +29,17 @@ class DokumenController extends Controller
     public function draft()
     {
         //
-        return view('dokumen.draft');
+        $dokumen = Dokumen::all();
+        $draft = Dokumen::where('status_dokumen_id', 1)->get();
+        return view('admin.dokumen.draft', compact('dokumen', 'draft'));
     }
 
     public function publish()
     {
         //
-        return view('dokumen.publish');
+        $dokumen = Dokumen::all();
+        $publish = Dokumen::where('status_dokumen_id', 2)->get();
+        return view('admin.dokumen.publish', compact('dokumen', 'publish'));
     }
 
     /**
@@ -78,7 +83,7 @@ class DokumenController extends Controller
 
         $dokumen->save();
 
-        return redirect()->back();
+        return redirect('dashboard/dokumen/view');
     }
 
     /**
@@ -87,9 +92,15 @@ class DokumenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function download($id)
     {
         //
+        $dokumen = Dokumen::find($id);
+        // $file= public_path() . "/file/dokumen/".$this->file;
+        // return response()->download($dokumen->file);
+        // return Storage::disk('file/dokumen/')->download($path, $file);
+        $download_path = ( public_path() . '/file/dokumen/' . $dokumen->file );
+        return( Response::download( $download_path ) );
     }
 
     /**
@@ -101,6 +112,14 @@ class DokumenController extends Controller
     public function edit($id)
     {
         //
+        $dokumen = Dokumen::find($id);
+        $dinas = Dinas::all();
+        $jenis = Jenis::all();
+        $tipe = Tipe::all();
+        $kategori = Kategori::all();
+        $status_dokumen = StatusDokumen::all();
+
+        return view('admin.dokumen.edit', compact('dokumen', 'dinas', 'jenis', 'tipe', 'kategori', 'status_dokumen'));
     }
 
     /**
@@ -113,6 +132,23 @@ class DokumenController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $dokumen = Dokumen::find($id);
+        $dokumen->judul = $request->judul;
+        $dokumen->kategori_id = $request->kategori_id;
+        $dokumen->jenis_id = $request->jenis_id;
+        $dokumen->tipe_id = $request->tipe_id;
+        $dokumen->keterangan = $request->keterangan;
+        $dokumen->status_dokumen_id = $request->status_dokumen_id;
+        $dokumen->kandunganInfo = $request->kandunganInfo;
+        $dokumen->dinas_id = $request->dinas_id;
+        if($request->hasFile('file')){
+            $request->file('file')->move('file/dokumen/', $request->file('file')->getClientOriginalName());
+            $dokumen->file = $request->file('file')->getClientOriginalName();
+            File::delete('file/dokumen/'.$request->oldfile);
+        }
+
+        $dokumen->save();
+        return redirect('dashboard/dokumen/view');
     }
 
     /**

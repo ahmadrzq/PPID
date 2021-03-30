@@ -23,5 +23,17 @@ class DokumenTableSeeder extends Seeder
             'kandunganInfo' => 'berisi info info',
             'file' => 'laporan.docx',                        
         ]);
+
+        \App\Dokumen::create([
+            'kategori_id' => 1,
+            'jenis_id' => 3,
+            'dinas_id' => 2,
+            'status_dokumen_id' => 2,
+            'tipe_id' => 1,
+            'judul' => 'Laporan Uang',
+            'keterangan' => 'ini keterangan',
+            'kandunganInfo' => 'berisi info info',
+            'file' => 'laporan.docx',                        
+        ]);
     }
 }
