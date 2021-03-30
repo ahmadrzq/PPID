@@ -25,26 +25,18 @@
                                     <th>Petugas</th>
                                     <th></th>
                                 </tr>
+                                @foreach ($permohonan as $pmhn)
                                 <tr>
-                                    <td>1</td>
-                                    <td><label for="">12313123123 <br><i class="fas fa-calendar-week"></i> 12 November 2021</label>
+                                    <td>{{$pmhn->id}}</td>
+                                    <td><label for="">{{$pmhn->kode}}<br><i class="fas fa-calendar-week"></i>{{$pmhn->created_at->format('d-m-Y')}}</label>
                                     </td>
-                                    <td><label for="">Laporan Kinerja <br><i class="fas fa-user"></i>Yayan <i class="fas fa-shield-alt"></i>PPID Kota Probolinggo</label>
+                                    <td><label for="">{{$pmhn->judul}}<br><i class="fas fa-user"></i>{{$pmhn->nama}}<i class="fas fa-shield-alt"></i>{{$pmhn->tujuanInformasi}}</label>
                                     </td>
                                     <td>Selesai</td>
                                     <td>not set</td>
                                     <td><a href=""><i class="fas fa-folder-open"></i></a></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><label for="">12313123123 <br><i class="fas fa-calendar-week"></i> 12 November 2021</label>
-                                    </td>
-                                    <td><label for="">Laporan Kinerja <br><i class="fas fa-user"></i>Yayan <i class="fas fa-shield-alt"></i>PPID Kota Probolinggo</label>
-                                    </td>
-                                    <td>Ditolak</td>
-                                    <td>not set</td>
-                                    <td><a href=""><i class="fas fa-folder-open"></i></a></td>
-                                </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

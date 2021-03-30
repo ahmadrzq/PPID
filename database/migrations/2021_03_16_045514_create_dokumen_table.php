@@ -14,7 +14,16 @@ class CreateDokumenTable extends Migration
     public function up()
     {
         Schema::create('dokumen', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('kategori_id');
+            $table->integer('jenis_id');
+            $table->integer('tipe_id');
+            $table->integer('status_dokumen_id');
+            $table->integer('dinas_id');
+            $table->string('judul', 191);
+            $table->string('file', 191);
+            $table->string('keterangan', 191);
+            $table->text('kandunganInfo');
             $table->timestamps();
         });
     }

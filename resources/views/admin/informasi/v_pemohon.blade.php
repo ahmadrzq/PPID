@@ -25,17 +25,17 @@
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Kota</th>
-                                    <th>Email</th>
                                     <th>Tanggal</th>
                                 </tr>
+                                @foreach ($permohonan as $pmhn)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Zanis</td>
-                                    <td>Athanor</td>
-                                    <td>Veda</td>
-                                    <td>znis@gmail.com</td>
-                                    <td>19 November 2021</td>
+                                    <td>{{$pmhn->id}}</td>
+                                    <td>{{$pmhn->nama}}</td>
+                                    <td>{{$pmhn->alamat}}</td>
+                                    <td>{{$pmhn->kota}}</td>
+                                    <td>{{$pmhn->created_at->format('d-m-Y')}}</td>
                                 </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

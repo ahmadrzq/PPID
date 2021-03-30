@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class KategoriTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+        \App\Kategori::create([
+            'nama' => "Berkala"
+        ]);
+
+        \App\Kategori::create([
+            'nama' => "Serta Merta"
+        ]);
+
+        \App\Kategori::create([
+            'nama' => "Setiap Saat"
+        ]);
+    }
+}

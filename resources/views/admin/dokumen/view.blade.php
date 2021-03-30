@@ -77,16 +77,18 @@
                                     <th>Penerbit</th>
                                     <th></th>
                                 </tr>
+                                @foreach ($dokumen as $dok)
                                 <tr>
-                                    <td>1</td>
-                                    <td><a href="">lorem</a></td>
-                                    <td>Berkala</td>
-                                    <td>Regulasi</td>
-                                    <td>PPID Kota Probolinggo</td>
+                                    <td>{{$dok->id}}</td>
+                                    <td>{{$dok->judul}}</td>
+                                    <td>{{$dok->jenis->nama}}</td>
+                                    <td>{{$dok->kategori->nama}}</td>
+                                    <td>{{$dok->dinas->nama}}</td>
                                     <td><a href=""><i class="fas fa-folder-open"></i></a></td>
                                     <td><a href=""><i class="fas fa-edit"></i></a></td>
                                     <td><a href=""><i class="fas fa-trash"></i></a></td>
                                 </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

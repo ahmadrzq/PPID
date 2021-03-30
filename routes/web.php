@@ -47,18 +47,23 @@ Route::get('/dashboard/informasi/view-ditolak', function () {
 Route::get('/dashboard/informasi/view-keberatan', function () {
     return view('admin.informasi.v_keberatan');
 });
-Route::get('/dashboard/informasi/view-permohonan', function () {
-    return view('admin.informasi.v_permohonan');
-});
-Route::get('/dashboard/informasi/view-pemohon', function () {
-    return view('admin.informasi.v_pemohon');
-});
-Route::get('/dashboard/dokumen/input', function () {
-    return view('admin.dokumen.input');
-});
-Route::get('/dashboard/dokumen/view', function () {
-    return view('admin.dokumen.view');
-});
+// Route::get('/dashboard/informasi/view-permohonan', function () {
+//     return view('admin.informasi.v_permohonan');
+// });
+Route::get('/dashboard/informasi/view-permohonan', 'PermohonanController@semuaPermohonan');
+// Route::get('/dashboard/informasi/view-pemohon', function () {
+//     return view('admin.informasi.v_pemohon');
+// });
+Route::get('/dashboard/informasi/view-pemohon', 'PermohonanController@pemohon');
+// Route::get('/dashboard/dokumen/input', function () {
+//     return view('admin.dokumen.input');
+// });
+Route::get('/dashboard/dokumen/input', 'DokumenController@input');
+Route::post('/dashboard/dokumen/input', 'DokumenController@store')->name('input-dokumen');
+// Route::get('/dashboard/dokumen/view', function () {
+//     return view('admin.dokumen.view');
+// });
+Route::get('/dashboard/dokumen/view', 'DokumenController@view');
 Route::get('/dashboard/dokumen/draft', function () {
     return view('admin.dokumen.draft');
 });
