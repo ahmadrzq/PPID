@@ -31,7 +31,7 @@ class PermohonanController extends Controller
     {
         //
         $provinsi = Provinsi::all();
-        return view('informasi.meja', compact('provinsi'));
+        return view('admin.informasi.meja', compact('provinsi'));
     }
 
     public function masuk()

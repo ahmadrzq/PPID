@@ -14,9 +14,11 @@
 Route::get('dashboard', function () {
     return view('admin.dashboard');
 });
-Route::get('/dashboard/informasi/meja', function () {
-    return view('admin.informasi.meja');
-});
+// Route::get('/dashboard/informasi/meja', function () {
+//     return view('admin.informasi.meja');
+// });
+Route::get('/dashboard/informasi/meja', 'PermohonanController@meja')->name('tambah-info');
+Route::post('/dashboard/informasi/meja', 'PermohonanController@store')->name('input-info');
 Route::get('/dashboard/informasi/masuk', function () {
     return view('admin.informasi.pmasuk.masuk');
 });
