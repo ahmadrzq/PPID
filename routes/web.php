@@ -85,4 +85,41 @@ Route::get('/dashboard/pengguna-publik/view', function () {
 Route::get('/dashboard/pengguna-publik/riwayat', function () {
     return view('admin.pengguna-publik.riwayat');
 });
-Route::resource('admin','AdminController');
+Route::get('/profil', function () {
+    return view('web.profil');
+});
+Route::get('/login', function () {
+    return view('web.login');
+});
+Route::get('/register', function () {
+    return view('web.register');
+});
+Route::get('/registered', function () {
+    return view('web.registered');
+});
+Route::get('/pengguna/dashboard', function () {
+    return view('web.pengguna.dashboard');
+});
+Route::get('/pengguna/ajukan', function () {
+    return view('web.pengguna.ajukan');
+});
+Route::get('/pengguna/permohonan', function () {
+    return view('web.pengguna.permohonan');
+});
+Route::get('/pengguna/keberatan', function () {
+    return view('web.pengguna.keberatan');
+});
+Route::get('/pengguna/dokumen', function () {
+    return view('web.pengguna.dokumen');
+});
+Route::get('/pengguna/profil', function () {
+    return view('web.pengguna.profil');
+});
+Route::get('/dokumen', function () {
+    return view('web.dokumen');
+});
+Route::get('/berita/isiberita', function () {
+    return view('web.berita');
+});
+Route::resource('/beranda','BerandaController');
+Route::resource('/berita','BeritaController');

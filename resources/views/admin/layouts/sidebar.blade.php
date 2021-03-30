@@ -43,6 +43,13 @@
                     <li><a class="nav-link" href="index-0.html">Daftar Pengguna Publik</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-newspaper"></i><span>Berita</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{route('berita.index')}}">List Berita</a></li>
+                    <li><a class="nav-link" href="{{route('berita.create')}}">Tambah Berita</a></li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>
