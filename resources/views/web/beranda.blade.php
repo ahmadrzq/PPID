@@ -12,33 +12,18 @@
                 <div class="row">
                     <div class="col-12 col-md-12">
                         <div class="row">
+                            @foreach ($berita as $result)
                             <div class="card col-md-4 mb-2">
-                                <img class="card-img-top" src="..." alt="Card image cap">
+                                <img class="text-center" src="{{$result->image}}" alt="Card image cap" style="width: 249px; height:180px">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <a href="">Read More</a>
+                                    <h5 class="card-title">{{$result->judul}}</h5>
+                                    <p class="card-text"><small class="text-muted">Diposting pada {{ Carbon\Carbon::parse($result->created_at)->format("d M Y") }}</small></p>
+                                    <p class="card-text">{!! $result->isi !!}</p>
+                                    <a href="{{route('beranda.show', $result->id)}}">Read More</a>
                                 </div>
+
                             </div>
-                            <div class="card col-md-4 mb-2">
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <a href="">Read More</a>
-                                </div>
-                            </div>
-                            <div class="card col-md-4 mb-2">
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <a href="">Read More</a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                     </div>

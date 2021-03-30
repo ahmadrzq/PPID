@@ -80,9 +80,6 @@ Route::get('/dashboard/pengguna-publik/view', function () {
 Route::get('/dashboard/pengguna-publik/riwayat', function () {
     return view('admin.pengguna-publik.riwayat');
 });
-Route::get('/beranda', function () {
-    return view('web.beranda');
-});
 Route::get('/profil', function () {
     return view('web.profil');
 });
@@ -116,4 +113,8 @@ Route::get('/pengguna/profil', function () {
 Route::get('/dokumen', function () {
     return view('web.dokumen');
 });
-Route::resource('admin','AdminController');
+Route::get('/berita/isiberita', function () {
+    return view('web.berita');
+});
+Route::resource('/beranda','BerandaController');
+Route::resource('/berita','BeritaController');
