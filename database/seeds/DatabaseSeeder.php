@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
             ProvinsiTableSeeder::class,
             StatusDokumenTableSeeder::class,
             TipeTableSeeder::class,
-            KategoriTableSeeder::class
+            KategoriTableSeeder::class,
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
-        $this->call(RolesTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
     }
 }
