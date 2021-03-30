@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
             TipeTableSeeder::class,
             KategoriTableSeeder::class
         ]);
+        $this->call(RolesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

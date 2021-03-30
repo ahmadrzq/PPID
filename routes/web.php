@@ -13,12 +13,16 @@
 
 Route::get('dashboard', function () {
     return view('admin.dashboard');
-});
+})->middleware(['auth','auth.admin']);
 // Route::get('/dashboard/informasi/meja', function () {
 //     return view('admin.informasi.meja');
 // });
 Route::get('/dashboard/informasi/meja', 'PermohonanController@meja')->name('tambah-info');
 Route::post('/dashboard/informasi/meja', 'PermohonanController@store')->name('input-info');
+
+Route::get('/dashboard/informasi/meja', function () {
+    return view('admin.informasi.meja');
+});
 Route::get('/dashboard/informasi/masuk', function () {
     return view('admin.informasi.pmasuk.masuk');
 });
@@ -96,10 +100,10 @@ Route::get('/dashboard/pengguna-publik/riwayat', function () {
 Route::get('/profil', function () {
     return view('web.profil');
 });
-Route::get('/login', function () {
-    return view('web.login');
-});
-Route::get('/register', function () {
+// Route::get('/beranda/login', function () {
+//     return view('web.login');
+// });
+Route::get('/beranda/register', function () {
     return view('web.register');
 });
 Route::get('/registered', function () {
@@ -131,3 +135,12 @@ Route::get('/berita/isiberita', function () {
 });
 Route::resource('/beranda','BerandaController');
 Route::resource('/berita','BeritaController');
+
+Route::namespace('Admin')->prefix('dashboard')->middleware('auth','auth.admin')->name('dashboard.')->group(function(){
+    Route::resource('/user','UserController');
+});
+Route::get('/pengguna/profil', 'BerandaController@showProfil')->name('pengguna.profil');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Berita;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class BerandaController extends Controller
@@ -17,5 +19,11 @@ class BerandaController extends Controller
     {
         $berita = Berita::findorfail($id);
         return view('web.berita', compact('berita'));
+    }
+
+    public function showProfil()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('web.pengguna.profil', compact('user'));
     }
 }

@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarDesktop">
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="http://ppid.kemendagri.go.id">Beranda</a>
+                        <a class="nav-link" href="{{url('beranda')}}">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://ppid.kemendagri.go.id/profil">Profil</a>
@@ -31,9 +31,11 @@
                         <a class="nav-link" href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan">Berita</a>
                     </li>
                 </ul>
+
+                @guest
                 <ul class="navbar-nav nav-line">
                     <li class="nav-item ">
-                        <a class="nav-link" href="http://ppid.kemendagri.go.id/login">Login</a>
+                        <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link search-icon-btn" href="javascript:void(0)">
@@ -41,16 +43,25 @@
                         </a>
                     </li>
                 </ul>
-                <!-- <ul class="navbar-nav nav-line">
+                @else
+                <ul class="navbar-nav nav-line">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Menu Saya
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="http://ppid.kemendagri.go.id/front/member/home"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
-                            <a class="dropdown-item" href="http://ppid.kemendagri.go.id/front/member/profile"><i class="fa fa-user-circle mr-2" aria-hidden="true"></i> Akun Saya</a>
-                            <a class="dropdown-item" href="http://ppid.kemendagri.go.id/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off mr-2" aria-hidden="true"></i> Logout</a>
-                            <form id="logout-form" action="http://ppid.kemendagri.go.id/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="phTZRSxVWUuhY1FW2mYMenlOMHJRU6Wft0gIiwNX"></form>
+                            @hasrole('admin')
+                            <a class="dropdown-item" href="{{url('dashboard')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
+                            @endhasrole
+                            <a class="dropdown-item" href="{{route('pengguna.profil')}}"><i class="fa fa-user-circle mr-2" aria-hidden="true"></i> Akun Saya</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="fa fa-power-off mr-2" aria-hidden="true"></i> Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -58,7 +69,25 @@
                             <i class="fa fa-search search-circle" aria-hidden="true"></i>
                         </a>
                     </li>
-                </ul> -->
+                </ul>
+
+                <!-- <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="fa fa-power-off mr-2" aria-hidden="true"></i> Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li> -->
+                @endguest
             </div>
         </div>
     </nav>
