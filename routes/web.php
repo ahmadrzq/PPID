@@ -13,12 +13,29 @@
 
 Route::get('dashboard', function () {
     return view('admin.dashboard');
-});
+})->middleware(['auth','auth.admin']);
 // Route::get('/dashboard/informasi/meja', function () {
 //     return view('admin.informasi.meja');
 // });
 Route::get('/dashboard/informasi/meja', 'PermohonanController@meja')->name('tambah-info');
 Route::post('/dashboard/informasi/meja', 'PermohonanController@store')->name('input-info');
+// Route::get('/dashboard/informasi/masuk', function () {
+//     return view('admin.informasi.pmasuk.masuk');
+// });
+Route::get('/dashboard/informasi/masuk', 'PermohonanController@masuk');
+// Route::get('/dashboard/informasi/detail', function () {
+//     return view('admin.informasi.pmasuk.detail');
+// });
+Route::get('/dashboard/informasi/detail/{permohonan}', 'PermohonanController@show')->name('detail-info');
+// Route::get('/dashboard/informasi/proses-terima', function () {
+//     return view('admin.informasi.pmasuk.proses_terima');
+// });
+Route::get('/dashboard/informasi/proses-terima/status/{id}', 'PermohonanController@terima')->name('terima-info');
+Route::get('/dashboard/informasi/proses/status/{id}', 'PermohonanController@proses')->name('proses-info');
+
+Route::get('/dashboard/informasi/meja', function () {
+    return view('admin.informasi.meja');
+});
 Route::get('/dashboard/informasi/masuk', function () {
     return view('admin.informasi.pmasuk.masuk');
 });
@@ -31,21 +48,25 @@ Route::get('/dashboard/informasi/proses-terima', function () {
 Route::get('/dashboard/informasi/diterima', function () {
     return view('admin.informasi.pmasuk.diterima');
 });
-Route::get('/dashboard/informasi/proses-tolak', function () {
-    return view('admin.informasi.pmasuk.proses_tolak');
-});
+// Route::get('/dashboard/informasi/proses-tolak', function () {
+//     return view('admin.informasi.pmasuk.proses_tolak');
+// });
+Route::get('/dashboard/informasi/proses-tolak/status/{id}', 'PermohonanController@tolak')->name('tolak-info');
 Route::get('/dashboard/informasi/ditolak', function () {
     return view('admin.informasi.pmasuk.ditolak');
 });
-Route::get('/dashboard/informasi/view-proses', function () {
-    return view('admin.informasi.v_proses');
-});
-Route::get('/dashboard/informasi/view-selesai', function () {
-    return view('admin.informasi.v_selesai');
-});
-Route::get('/dashboard/informasi/view-ditolak', function () {
-    return view('admin.informasi.v_ditolak');
-});
+// Route::get('/dashboard/informasi/view-proses', function () {
+//     return view('admin.informasi.v_proses');
+// });
+Route::get('/dashboard/informasi/view-proses', 'PermohonanController@diproses');
+// Route::get('/dashboard/informasi/view-selesai', function () {
+//     return view('admin.informasi.v_selesai');
+// });
+Route::get('/dashboard/informasi/view-selesai', 'PermohonanController@selesai');
+// Route::get('/dashboard/informasi/view-ditolak', function () {
+//     return view('admin.informasi.v_ditolak');
+// });
+Route::get('/dashboard/informasi/view-ditolak', 'PermohonanController@ditolak');
 Route::get('/dashboard/informasi/view-keberatan', function () {
     return view('admin.informasi.v_keberatan');
 });
@@ -96,10 +117,10 @@ Route::get('/dashboard/pengguna-publik/riwayat', function () {
 Route::get('/profil', function () {
     return view('web.profil');
 });
-Route::get('/login', function () {
-    return view('web.login');
-});
-Route::get('/register', function () {
+// Route::get('/beranda/login', function () {
+//     return view('web.login');
+// });
+Route::get('/beranda/register', function () {
     return view('web.register');
 });
 Route::get('/registered', function () {
@@ -131,3 +152,12 @@ Route::get('/berita/isiberita', function () {
 });
 Route::resource('/beranda','BerandaController');
 Route::resource('/berita','BeritaController');
+
+Route::namespace('Admin')->prefix('dashboard')->middleware('auth','auth.admin')->name('dashboard.')->group(function(){
+    Route::resource('/user','UserController');
+});
+Route::get('/pengguna/profil', 'BerandaController@showProfil')->name('pengguna.profil');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

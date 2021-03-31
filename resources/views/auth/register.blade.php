@@ -14,69 +14,83 @@
     <section class="content-blank blue-section">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6 mb-4">
-                    <form id="form-register" method="POST" action="http://ppid.kemendagri.go.id/register" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"><input type="hidden" name="_token" value="phTZRSxVWUuhY1FW2mYMenlOMHJRU6Wft0gIiwNX">
-                        <div class="card card-md">
-                            <h5 class="text-capitalize head-title">Pendaftaran</h5>
-                            <p class="head-sub-desc">Silahkan masukan informasi Anda</p>
-                            <div class="d-flex align-items-center mt-3">
-                                <p class="text-default font-600 mb-0">Informasi Pribadi</p>
-                            </div>
-                            <hr>
-                            <form method="POST" action="{{ route('register') }}">
-                                @csrf
-                                <div class="mb-3">
-                                    <div class="form-group">
-                                        <label for="">Nama Lengkap</label>
-                                        <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="" aria-describedby="helpId" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocus>
-
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <!-- <div class="form-group">
-                                        <label for="">NIK (Nomor Induk Kependudukan)</label>
-                                        <input type="text" maxlength="25" name="card_no" value="" placeholder="" aria-describedby="helpId" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Alamat</label>
-                                        <textarea maxlength="255" name="alamat" id="" cols="30" rows="10" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">No. Kontak</label>
-                                        <input type="tel" maxlength="25" name="telepon" value="" placeholder="" aria-describedby="helpId" class="form-control">
-                                    </div> -->
-                                    <div class="form-group">
-                                        <label for="">Email</label>
-                                        <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="" aria-describedby="helpId" class="form-control @error('email') is-invalid @enderror" required autocomplete="email">
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Password</label>
-                                        <input id="password" type="password" name="password" placeholder="" aria-describedby="helpId" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password">
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Konfirmasi Password</label>
-                                        <input type="password" name="password_confirmation" placeholder="" aria-describedby="helpId" class="form-control" required autocomplete="new-password">
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-end mt-3">
-                                    <button type="submit" class="btn btn-primary">Daftarkan Akun</button>
-                                </div>
-                            </form>
+                <div class="col-12 col-md-12 mb-4">
+                    <div class="card card-md">
+                        <h5 class="text-capitalize head-title text-center">Pendaftaran</h5>
+                        <p class="head-sub-desc text-center">Silahkan masukan informasi Anda</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <p class="text-default font-600 mb-0">Informasi Pribadi</p>
                         </div>
-                    </form>
+                        <hr>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="">Nama Lengkap</label>
+                                    <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="" aria-describedby="helpId" class="form-control @error('name') is-invalid @enderror" autocomplete="name" autofocus>
+
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="">NIK (Nomor Induk Kependudukan)</label>
+                                    <input type="text" maxlength="25" name="nik" value="{{ old('nik') }}" placeholder="" aria-describedby="helpId" class="form-control @error('nik') is-invalid @enderror"  autocomplete="nik">
+                                    @error('nik')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="">Alamat</label>
+                                    <textarea name="alamat" id="" cols="30" rows="10" class="form-control @error('alamat') is-invalid @enderror" autocomplete="alamat"></textarea>
+                                    @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">No. Kontak</label>
+                                    <input type="text" name="telepon" value="{{ old('telepon') }}" placeholder="" aria-describedby="helpId" class="form-control @error('telepon') is-invalid @enderror" autocomplete="telepon">
+                                    @error('telepon')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="" aria-describedby="helpId" class="form-control @error('email') is-invalid @enderror" autocomplete="email">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input id="password" type="password" name="password" placeholder="" aria-describedby="helpId" class="form-control @error('password') is-invalid @enderror" autocomplete="new-password">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Konfirmasi Password</label>
+                                    <input type="password" name="password_confirmation" placeholder="" aria-describedby="helpId" class="form-control" autocomplete="new-password">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-3">
+                                <button type="submit" class="btn btn-primary">Daftarkan Akun</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
 
                 <!-- <div class="col-12 col-md-6 mb-4">

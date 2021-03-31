@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             ProvinsiTableSeeder::class,
             StatusDokumenTableSeeder::class,
             TipeTableSeeder::class,
-            KategoriTableSeeder::class
+            KategoriTableSeeder::class,
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }

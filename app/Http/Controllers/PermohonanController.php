@@ -37,25 +37,33 @@ class PermohonanController extends Controller
     public function masuk()
     {
         //
-        return view('informasi.masuk');
+        $permohonan = Permohonan::all();
+        $menunggu = Permohonan::where('status', 0)->get();
+        return view('admin.informasi.pmasuk.masuk', compact('permohonan', 'menunggu'));
     }
 
     public function diproses()
     {
         //
-        return view('informasi.diproses');
+        $permohonan = Permohonan::all();
+        $diproses = Permohonan::where('status', 2)->get();
+        return view('admin.informasi.v_proses', compact('permohonan', 'diproses'));
     }
 
     public function selesai()
     {
         //
-        return view('informasi.selesai');
+        $permohonan = Permohonan::all();
+        $selesai = Permohonan::where('status', 1)->get();
+        return view('admin.informasi.v_selesai', compact('permohonan', 'selesai'));
     }
 
     public function ditolak()
     {
         //
-        return view('informasi.ditolak');
+        $permohonan = Permohonan::all();
+        $ditolak = Permohonan::where('status', 3)->get();
+        return view('admin.informasi.v_ditolak', compact('permohonan', 'ditolak'));
     }
 
     public function keberatan()
@@ -100,15 +108,83 @@ class PermohonanController extends Controller
         return redirect()->back();
     }
 
+    public function terima($id){
+        $permohonan = Permohonan::find($id);
+        
+        $status_sekarang = $permohonan->status;
+ 
+        if($status_sekarang == 0){
+            Permohonan::find($id)->update([
+                'status'=>1
+            ]);        
+        }elseif($status_sekarang == 2){
+            Permohonan::find($id)->update([
+                'status'=>1
+            ]);
+        }elseif($status_sekarang == 3){
+            Permohonan::find($id)->update([
+                'status'=>1
+            ]);
+        }
+ 
+        return view('admin.informasi.pmasuk.proses_terima', compact('permohonan'));
+    }
+
+    public function proses($id){
+        $permohonan = Permohonan::find($id);
+        
+        $status_sekarang = $permohonan->status;
+ 
+        if($status_sekarang == 0){
+            Permohonan::find($id)->update([
+                'status'=>2
+            ]);        
+        }elseif($status_sekarang == 1){
+            Permohonan::find($id)->update([
+                'status'=>2
+            ]);
+        }elseif($status_sekarang == 3){
+            Permohonan::find($id)->update([
+                'status'=>2
+            ]);
+        }
+ 
+        return view('admin.informasi.v_permohonan', compact('permohonan'));
+    }
+
+    public function tolak($id){
+        $permohonan = Permohonan::find($id);
+        
+        $status_sekarang = $permohonan->status;
+ 
+        if($status_sekarang == 0){
+            Permohonan::find($id)->update([
+                'status'=>3
+            ]);        
+        }elseif($status_sekarang == 1){
+            Permohonan::find($id)->update([
+                'status'=>3
+            ]);
+        }elseif($status_sekarang == 2){
+            Permohonan::find($id)->update([
+                'status'=>3
+            ]);
+        }
+ 
+        return view('admin.informasi.pmasuk.proses_tolak', compact('permohonan'));
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Permohonan $permohonan)
     {
         //
+        return view('admin.informasi.pmasuk.detail', compact('permohonan'));
+        
     }
 
     /**

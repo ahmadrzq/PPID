@@ -32,9 +32,25 @@
                                     </td>
                                     <td><label for="">{{$pmhn->judul}}<br><i class="fas fa-user"></i>{{$pmhn->nama}}<i class="fas fa-shield-alt"></i>{{$pmhn->tujuanInformasi}}</label>
                                     </td>
-                                    <td>Selesai</td>
+                                    @if($pmhn->status === 0 )
+                                        <td>
+                                            <badge class="badge badge-info">Menunggu dong</badge>
+                                        </td>
+                                    @elseif($pmhn->status === 1 )
+                                        <td>
+                                            <badge class="badge badge-success">Diterima</badge>
+                                        </td>
+                                    @elseif($pmhn->status === 2 )
+                                        <td>
+                                            <badge class="badge badge-warning">Proses</badge>
+                                        </td>
+                                    @elseif($pmhn->status === 3 )
+                                        <td>
+                                            <badge class="badge badge-danger">Ditolak</badge>
+                                        </td>
+                                    @endif
                                     <td>not set</td>
-                                    <td><a href=""><i class="fas fa-folder-open"></i></a></td>
+                                    <td><a href="{{route('detail-info', $pmhn->id)}}"><i class="fas fa-folder-open"></i></a></td>
                                 </tr>
                                 @endforeach
                             </table>

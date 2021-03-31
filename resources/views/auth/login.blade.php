@@ -6,8 +6,8 @@
     <div class="container">
         <div class="breadcrumb">
             <ul>
-                <li><a href="http://ppid.kemendagri.go.id">Home</a></li>
-                <li><a href="http://ppid.kemendagri.go.id/login">Login Member</a></li>
+                <li><a href="{{url('beranda')}}">Home</a></li>
+                <li><a href="">Login Member</a></li>
             </ul>
         </div>
     </div>
@@ -31,7 +31,7 @@
                                 </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group has-icon">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <label for="">Password</label>
@@ -61,7 +61,7 @@
                             Jika anda belum memiliki akun silahkan daftar terlebih dahulu agar anda dapat menggunakan semua
                             fitur-fitur yang ada di sini dengan baik dan bijak.
                         </p>
-                        <a href="http://ppid.kemendagri.go.id/register" class="btn btn-outline-primary mt-3">Daftar Akun</a>
+                        <a href="{{route('register')}}" class="btn btn-outline-primary mt-3">Daftar Akun</a>
                     </div>
                 </div>
             </div>

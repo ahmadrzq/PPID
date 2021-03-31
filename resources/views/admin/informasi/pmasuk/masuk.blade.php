@@ -62,16 +62,35 @@
                                     <th>Status</th>
                                     <th></th>
                                 </tr>
+                                @foreach ($menunggu as $pmhn)
                                 <tr>
-                                    <td>1</td>
-                                    <td>2017-01-09</td>
-                                    <td>12938013812</td>
-                                    <td><a href="">Rumbling</a></td>
-                                    <td>Irwansyah Saputra</td>
+                                    <td>{{$pmhn->id}}</td>
+                                    <td>{{$pmhn->created_at->format('d F Y')}}</td>
+                                    <td>{{$pmhn->kode}}</td>
+                                    <td>{{$pmhn->judul}}</td>
+                                    <td>{{$pmhn->nama}}</td>
                                     <td>Ditjen Otonomi Daerah</td>
-                                    <td>Menunggu</td>
-                                    <td><a href=""><i class="fas fa-folder-open"></i></a></td>
+                                    @if($pmhn->status === 0 )
+                                        <td>
+                                            <badge class="badge badge-info">Menunggu dong</badge>
+                                        </td>
+                                    @elseif($pmhn->status === 1 )
+                                        <td>
+                                            <badge class="badge badge-success">Diterima</badge>
+                                        </td>
+                                    @elseif($pmhn->status === 2 )
+                                        <td>
+                                            <badge class="badge badge-warning">Proses</badge>
+                                        </td>
+                                    @elseif($pmhn->status === 3 )
+                                        <td>
+                                            <badge class="badge badge-danger">Ditolak</badge>
+                                        </td>
+                                    @endif
+                                    <td>not set</td>
+                                    <td><a href="{{route('detail-info', $pmhn->id)}}"><i class="fas fa-folder-open"></i></a></td>
                                 </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

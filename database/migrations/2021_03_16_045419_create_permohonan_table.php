@@ -27,7 +27,8 @@ class CreatePermohonanTable extends Migration
             $table->string('tujuanInformasi', 191);
             $table->string('kota', 30);
             $table->string('pos', 30);
-            $table->string('telepon', 30);        
+            $table->string('telepon', 30);
+            $table->tinyInteger('status')->default('0');        
             $table->timestamps();
         });
     }
