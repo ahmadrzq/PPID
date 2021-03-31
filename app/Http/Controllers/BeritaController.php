@@ -100,7 +100,7 @@ class BeritaController extends Controller
         $berita_data = [
             'judul' =>$request->judul,
             'author' =>$request->author,
-            'author' =>$request->author,
+            'isi' =>$request->isi,
         ];
 
         Berita::whereId($id)->update($berita_data);

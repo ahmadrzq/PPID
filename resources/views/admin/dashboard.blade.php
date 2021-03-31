@@ -12,10 +12,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Admin</h4>
+                        <h4>Total User</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{$user->count()}}
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <h4>News</h4>
                     </div>
                     <div class="card-body">
-                        42
+                        {{$berita->count()}}
                     </div>
                 </div>
             </div>
@@ -42,10 +42,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Reports</h4>
+                        <h4>Document</h4>
                     </div>
                     <div class="card-body">
-                        1,201
+                        {{$dokumen->count()}}
                     </div>
                 </div>
             </div>
@@ -57,10 +57,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Online Users</h4>
+                        <h4>Permohonan</h4>
                     </div>
                     <div class="card-body">
-                        47
+                        {{$permohonan->count()}}
                     </div>
                 </div>
             </div>

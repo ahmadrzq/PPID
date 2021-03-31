@@ -21,11 +21,11 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label>Nomor Kartu Identitas</label>
                             <input name="nik" type="text" class="form-control">
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label>Jenis Kelamin</label>
                             <select class="form-control" name="jenisKelamin">
                                 <option>Laki-Laki</option>

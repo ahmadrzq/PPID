@@ -9,6 +9,9 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Menu</li>
             <li class="nav-item dropdown">
+                <a href="{{route('profil.index')}}" class="nav-link "><i class="fas fa-id-card"></i><span>Profil PPID</span></a>
+            </li>
+            <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-database"></i><span>Permohonan Informasi</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{url('dashboard/informasi/meja')}}">Meja Layanan</a></li>
@@ -33,8 +36,8 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-users-cog"></i><span>Pengguna</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="index-0.html">Daftar Pengguna</a></li>
-                    <li><a class="nav-link" href="index.html">Tambah Pengguna</a></li>
+                    <li><a class="nav-link" href="{{route('dashboard.user.index')}}">Daftar Pengguna</a></li>
+                    <li><a class="nav-link" href="{{route('dashboard.user.create')}}">Tambah Pengguna</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -43,6 +46,7 @@
                     <li><a class="nav-link" href="index-0.html">Daftar Pengguna Publik</a></li>
                 </ul>
             </li>
+
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-newspaper"></i><span>Berita</span></a>
                 <ul class="dropdown-menu">
