@@ -21,6 +21,9 @@ Route::get('dashboard', 'AdminController@index')->middleware(['auth','auth.admin
 // Route::get('dashboard', function () {
 //     return view('admin.dashboard');
 // })->middleware(['auth','auth.admin']);
+Route::get('dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth','auth.admin']);
 Route::get('/dashboard/informasi/meja', 'PermohonanController@meja')->name('tambah-info');
 Route::post('/dashboard/informasi/meja', 'PermohonanController@store')->name('input-info');
 // Route::get('/dashboard/informasi/masuk', function () {
@@ -36,8 +39,6 @@ Route::get('/dashboard/informasi/detail/{permohonan}', 'PermohonanController@sho
 // });
 Route::get('/dashboard/informasi/proses-terima/status/{id}', 'PermohonanController@terima')->name('terima-info');
 Route::get('/dashboard/informasi/proses/status/{id}', 'PermohonanController@proses')->name('proses-info');
-
-
 Route::get('/dashboard/informasi/detail', function () {
     return view('admin.informasi.pmasuk.detail');
 });
