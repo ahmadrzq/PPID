@@ -23,32 +23,33 @@
                         <div class="card-header-action col-12">
                             <form>
                                 <div class="form-row">
+                                    <form action="/dashboard/user" method="get">
                                     <div class="form-row col-md-10 text-center">
                                         <div class="form-group col-md-3">
                                             <label>Berdasarkan ID</label>
-                                            <input type="text" class="form-control text-center" style="height: 42px;" placeholder="ID Pengguna">
+                                            <input type="text" name="id" class="form-control text-center" style="height: 42px;" placeholder="ID Pengguna">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Berdasarkan Nama</label>
-                                            <input type="text" class="form-control text-center" style="height: 42px;" placeholder="Nama Pengguna">
+                                            <input type="text" name="name" class="form-control text-center" style="height: 42px;" placeholder="Nama Pengguna">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Berdasarkan Email</label>
-                                            <input type="email" class="form-control text-center" style="height: 42px;" placeholder="Email Pengguna">
+                                            <input type="text" name="email" class="form-control text-center" style="height: 42px;" placeholder="Email Pengguna">
                                         </div>
-                                        <div class="form-group col-md-3">
+                                        <!-- <div class="form-group col-md-3">
                                             <label>Berdasarkan Peran</label>
                                             <select class="form-control text-center">
                                                 <option value="">Semua Peran</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="form-group col-md-2">
                                         <br>
                                         <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
-                                        <button class="btn btn-secondary">Reset</button>
+                                        <!-- <button class="btn btn-secondary">Reset</button> -->
                                     </div>
-
+                                    </form>
                                 </div>
 
                             </form>

@@ -22,7 +22,7 @@ class DokumenController extends Controller
     public function view()
     {
         //
-        $dokumen = \App\Dokumen::all();
+        $dokumen = Dokumen::paginate(1);
         return view('admin.dokumen.view', compact('dokumen'));
     }
 

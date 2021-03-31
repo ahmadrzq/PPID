@@ -75,7 +75,7 @@
                                     <th>Jenis</th>
                                     <th>Kategori</th>
                                     <th>Penerbit</th>
-                                    <th></th>
+                                    <th colspan="3">Aksi</th>
                                 </tr>
                                 @foreach ($dokumen as $no => $dok)
                                 <tr>
@@ -90,9 +90,10 @@
                                 </tr>
                                 @endforeach
                             </table>
+                            {{$dokumen->links()}}
                         </div>
                     </div>
-                    <div class="card-footer text-right">
+                    <!-- <div class="card-footer text-right">
                         <nav class="d-inline-block">
                             <ul class="pagination mb-0">
                                 <li class="page-item disabled">
@@ -108,7 +109,7 @@
                                 </li>
                             </ul>
                         </nav>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

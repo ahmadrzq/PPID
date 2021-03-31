@@ -13,11 +13,26 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10);
+        if ($request->has('id', 'name', 'email')){
+            $users = User::where('id', 'LIKE', '%'.$request->id.'%')
+            ->where('name', 'LIKE', '%'.$request->name.'%')
+            ->where('email', 'LIKE', '%'.$request->email.'%')
+            ->paginate(10);
+        }else{
+            $users = User::paginate(10);
+        }
+            
         return view('admin.pengguna.v_pengguna', compact('users'));
     }
+
+    // public function cari(Request $request)
+    // {
+    //     $users = User::where('name', 'LIKE', '%'.$request->cari.'%' OR 'email', 'LIKE', '%'.$request->cari.'%')->paginate(10);
+        
+    //     return view('admin.pengguna.v_pengguna', compact('users'));
+    // }
 
     /**
      * Show the form for creating a new resource.

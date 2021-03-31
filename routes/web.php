@@ -18,12 +18,6 @@ Route::get('dashboard', 'AdminController@index')->middleware(['auth','auth.admin
 // Route::get('/dashboard/informasi/meja', function () {
 //     return view('admin.informasi.meja');
 // });
-// Route::get('dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware(['auth','auth.admin']);
-Route::get('dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth','auth.admin']);
 Route::get('/dashboard/informasi/meja', 'PermohonanController@meja')->name('tambah-info');
 Route::post('/dashboard/informasi/meja', 'PermohonanController@store')->name('input-info');
 // Route::get('/dashboard/informasi/masuk', function () {
@@ -67,9 +61,9 @@ Route::get('/dashboard/informasi/view-selesai', 'PermohonanController@selesai');
 //     return view('admin.informasi.v_ditolak');
 // });
 Route::get('/dashboard/informasi/view-ditolak', 'PermohonanController@ditolak');
-Route::get('/dashboard/informasi/view-keberatan', function () {
-    return view('admin.informasi.v_keberatan');
-});
+// Route::get('/dashboard/informasi/view-keberatan', function () {
+//     return view('admin.informasi.v_keberatan');
+// });
 // Route::get('/dashboard/informasi/view-permohonan', function () {
 //     return view('admin.informasi.v_permohonan');
 // });
@@ -99,9 +93,10 @@ Route::get('/dashboard/dokumen/draft', 'DokumenController@draft');
 //     return view('admin.dokumen.publish');
 // });
 Route::get('/dashboard/dokumen/publish', 'DokumenController@publish');
-Route::get('/dashboard/pengguna/view', function () {
-    return view('admin.pengguna.v_pengguna');
-});
+// Route::get('/dashboard/pengguna/view', function () {
+//     return view('admin.pengguna.v_pengguna');
+// });
+Route::get('/dashboard/pengguna/view', 'Admin\UserController@index');
 Route::get('/dashboard/pengguna/tambah-pengguna', function () {
     return view('admin.pengguna.tambah_pengguna');
 });
