@@ -32,7 +32,6 @@ Route::get('/dashboard/informasi/detail/{permohonan}', 'PermohonanController@sho
 // });
 Route::get('/dashboard/informasi/proses-terima/status/{id}', 'PermohonanController@terima')->name('terima-info');
 Route::get('/dashboard/informasi/proses/status/{id}', 'PermohonanController@proses')->name('proses-info');
-
 Route::get('/dashboard/informasi/meja', function () {
     return view('admin.informasi.meja');
 });
