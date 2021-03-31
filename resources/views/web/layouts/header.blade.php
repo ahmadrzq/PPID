@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg desktop-navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand brand-area pt-0" href="http://ppid.kemendagri.go.id">
+                <a class="navbar-brand brand-area pt-0" href="{{url('beranda')}}">
                     <img src="{{asset('web/images/logokota.png')}}" alt="" class="img-fluid logo-home">
                     <div class="brand-text">
                         <div class="subtitle">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI</div>
@@ -22,7 +22,7 @@
                         <a class="nav-link" href="{{url('beranda')}}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://ppid.kemendagri.go.id/profil">Profil</a>
+                        <a class="nav-link" href="{{url('profil-ppid')}}">Profil</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan">Permohonan Informasi</a>

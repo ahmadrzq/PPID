@@ -35,6 +35,10 @@ Route::get('/dashboard/informasi/proses/status/{id}', 'PermohonanController@pros
 Route::get('/dashboard/informasi/meja', function () {
     return view('admin.informasi.meja');
 });
+
+// Route::get('/dashboard/informasi/meja', function () {
+//     return view('admin.informasi.meja');
+// });
 Route::get('/dashboard/informasi/masuk', function () {
     return view('admin.informasi.pmasuk.masuk');
 });
@@ -151,6 +155,8 @@ Route::get('/berita/isiberita', function () {
 });
 Route::resource('/beranda','BerandaController');
 Route::resource('/berita','BeritaController');
+Route::resource('/profil','ProfilController');
+Route::get('/profil-ppid','ProfilController@indexweb');
 
 Route::namespace('Admin')->prefix('dashboard')->middleware('auth','auth.admin')->name('dashboard.')->group(function(){
     Route::resource('/user','UserController');

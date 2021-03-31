@@ -73,7 +73,7 @@
                                     <td>{{ $result + $berita->firstItem() }}</td>
                                     <td>{{$hasil->judul}}</td>
                                     <td>{{$hasil->author}}</td>
-                                    <td>{!! $hasil->isi !!}</td>
+                                    <td>{{ str_limit($hasil->isi,50) }}</td>
                                     <td><img src="{{$hasil->image}}" alt="" style="width:100px;"></td>
                                     <td>{{ Carbon\Carbon::parse($hasil->created_at)->format("l, d M Y") }}</td>                                    
                                     <td class="text-center" style="width: 20%;">

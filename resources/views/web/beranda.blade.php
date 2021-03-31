@@ -14,11 +14,11 @@
                         <div class="row">
                             @foreach ($berita as $result)
                             <div class="card col-md-4 mb-2">
-                                <img class="text-center" src="{{$result->image}}" alt="Card image cap" style="width: 249px; height:180px">
+                                <img class="" src="{{$result->image}}" alt="Card image cap" style="width: 249px; height:180px;">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$result->judul}}</h5>
                                     <p class="card-text"><small class="text-muted">Diposting pada {{ Carbon\Carbon::parse($result->created_at)->format("d M Y") }}</small></p>
-                                    <p class="card-text">{!! $result->isi !!}</p>
+                                    <!-- <p class="card-text">{!! Str::limit($result->isi,200)  !!}</p> -->
                                     <a href="{{route('beranda.show', $result->id)}}">Read More</a>
                                 </div>
 

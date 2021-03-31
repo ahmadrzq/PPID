@@ -19,7 +19,7 @@
                             <div class="single-blog-item">
 
                                 <div class="blog-item-content bg-white p-4">
-                                <img loading="lazy" src="{{$berita->image}}" alt="blog" class="img-fluid rounded">
+                                <img loading="lazy" src="{{asset($berita->image)}}" alt="blog" class="img-fluid rounded">
 
                                     <h2 class="mt-3 mb-4">{{$berita->judul}}</h2>
                                     <div class="blog-item-meta bg-gray pt-2 pb-1 px-3">
