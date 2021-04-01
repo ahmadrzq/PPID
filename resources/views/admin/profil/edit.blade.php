@@ -54,7 +54,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form action="{{route('profil.update', $profils->id)}}" method="POST">
+                        <form action="{{route('profil.update', $profils->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -119,14 +119,14 @@
                                             <div class="tab-pane fade" id="strukturOrganisasi" role="tabpanel" aria-labelledby="struktur-organisasi-tab">
                                                 <div class="form-group">
                                                     <div class="col-sm-12 col-md-12">
-                                                        <textarea class="summernote" name="struktur-organisasi-tab">{{$profils->struktur_organisasi}}</textarea>
+                                                        <input type="file" name="struktur_organisasi" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="strukturPemerintahan" role="tabpanel" aria-labelledby="struktur-pemerintahan-tab">
                                                 <div class="form-group">
                                                     <div class="col-sm-12 col-md-12">
-                                                        <textarea class="summernote" name="struktur_pemerintahan">{{$profils->struktur_pemerintahan}}</textarea>
+                                                        <input type="file" name="struktur_pemerintahan" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,7 +154,7 @@
                                             <div class="tab-pane fade" id="maklumat" role="tabpanel" aria-labelledby="maklumat-tab">
                                                 <div class="form-group">
                                                     <div class="col-sm-12 col-md-12">
-                                                        <textarea class="summernote" name="maklumat">{{$profils->maklumat}}</textarea>
+                                                        <input type="file" name="maklumat" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>

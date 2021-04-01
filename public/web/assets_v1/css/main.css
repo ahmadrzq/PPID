@@ -68,14 +68,14 @@
     font-weight: 500 !important;
     font-size: .9rem !important;
     transition: 0.3s all ease;
-    background: #ffff01;
-    border-color: #ffff01
+    background: #0b5a11;
+    border-color: #0b5a11
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background: #ffff01;
-    border-color: #ffff01;
+    background: #0b5a11;
+    border-color: #0b5a11;
     color: #fff !important
 }
 
@@ -98,17 +98,17 @@
 
 .btn-outline-primary {
     font-family: "Open Sans", sans-serif !important;
-    color: #ffff01 !important;
+    color: #0b5a11 !important;
     font-weight: 500 !important;
     font-size: .9rem !important;
     transition: 0.3s all ease;
     background: transparent;
-    border: 1px solid #ffff01
+    border: 1px solid #0b5a11
 }
 
 .btn-outline-primary:hover {
-    background: #ffff01;
-    border-color: #ffff01;
+    background: #0b5a11;
+    border-color: #0b5a11;
     color: #fff !important
 }
 
@@ -265,7 +265,7 @@ span {
 }
 
 .text-warning {
-    color: #ffff01 !important
+    color: #0b5a11 !important
 }
 
 .text-white {
@@ -614,7 +614,7 @@ select.form-control {
     color: #fff !important;
     font-weight: 500 !important;
     font-size: 14px !important;
-    background-color: #ffff01;
+    background-color: #0b5a11;
     margin: 2px;
     position: relative;
     vertical-align: middle;
@@ -789,7 +789,7 @@ select.form-control {
 .carousel-control-prev-icon:after {
     font-family: FontAwesome;
     font-weight: normal;
-    color: #ffff01;
+    color: #0b5a11;
     font-size: 23px;
     position: relative
 }
@@ -898,7 +898,7 @@ select.form-control {
 
 .circle-offers.black-primary {
     background: #333;
-    color: #ffff01
+    color: #0b5a11
 }
 
 .swiper-container {
@@ -909,7 +909,7 @@ select.form-control {
 .sw-nav-prev-our-client {
     top: 60% !important;
     background-size: 17px 24px !important;
-    background-color: #ffff01;
+    background-color: #0b5a11;
     border-radius: 1px
 }
 
@@ -1529,7 +1529,7 @@ ul.pagination .page-item .page-link:hover {
 }
 
 .badge.badge-yellow {
-    background: #ffff01
+    background: #0b5a11
 }
 
 .badge.badge-gray {
@@ -1675,7 +1675,7 @@ ul.pagination .page-item .page-link:hover {
     right: 0;
     width: 10px;
     height: 10px;
-    background: #ffff01;
+    background: #0b5a11;
     border-radius: 50%
 }
 
@@ -2382,7 +2382,7 @@ hr {
 }
 
 .short-hr.warning {
-    border-color: #ffff01
+    border-color: #0b5a11
 }
 
 .short-hr.danger {
@@ -2486,7 +2486,7 @@ hr {
 .star-filled:before {
     z-index: 1;
     content: '\f005';
-    color: #ffff01
+    color: #0b5a11
 }
 
 .block-over-img {
@@ -3118,7 +3118,7 @@ img.photo-review[src*="#"] {
 }
 
 .simple-rating i.star-active {
-    color: #ffff01
+    color: #0b5a11
 }
 
 .simple-rating i.star-deactive {
@@ -15093,8 +15093,8 @@ ul.navbar-nav li.nav-item .nav-link {
 
 ul.navbar-nav li.nav-item.active a {
     font-weight: 500;
-    color: #ffff01 !important;
-    border-bottom: 2px solid #ffff01
+    color: #0b5a11 !important;
+    border-bottom: 2px solid #0b5a11
 }
 
 ul.navbar-nav li.nav-item.active a:hover {
@@ -15830,7 +15830,7 @@ ul.navbar-nav li.nav-item a.dropdown-item:focus {
 }
 
 .navbar-nav-mobile li.active a {
-    color: #ffff01 !important
+    color: #0b5a11 !important
 }
 
 .navbar-nav-mobile li a {

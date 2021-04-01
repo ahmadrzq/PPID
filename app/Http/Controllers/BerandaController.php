@@ -20,10 +20,4 @@ class BerandaController extends Controller
         $berita = Berita::findorfail($id);
         return view('web.berita', compact('berita'));
     }
-
-    public function showProfil()
-    {
-        $user = User::where('id', Auth::user()->id)->first();
-        return view('web.pengguna.profil', compact('user'));
-    }
 }

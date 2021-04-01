@@ -58,7 +58,7 @@
                             <a class="item" id="informasi-tupoksi-tab" data-toggle="tab" href="#InformasiTupoksi_Tabs" role="tab" aria-controls="InformasiTupoksi_Tabs" aria-selected="false">
                                 <div class="head-icon">
                                     <div class="tabs-icon">
-                                        <i class="fas fa-bullseye fa-2x"></i>
+                                        <i class="fas fa-tasks fa-2x"></i>
                                     </div>
                                 </div>
                                 <span>Tupoksi</span>
@@ -69,7 +69,7 @@
                             <a class="item" id="informasi-strukturPPID-tab" data-toggle="tab" href="#InformasiStrukturPPID_Tabs" role="tab" aria-controls="InformasiStrukturPPID_Tabs" aria-selected="false">
                                 <div class="head-icon">
                                     <div class="tabs-icon">
-                                        <i class="fas fa-sitemap fa-2x"></i>
+                                        <i class="fas fa-columns fa-2x"></i>
                                     </div>
                                 </div>
                                 <span>Struktur Organisasi PPID</span>
@@ -102,7 +102,7 @@
                             <a class="item" id="informasi-sekeretariatPPID-tab" data-toggle="tab" href="#InformasiSekretariatPPID_Tabs" role="tab" aria-controls="InformasiSekretariatPPID_Tabs" aria-selected="false">
                                 <div class="head-icon">
                                     <div class="tabs-icon">
-                                        <i class="fas fa-file-alt fa-2x"></i>
+                                        <i class="fas fa-address-book fa-2x"></i>
                                     </div>
                                 </div>
                                 <span>Sekretariat PPID</span>
@@ -113,7 +113,7 @@
                             <a class="item" id="informasi-maskot-tab" data-toggle="tab" href="#InformasiMaskot_Tabs" role="tab" aria-controls="InformasiMaskot_Tabs" aria-selected="false">
                                 <div class="head-icon">
                                     <div class="tabs-icon">
-                                        <i class="fas fa-users fa-2x"></i>
+                                        <i class="fas fa-home fa-2x"></i>
                                     </div>
                                 </div>
                                 <span>Maskot Kota</span>
@@ -124,7 +124,7 @@
                             <a class="item" id="informasi-maklumat-tab" data-toggle="tab" href="#InformasiMaklumat_Tabs" role="tab" aria-controls="InformasiMaklumat_Tabs" aria-selected="false">
                                 <div class="head-icon">
                                     <div class="tabs-icon">
-                                        <i class="fas fa-users fa-2x"></i>
+                                        <i class="fas fa-handshake fa-2x"></i>
                                     </div>
                                 </div>
                                 <span>Maklumat Pelayanan</span>
@@ -170,14 +170,15 @@
                         <div class="tab-pane fade" id="InformasiStrukturPPID_Tabs" role="tabpanel" aria-labelledby="informasi-strukturPPID-tab">
                             <div class="heading-blue-rgba with-line mt-1 mb-4"><span>Struktur Organisasi PPID</span></div>
                             <div class="card card-md">
-                            {!! $profil->struktur_organisasi !!}
+                            <img src="{{ asset($profil->struktur_organisasi) }}" alt="">
+                            
                             </div>
                         </div>
                         
                         <div class="tab-pane fade" id="InformasiStrukturPemerintahan_Tabs" role="tabpanel" aria-labelledby="informasi-struktur-pemerintahan-tab">
                             <div class="heading-blue-rgba with-line mt-1 mb-4"><span>Struktur Pemerintahan</span></div>
                             <div class="card card-md">
-                            {!! $profil->struktur_pemerintahan !!}
+                            <img src="{{ asset($profil->struktur_pemerintahan) }}" alt="">
                             </div>
                         </div>
 
@@ -204,7 +205,7 @@
                         <div class="tab-pane fade" id="InformasiMaklumat_Tabs" role="tabpanel" aria-labelledby="informasi-maklumat-tab">
                             <div class="heading-blue-rgba with-line mt-1 mb-4"><span>Maklumat Pelayanan</span></div>
                             <div class="card card-md">
-                            <!-- asset -->
+                            <img src="{{ asset($profil->maklumat) }}" alt="">
                             </div>
                         </div>
                     @endforeach

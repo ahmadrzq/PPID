@@ -93,63 +93,63 @@
                             <div class="tab-pane fade active show" id="profilPPID" role="tabpanel" aria-labelledby="profil-ppid-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->profil_ppid !!}
+                                        {!! $profil->profil_ppid !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="visi" role="tabpanel" aria-labelledby="visi-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->visi_misi !!}
+                                        {!! $profil->visi_misi !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="tupoksi" role="tabpanel" aria-labelledby="tupoksi-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->tupoksi !!}
+                                        {!! $profil->tupoksi !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="strukturOrganisasi" role="tabpanel" aria-labelledby="struktur-organisasi-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->struktur_organisasi !!}
+                                        <img src="{{ asset($profil->struktur_organisasi) }}" alt="" width="900px">
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="strukturPemerintahan" role="tabpanel" aria-labelledby="struktur-pemerintahan-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->struktur_pemerintahan !!}
+                                        <img src="{{ asset($profil->struktur_pemerintahan) }}" alt="" width="900px">
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="sk" role="tabpanel" aria-labelledby="sk-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->sk !!}
+                                        {!! $profil->sk !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="sekretariat" role="tabpanel" aria-labelledby="sekretariat-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->sekretariat_PPID !!}
+                                        {!! $profil->sekretariat_PPID !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="maskot" role="tabpanel" aria-labelledby="maskot-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->maskot !!}
+                                        {!! $profil->maskot !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="maklumat" role="tabpanel" aria-labelledby="maklumat-tab">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-md-12">
-                                    {!! $profil->maklumat !!}
+                                        <img src="{{ asset($profil->maklumat) }}" alt="" width="900px">
                                     </div>
                                 </div>
                             </div>

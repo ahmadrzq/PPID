@@ -53,6 +53,12 @@
                             @hasrole('admin')
                             <a class="dropdown-item" href="{{url('dashboard')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
                             @endhasrole
+                            @hasrole('petugas')
+                            <a class="dropdown-item" href="{{url('dashboard')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
+                            @endhasrole
+                            @hasrole('user')
+                            <a class="dropdown-item" href="{{route('menu.index')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
+                            @endhasrole
                             <a class="dropdown-item" href="{{route('pengguna.profil')}}"><i class="fa fa-user-circle mr-2" aria-hidden="true"></i> Akun Saya</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

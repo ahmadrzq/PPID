@@ -21,8 +21,8 @@
 
                         <div class="profil-dashboard col-12 col-sm-8 p-0">
                             <div class="mb-2">
-                                <span class="fs-12 text-secondary mb-1">Ahmad Rizqi Isnain</span>
-                                <p class="text-default font-600">publik</p>
+                                <span class="fs-12 text-secondary mb-1">{{$user->name}}</span>
+                                <p class="text-default font-600">{{implode(',', $user->roles()->get()->pluck('name')->toArray())}}</p>
                             </div>
 
                             <div class="mb-2">
@@ -30,7 +30,7 @@
                                 <p class="text-default font-600">25 March 2021 15:39</p>
                             </div>
 
-                            <a href="http://ppid.kemendagri.go.id/front/member/profile" class="btn btn-primary btn-xs">Lihat Profil</a>
+                            <a href="{{route('pengguna.profil')}}" class="btn btn-primary btn-xs">Lihat Profil</a>
                         </div>
                     </div>
                 </div>
