@@ -19,11 +19,46 @@ class DokumenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function view()
-    {
-        //
-        $dokumen = Dokumen::paginate(1);
-        return view('admin.dokumen.view', compact('dokumen'));
+    // public function view(Request $request)
+    // {
+    //     //
+    //     // $dokumen = Dokumen::paginate(1);
+    //     // $dinas = Dinas::all();
+    //     // $jenis = Jenis::all();
+    //     $kategori = Kategori::all();
+
+    //     if ($request->has('kategori')){
+    //         $dokumen = Dokumen::where('id', '=', $request->kategori_id)
+    //         ->paginate(10);
+    //     }else{
+    //         $dokumen = Dokumen::paginate(10);
+    //     }
+        
+    //     return view('admin.dokumen.view', compact('dokumen', 'kategori'));
+    // }
+
+    public function view(Request $request) {
+    
+        $dokumen = Dokumen::where( function($query) use($request){
+                        return $request->kategori_id ?
+                            $query->from('kategori')->where('id',$request->kategori_id) : '';
+                    })->where( function($query) use($request){
+                        return $request->jenis_id ?
+                            $query->from('jenis')->where('id',$request->jenis_id) : '';
+                    })->where( function($query) use($request){
+                        return $request->dinas_id ?
+                            $query->from('dinas')->where('id',$request->dinas_id) : '';
+                    })
+                    ->with('kategori', 'jenis', 'dinas')
+                    ->get();
+         
+        $selected_id = [];
+        $selected_id['kategori_id'] = $request->kategori_id;
+        $selected_id['jenis_id'] = $request->jenis_id;
+        $selected_id['dinas_id'] = $request->dinas_id;
+    
+        return view('admin.dokumen.view', compact('dokumen','selected_id'));
+    
     }
 
     public function draft()

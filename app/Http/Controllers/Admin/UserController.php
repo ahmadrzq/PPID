@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +16,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $role = Role::all();
         if ($request->has('id', 'name', 'email')){
             $users = User::where('id', 'LIKE', '%'.$request->id.'%')
             ->where('name', 'LIKE', '%'.$request->name.'%')
@@ -24,7 +26,7 @@ class UserController extends Controller
             $users = User::paginate(10);
         }
             
-        return view('admin.pengguna.v_pengguna', compact('users'));
+        return view('admin.pengguna.v_pengguna', compact('users', 'role'));
     }
 
     // public function cari(Request $request)

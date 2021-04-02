@@ -38,10 +38,12 @@
                                             <input type="text" name="email" class="form-control text-center" style="height: 42px;" placeholder="Email Pengguna">
                                         </div>
                                         <!-- <div class="form-group col-md-3">
-                                            <label>Berdasarkan Peran</label>
-                                            <select class="form-control text-center">
-                                                <option value="">Semua Peran</option>
-                                            </select>
+                                            <label>Berdasarkan Peran</label>                                            
+                                            <select class="form-control text-center" name='role'>
+                                            @foreach ($role as $rol)
+                                                <option value="{{$rol->id}}">{{$rol->name}}</option>
+                                            @endforeach
+                                            </select>                                            
                                         </div> -->
                                     </div>
                                     <div class="form-group col-md-2">

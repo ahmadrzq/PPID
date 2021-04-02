@@ -25,9 +25,9 @@ class DokumenTableSeeder extends Seeder
         ]);
 
         \App\Dokumen::create([
-            'kategori_id' => 1,
-            'jenis_id' => 3,
-            'dinas_id' => 2,
+            'kategori_id' => 2,
+            'jenis_id' => 2,
+            'dinas_id' => 1,
             'status_dokumen_id' => 2,
             'tipe_id' => 1,
             'judul' => 'Laporan Uang',

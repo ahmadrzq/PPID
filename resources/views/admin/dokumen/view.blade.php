@@ -36,31 +36,46 @@
                         <div class="card-header-action col-12">
                             <form>
                                 <div class="form-row">
-                                    <div class="form-row col-md-10">
-                                        <div class="form-group col-md-4">
-                                            <label>Kategori</label>
-                                            <select class="form-control">
-                                                <option>Semua Kategori</option>
-                                            </select>
+                                    <form action="/dashboard/dokumen/view" method="get">
+                                        <div class="form-row col-md-10 text-center">
+                                            <div class="form-group col-md-4">
+                                                <select class="form-control" name="kategori_id">
+                                                    <option value="0">Pilih Kategori</option>
+                                                @foreach (\App\Kategori::select('id','nama')->get() as $kategori)
+                                                    <option value="{{ $kategori->id }}" {{ $kategori->id == $selected_id['kategori_id'] ? 'selected' : '' }}>
+                                                    {{ $kategori['nama'] }}
+                                                    </option>
+                                                @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <select class="form-control" name="jenis_id">
+                                                    <option value="0">Pilih Jenis</option>
+                                                @foreach (\App\Jenis::select('id','nama')->get() as $jenis)
+                                                    <option value="{{ $jenis->id }}" {{ $jenis->id == $selected_id['jenis_id'] ? 'selected' : '' }}>
+                                                    {{ $jenis['nama'] }}
+                                                    </option>
+                                                @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Penerbit</label>
+                                                    <select class="form-control" name="dinas_id">
+                                                    <option value="0">Pilih Penerbit</option>
+                                                @foreach (\App\Dinas::select('id','nama')->get() as $dinas)
+                                                    <option value="{{ $dinas->id }}" {{ $dinas->id == $selected_id['dinas_id'] ? 'selected' : '' }}>
+                                                    {{ $dinas['nama'] }}
+                                                    </option>
+                                                @endforeach
+                                                </select>                                   
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Jenis</label>
-                                            <select class="form-control">
-                                                <option>Semua Jenis</option>
-                                            </select>
+                                        <div class="form-group col-md-2">
+                                            <br>
+                                            <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
+                                            <!-- <button class="btn btn-secondary">Reset</button> -->
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Penerbit</label>
-                                            <select class="form-control">
-                                                <option>Semua Komponen</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <br>
-                                        <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
-                                        <button class="btn btn-secondary">Reset</button>
-                                    </div>
+                                    </form>
                                 </div>
 
                             </form>
@@ -90,7 +105,7 @@
                                 </tr>
                                 @endforeach
                             </table>
-                            {{$dokumen->links()}}
+                            
                         </div>
                     </div>
                     <!-- <div class="card-footer text-right">
