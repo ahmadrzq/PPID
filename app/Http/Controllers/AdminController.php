@@ -25,6 +25,10 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('user', 'permohonan', 'dokumen', 'berita'));
     }
 
+    public function aksesError(){
+        return view('admin.errorAkses');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
