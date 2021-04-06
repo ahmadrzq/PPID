@@ -23,6 +23,7 @@ class CreateProfilsTable extends Migration
             $table->text('sk');
             $table->text('sekretariat_PPID');
             $table->text('maskot');
+            $table->string('maklumat');
             $table->timestamps();
         });
     }
