@@ -38,15 +38,15 @@
 								</div>
 							</div>
 
-							<!-- <div class="row mb-2">
+							<div class="row mb-2">
 								<div class="col-12 col-sm-3">
 									<p class="mb-0">NIK</p>
 								</div>
 
 								<div class="col-12 col-sm-9">
-									<p class="text-default font-600 mb-0">3513042911990001</p>
+									<p class="text-default font-600 mb-0">{{$user->nik}}</p>
 								</div>
-							</div> -->
+							</div>
 
 							<div class="row mb-2">
 								<div class="col-12 col-sm-3">
@@ -55,6 +55,51 @@
 
 								<div class="col-12 col-sm-9">
 									<p class="text-default font-600 mb-0">{{$user->alamat}}</p>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-12 col-sm-3">
+									<p class="mb-0">Kota</p>
+								</div>
+
+								<div class="col-12 col-sm-9">
+									<p class="text-default font-600 mb-0">{{$user->kota}}</p>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-12 col-sm-3">
+									<p class="mb-0">Pos</p>
+								</div>
+
+								<div class="col-12 col-sm-9">
+									<p class="text-default font-600 mb-0">{{$user->pos}}</p>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-12 col-sm-3">
+									<p class="mb-0">Jenis Kelamin</p>
+								</div>
+
+								<div class="col-12 col-sm-9">
+									<p class="text-default font-600 mb-0">{{$user->jenisKelamin}}</p>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-12 col-sm-3">
+									<p class="mb-0">Tanggal Lahir</p>
+								</div>
+
+								<div class="col-12 col-sm-9">
+									<p class="text-default font-600 mb-0">{{$user->tanggalLahir}}</p>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-12 col-sm-3">
+									<p class="mb-0">Tempat Lahir</p>
+								</div>
+
+								<div class="col-12 col-sm-9">
+									<p class="text-default font-600 mb-0">{{$user->tempatLahir}}</p>
 								</div>
 							</div>
 						</div>

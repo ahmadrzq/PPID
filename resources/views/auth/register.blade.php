@@ -35,19 +35,68 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="">NIK (Nomor Induk Kependudukan)</label>
-                                    <input type="text" maxlength="25" name="nik" value="{{ old('nik') }}" placeholder="" aria-describedby="helpId" class="form-control @error('nik') is-invalid @enderror"  autocomplete="nik">
+                                    <input type="text" name="nik" value="{{ old('nik') }}" placeholder="" aria-describedby="helpId" class="form-control @error('nik') is-invalid @enderror" autocomplete="nik">
                                     @error('nik')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                </div> -->
+                                </div>
                                 <div class="form-group">
                                     <label for="">Alamat</label>
                                     <textarea name="alamat" id="" cols="30" rows="10" class="form-control @error('alamat') is-invalid @enderror" autocomplete="alamat"></textarea>
                                     @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kota</label>
+                                    <input id="kota" type="text" name="kota" value="{{ old('kota') }}" placeholder="" aria-describedby="helpId" class="form-control @error('kota') is-invalid @enderror" autocomplete="kota" autofocus>
+                                    @error('kota')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kode Pos</label>
+                                    <input id="pos" type="text" name="pos" value="{{ old('pos') }}" placeholder="" aria-describedby="helpId" class="form-control @error('pos') is-invalid @enderror" autocomplete="pos" autofocus>
+                                    @error('pos')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jenis Kelamin</label>
+                                    <select name="jenisKelamin" class="form-control @error('jenisKelamin') is-invalid @enderror" id="">
+                                        <option value="">Pilih Jenis Kelamin</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                    @error('jenisKelamin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Lahir</label>
+                                    <input id="tanggalLahir" type="date" name="tanggalLahir" value="{{ old('tanggalLahir') }}" placeholder="" aria-describedby="helpId" class="form-control @error('tanggalLahir') is-invalid @enderror" autocomplete="tanggalLahir" autofocus>
+                                    @error('tanggalLahir')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tempat Lahir</label>
+                                    <input id="tempatLahir" type="text" name="tempatLahir" value="{{ old('tempatLahir') }}" placeholder="" aria-describedby="helpId" class="form-control @error('tempatLahir') is-invalid @enderror" autocomplete="tempatLahir" autofocus>
+                                    @error('tempatLahir')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use App\User;
 use App\Role;
 use Illuminate\Support\Str;
@@ -21,15 +22,21 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'telepon' => $faker->phoneNumber,
+        'telepon' => $faker->e164PhoneNumber,
         'alamat' => $faker->address,
         'email_verified_at' => now(),
         'password' => bcrypt(12345),
         'remember_token' => Str::random(10),
+        'nik' => $faker->nik,
+        'pos' => $faker->postcode,
+        'kota' => $faker->city,
+        'tanggalLahir' => now(),
+        'tempatLahir' => $faker->city,
+        'jenisKelamin' => '',
     ];
 });
 
-$factory->afterCreating(User::class, function($user, $faker){
-    $roles=Role::where('name', 'user')->get();
+$factory->afterCreating(User::class, function ($user, $faker) {
+    $roles = Role::where('name', 'user')->get();
     $user->roles()->sync($roles->pluck('id')->toArray());
 });

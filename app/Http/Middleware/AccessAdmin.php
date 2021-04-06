@@ -17,7 +17,7 @@ class AccessAdmin
     public function handle($request, Closure $next)
     {
 
-        if (Auth::user()->hasAnyRole('admin','petugas')) {
+        if (Auth::user()->hasAnyRoles(['admin','petugas'])) {
             return $next($request);
         }
 

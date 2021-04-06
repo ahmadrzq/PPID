@@ -72,6 +72,12 @@ class RegisterController extends Controller
             'telepon' => $data['telepon'],
             'alamat' => $data['alamat'],
             'password' => Hash::make($data['password']),
+            'nik' => $data['nik'],
+            'pos' => $data['pos'],
+            'kota' => $data['kota'],
+            'tanggalLahir' => $data['tanggalLahir'],
+            'tempatLahir' => $data['tempatLahir'],
+            'jenisKelamin' => $data['jenisKelamin'],
         ]);
 
         $role = Role::select('id')->where('name','user')->first();

@@ -103,7 +103,12 @@ Route::resource('/beranda','BerandaController');
 Route::resource('/berita','BeritaController');
 Route::resource('/profil','ProfilController');
 Route::get('/profil-ppid','ProfilController@indexweb');
-Route::resource('/menu','MenuController');
+Route::get('/menu','MenuController@index')->name('menu.index');
+Route::get('/menu/ajukan','MenuController@ajukan')->name('menu.ajukan');
+Route::post('/menu/ajukan','MenuController@tambahPengajuan')->name('menu.store');
+Route::get('/menu/keberatan','MenuController@keberatan')->name('menu.keberatan');
+Route::get('/menu/dokumen','MenuController@dokumen')->name('menu.dokumen');
+Route::get('/menu/permohonan','MenuController@permohonan')->name('menu.permohonan');
 Route::get('/pengguna/profil', 'MenuController@showProfil')->name('pengguna.profil');
 
 Route::namespace('Admin')->prefix('dashboard')->middleware('auth','auth.admin')->name('dashboard.')->group(function(){

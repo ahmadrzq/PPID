@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Permohonan;
+use App\Provinsi;
 use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
@@ -17,6 +19,52 @@ class MenuController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->first();
         return view('web.pengguna.dashboard', compact('user'));
+    }
+
+    public function ajukan()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('web.pengguna.ajukan', compact('user'));
+    }
+
+
+    public function tambahPengajuan(Request $request){
+
+        $user = User::all();
+        $permohonan = Permohonan::create([
+            'nama' => Auth::user()->name,
+            'judul' => $request->judul,
+            'kode' => '',
+            'nik' => Auth::user()->nik,
+            'jenisKelamin' => Auth::user()->jenisKelamin,
+            'tempatLahir' => Auth::user()->tempatLahir,
+            'tanggalLahir' => Auth::user()->tanggalLahir,
+            'alamat' => Auth::user()->alamat,
+            'tujuanInformasi' => $request->tujuanInformasi,
+            'kota' => Auth::user()->kota,
+            'pos' => Auth::user()->pos,
+            'provinsi_id' => 1,
+            'telepon' => Auth::user()->telepon,
+        ]);
+
+        return redirect()->back()->with('success','Data Berhasil Disimpan');
+
+    }
+
+    public function permohonan()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('web.pengguna.permohonan', compact('user'));
+    }
+    public function keberatan()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('web.pengguna.keberatan', compact('user'));
+    }
+    public function dokumen()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('web.pengguna.dokumen', compact('user'));
     }
 
     /**

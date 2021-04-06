@@ -25,6 +25,7 @@
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Kota</th>
+                                    <th>Judul</th>
                                     <th>Tanggal</th>
                                 </tr>
                                 @foreach ($permohonan as $pmhn)
@@ -33,6 +34,7 @@
                                     <td>{{$pmhn->nama}}</td>
                                     <td>{{$pmhn->alamat}}</td>
                                     <td>{{$pmhn->kota}}</td>
+                                    <td>{{$pmhn->judul}}</td>
                                     <td>{{$pmhn->created_at->format('d-m-Y')}}</td>
                                 </tr>
                                 @endforeach

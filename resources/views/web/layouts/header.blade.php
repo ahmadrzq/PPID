@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{{url('profil-ppid')}}">Profil</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan">Permohonan Informasi</a>
+                        <a class="nav-link" href="{{route('menu.ajukan')}}">Permohonan Informasi</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan">Berita</a>
