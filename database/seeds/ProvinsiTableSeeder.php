@@ -13,15 +13,23 @@ class ProvinsiTableSeeder extends Seeder
     {
         //
         \App\Provinsi::create([
-            'nama' => "Jawa Timur"
+            'nama' => "Kecamatan Mayangan"
         ]);
-
+        
         \App\Provinsi::create([
-            'nama' => "Jawa Barat"
+            'nama' => "Kecamatan Wonoasih"
         ]);
-
+        
         \App\Provinsi::create([
-            'nama' => "Jawa Tengah"
+            'nama' => "Kecamatan Kademangan"
+        ]);
+        
+        \App\Provinsi::create([
+            'nama' => "	Kecamatan Kedopok"
+        ]);
+        
+        \App\Provinsi::create([
+            'nama' => "Kecamatan Kanigaran"
         ]);
     }
 }

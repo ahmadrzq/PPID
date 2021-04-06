@@ -17,11 +17,39 @@ class JenisTableSeeder extends Seeder
         ]);
 
         \App\Jenis::create([
-            'nama' => "Profil 2"
+            'nama' => "Program dan Kegiatan"
         ]);
 
         \App\Jenis::create([
-            'nama' => "Profil 3"
+            'nama' => "Informasi Kinerja"
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Laporan Keuangan"
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Laporan dan prosedur akse..."
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Pengaduan dan Pelanggaran"
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Pengadaan barang dan jasa"
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Informasi Darurat"
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Hasil Penelitian"
+        ]);
+
+        \App\Jenis::create([
+            'nama' => "Regulasi"
         ]);
     }
 }

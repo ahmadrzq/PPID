@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Provinsi</label>
+                            <label>Kecamatan</label>
                             <select class="form-control" name="provinsi">
                             @foreach ($provinsi as $pvs)
                             <option value="{{$pvs->id}}">{{$pvs->nama}}</option>   

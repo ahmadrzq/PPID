@@ -4,9 +4,9 @@
     <div class="section-header">
         <h1>Permohonan Diproses</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+            <div class="breadcrumb-item"><a href="#">Dashboard</a></div>
             <div class="breadcrumb-item">Permohonan Informasi</div>
-            <div class="breadcrumb-item">Permohonan Diproses</div>
+            <div class="breadcrumb-item active">Permohonan Diproses</div>
         </div>
     </div>
 

@@ -92,9 +92,10 @@ Route::get('/pengguna/dokumen', function () {
 Route::get('/pengguna/profil', function () {
     return view('web.pengguna.profil');
 });
-Route::get('/dokumen', function () {
-    return view('web.dokumen');
-});
+// Route::get('/dokumen', function () {
+//     return view('web.dokumen');
+// });
+Route::get('/dokumen','BerandaController@cariDok');
 Route::get('/berita/isiberita', function () {
     return view('web.berita');
 });

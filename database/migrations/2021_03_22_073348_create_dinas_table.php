@@ -15,7 +15,7 @@ class CreateDinasTable extends Migration
     {
         Schema::create('dinas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama', 50);
+            $table->string('nama', 100);
             $table->timestamps();
         });
     }
