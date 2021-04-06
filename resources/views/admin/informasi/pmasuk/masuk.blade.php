@@ -16,32 +16,25 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="card-header-action col-12">
-                            <form>
-                                <div class="form-row">
+                            <form action="/dashboard/informasi/masuk" method="get">
+                                <div class="form-row">                                    
                                     <div class="form-row col-md-10">
                                         <div class="form-group col-md-3">
                                             <label>Judul Permohonan</label>
-                                            <input type="text" class="form-control" style="height: 42px;">
-                                        </div>
-                                        <div class="form-group col-md-3" >
-                                            <label>Komponen Tujuan</label>
-                                            <select class="form-control">
-                                                <option>opsi 1</option>
-                                            </select>
+                                            <input name="judul" type="text" class="form-control" style="height: 42px;" required>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Tanggal Awal</label>
-                                            <input type="date" class="form-control" style="height: 42px;">
+                                            <input name="awal" type="date" class="form-control" style="height: 42px;" required>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Tanggal Akhir</label>
-                                            <input type="date" class="form-control" style="height: 42px;">
+                                            <input name="akhir" type="date" class="form-control" style="height: 42px;" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <br>
                                         <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
-                                        <button class="btn btn-secondary">Reset</button>
                                     </div>
 
                                 </div>
@@ -87,29 +80,11 @@
                                             <badge class="badge badge-danger">Ditolak</badge>
                                         </td>
                                     @endif
-                                    <td>not set</td>
                                     <td><a href="{{route('detail-info', $pmhn->id)}}"><i class="fas fa-folder-open"></i></a></td>
                                 </tr>
                                 @endforeach
                             </table>
                         </div>
-                    </div>
-                    <div class="card-footer text-right">
-                        <nav class="d-inline-block">
-                            <ul class="pagination mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

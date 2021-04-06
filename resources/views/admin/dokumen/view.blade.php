@@ -39,35 +39,31 @@
                                     <form action="/dashboard/dokumen/view" method="get">
                                         <div class="form-row col-md-10 text-center">
                                             <div class="form-group col-md-4">
-                                                <select class="form-control" name="kategori_id">
-                                                    <option value="0">Pilih Kategori</option>
-                                                @foreach (\App\Kategori::select('id','nama')->get() as $kategori)
-                                                    <option value="{{ $kategori->id }}" {{ $kategori->id == $selected_id['kategori_id'] ? 'selected' : '' }}>
-                                                    {{ $kategori['nama'] }}
-                                                    </option>
+                                            <label>Kategori</label>
+                                                <select class="form-control" name="kategori">
+                                                    <option value="">Pilih Kategori</option>
+                                                @foreach ($kategori as $ktg)
+                                                    <option value="{{ $ktg->id }}">{{$ktg->nama}}</option>
                                                 @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <select class="form-control" name="jenis_id">
-                                                    <option value="0">Pilih Jenis</option>
-                                                @foreach (\App\Jenis::select('id','nama')->get() as $jenis)
-                                                    <option value="{{ $jenis->id }}" {{ $jenis->id == $selected_id['jenis_id'] ? 'selected' : '' }}>
-                                                    {{ $jenis['nama'] }}
-                                                    </option>
+                                            <label>Jenis</label>
+                                                <select class="form-control" name="jenis">
+                                                    <option value="">Pilih Jenis</option>
+                                                @foreach ($jenis as $jns)
+                                                    <option value="{{ $jns->id }}">{{$jns->nama}}</option>
                                                 @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label>Penerbit</label>
-                                                    <select class="form-control" name="dinas_id">
-                                                    <option value="0">Pilih Penerbit</option>
-                                                @foreach (\App\Dinas::select('id','nama')->get() as $dinas)
-                                                    <option value="{{ $dinas->id }}" {{ $dinas->id == $selected_id['dinas_id'] ? 'selected' : '' }}>
-                                                    {{ $dinas['nama'] }}
-                                                    </option>
+                                            <label>Penerbit</label>
+                                                <select class="form-control" name="dinas">
+                                                    <option value="">Pilih Dinas</option>
+                                                @foreach ($dinas as $dn)
+                                                    <option value="{{ $dn->id }}">{{$dn->nama}}</option>
                                                 @endforeach
-                                                </select>                                   
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-2">

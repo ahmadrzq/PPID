@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Permohonan;
 use App\Provinsi;
 use File;
+use App\Http\Controllers\Controller;
 
 
 class PermohonanController extends Controller
@@ -34,12 +35,34 @@ class PermohonanController extends Controller
         return view('admin.informasi.meja', compact('provinsi'));
     }
 
-    public function masuk()
+    // public function masuk(Request $request)
+    // {
+    //     //
+    //     // $permohonan = Permohonan::all();
+
+
+    //     if ($request->has('judul', 'awal', 'akhir', 'status')){
+    //         $menunggu = Permohonan::where('judul', '=', $request->judul)
+    //         ->orwhereBetween('created_at', [$request->awal, $request->akhir])
+    //         ->where('status', 0)->get()->paginate(10);
+    //     }else{
+    //         $menunggu = Permohonan::where('status', 0)->get();    
+    //     }
+
+    //     return view('admin.informasi.pmasuk.masuk', compact('menunggu'));
+    // }
+
+    public function masuk(Request $request)
     {
         //
-        $permohonan = Permohonan::all();
         $menunggu = Permohonan::where('status', 0)->get();
-        return view('admin.informasi.pmasuk.masuk', compact('permohonan', 'menunggu'));
+        
+        if ($request->has('judul', 'awal', 'akhir')){
+            $menunggu = Permohonan::whereBetween('created_at', [$request->awal, $request->akhir])
+            ->where('judul', 'LIKE', '%'.$request->judul.'%')
+            ->get();
+        }
+        return view('admin.informasi.pmasuk.masuk', compact('menunggu'));
     }
 
     public function diproses()
