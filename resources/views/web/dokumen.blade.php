@@ -12,7 +12,7 @@ $(document).ready(function(){
     <div class="container">
         <div class="breadcrumb">
             <ul>
-                <li><a href="http://ppid.kemendagri.go.id">Home</a></li>
+                <li><a href="/beranda">Home</a></li>
                 <li><a href="#">Dokumen</a></li>
             </ul>
         </div>
@@ -135,7 +135,7 @@ $(document).ready(function(){
                                             <div class="subtitle">{{$dok->dinas->nama}}</div>
                                             <div class="small-text">{{$dok->created_at->format('d F Y')}} | {{$dok->kategori->nama}} | {{$dok->jenis->nama}}</div>
                                         </td>
-                                        <td class="align-middle"><a href="http://ppid.kemendagri.go.id/front/dokumen/detail/500098896" class="font-600">Lihat</a></td>
+                                        <td class="align-middle"><a href="{{route('detail-dok', $dok->id)}}" class="font-600">Lihat</a></td>
                                     </tr>
                                 @endforeach                                    
                                 </tbody>
@@ -178,6 +178,6 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-    </section>f
+    </section>
 </div>
 @endsection

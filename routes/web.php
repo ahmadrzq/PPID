@@ -74,7 +74,12 @@ Route::resource('/beranda', 'BerandaController');
 Route::get('/berita/isiberita', function () {
     return view('web.berita');
 });
+// Route::get('/detail', function () {
+//     return view('web.detail');
+// });
+Route::get('/dokumen/detail/{dokumen}', 'BerandaController@detailDokumen')->name('detail-dok');
 Route::get('/dokumen', 'BerandaController@cariDok');
+Route::get('/dokumen/download/{id}', 'BerandaController@download')->name('download-dok');
 Route::get('/profil-ppid', 'ProfilController@indexweb');
 
 Route::middleware(['auth'])->group(function () {
