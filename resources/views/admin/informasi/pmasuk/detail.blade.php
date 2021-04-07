@@ -36,7 +36,7 @@
                                     <label class="col-sm-3">Jatuh Tempo</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">19 November 2016</label>
+                                        <label for="">{{$permohonan->created_at->addDays(7)->format('d F Y')}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Berita;
 use App\User;
 use App\Dokumen;
+use App\Permohonan;
 use App\Kategori;
 use App\Jenis;
 use App\Dinas;
@@ -16,7 +17,10 @@ class BerandaController extends Controller
     public function index()
     {
         $berita = Berita::all();
-        return view('web.beranda', compact('berita'));
+        $dokumen = Dokumen::all();
+        $permohonan = Permohonan::all();
+        $users = User::all();
+        return view('web.beranda', compact('berita', 'dokumen', 'permohonan', 'users'));
     }
 
     public function show($id)

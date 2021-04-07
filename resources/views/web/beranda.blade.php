@@ -84,7 +84,7 @@
                     <div class="col-md-8 mb-3">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="DaftarInformasiPublik_Tabs" role="tabpanel" aria-labelledby="daftar-informasi-publik-tab">
-                                <form method="get" action="http://ppid.kemendagri.go.id/front/dokumen">
+                                <form method="get" action="/dokumen">
                                     <h6 class="font-600 mb-3">Daftar Informasi Publik</h6>
                                     <p>
                                         Salah satu kewajiban badan publik yang dinyatakan dalam Undang-Undang No 14 Tahun 2008 adalah
@@ -93,25 +93,6 @@
                                         digunakan ini, badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai
                                         DIP secara otomatis.
                                     </p>
-                                    <div class="form-group">
-                                        <label for="">Tipe Informasi</label>
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 mb-2">
-                                                <select name="area" id="area" class="form-control">
-                                                    <option value="kemendagri" selected="selected">Kemendagri</option>
-                                                    <option value="pemda">Pemda</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-12 col-md-6 mb-2">
-                                                <select name="category" id="category" class="form-control">
-                                                    <option value="1">Berkala</option>
-                                                    <option value="2">Serta Merta</option>
-                                                    <option value="3">Setiap Saat</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <button class="btn btn-primary">Kunjungi</button>
                                 </form>
                             </div>
@@ -124,7 +105,7 @@
                                     aplikasi PPID Kemendagri ini setiap orang dapat mengajukan permohonan informasi secara mudah. Selain itu
                                     badan publik dapat memberi respon permohonan informasi yang diajukan sesuai ketentuan undang-undang.
                                 </p>
-                                <a href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan" class="btn btn-primary">Kunjungi</a>
+                                <a href="{{route('tambah-info')}}" class="btn btn-primary">Kunjungi</a>
                             </div>
 
                             <div class="tab-pane fade" id="LaporanPelayanan_Tabs" role="tabpanel" aria-labelledby="laporan-pelayanan-tab">
@@ -290,48 +271,11 @@
             </div>
 
             <div class="card card-lg pd-auto m-t-70">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-12 col-md-4 line-col line-right-push">
-                        <div class="d-flex align-items-center m-b-30">
-                            <div class="head-icon">
-                                <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                    <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/inbox.png" class="img-fluid" alt="" width="25">
-                                </div>
-                            </div>
-                            <div>
-                                <p class="mb-1">Jumlah Dokumen</p>
-                                <h5 class="font-700 mb-0">1389</h5>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center m-b-30">
-                            <div class="head-icon">
-                                <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                    <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/message.png" class="img-fluid" alt="" width="25">
-                                </div>
-                            </div>
-                            <div>
-                                <p class="mb-1">Jumlah Permohonan Informasi</p>
-                                <h5 class="font-700 mb-0">639</h5>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center">
-                            <div class="head-icon">
-                                <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                    <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/download.png" class="img-fluid" alt="" width="25">
-                                </div>
-                            </div>
-                            <div>
-                                <p class="mb-1">Jumlah Unduhan</p>
-                                <h5 class="font-700 mb-0">184266</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-8">
-                        <h6 class="text-default font-600 mb-4">Statistik Seluruh Indonesia</h6>
+                <div class="row">                    
+                    <div class="col-sm">
+                        <h6 class="text-default font-600 mb-4 text-center">Statistik Seluruh Indonesia</h6>
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-sm">
                                 <div class="d-flex align-items-center m-b-30">
                                     <div class="head-icon">
                                         <div class="icon-circle cirlce-lg rgba-blue m-r-25">
@@ -340,12 +284,12 @@
                                     </div>
                                     <div>
                                         <p class="mb-1">Jumlah Dokumen</p>
-                                        <h5 class="font-700 mb-0">86985</h5>
+                                        <h5 class="font-700 mb-0">{{$dokumen->count()}}</h5>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-md-6">
+                            <div class="col-sm">
                                 <div class="d-flex align-items-center m-b-30">
                                     <div class="head-icon">
                                         <div class="icon-circle cirlce-lg rgba-blue m-r-25">
@@ -354,12 +298,12 @@
                                     </div>
                                     <div>
                                         <p class="mb-1">Jumlah Permohonan Informasi</p>
-                                        <h5 class="font-700 mb-0">2652</h5>
+                                        <h5 class="font-700 mb-0">{{$permohonan->count()}}</h5>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-md-6">
+                            <div class="col-sm">
                                 <div class="d-flex align-items-center m-b-30">
                                     <div class="head-icon">
                                         <div class="icon-circle cirlce-lg rgba-blue m-r-25">
@@ -367,25 +311,12 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="mb-1">Jumlah Pengunjung</p>
-                                        <h5 class="font-700 mb-0">214089</h5>
+                                        <p class="mb-1">Jumlah User</p>
+                                        <h5 class="font-700 mb-0">{{$users->count()}}</h5>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-12 col-md-6">
-                                <div class="d-flex align-items-center m-b-30">
-                                    <div class="head-icon">
-                                        <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/download.png" class="img-fluid" alt="" width="25">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-1">Jumlah Unduhan</p>
-                                        <h5 class="font-700 mb-0">3879861</h5>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -395,19 +326,7 @@
 
     <section class="content-blank blue-section" style="padding-top: 18rem;">
         <div class="container">
-            <div class="title-section mb-3 text-center">
-                <h4 class="text-capitalize head-title">Temukan Kami Di Sosial Media</h4>
-                <p class="head-sub-desc">Instagram dan Facebook</p>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-6 mt-5">
-                    <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0" src="https://www.instagram.com/p/CBm6mmShL5X/embed/captioned/?cr=1&amp;v=12&amp;wp=538&amp;rd=http%3A%2F%2Fppid.kemendagri.go.id&amp;rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A2320.5000000007203%2C%22ls%22%3A1483.0950000005032%2C%22le%22%3A1488.535000000411%7D" allowtransparency="true" allowfullscreen="true" frameborder="0" height="995" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="background: white; max-width: 540px; width: calc(100% - 2px); border-radius: 3px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;"></iframe>
-                    <script async="" src="//www.instagram.com/embed.js"></script>
-                </div>
-                <div class="col-12 col-md-6 mt-5">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/ppidkemendagri/&amp;tabs=timeline&amp;width=500&amp;height=878&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=211412136217412" width="500" height="878" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                </div>
-            </div>
+            
         </div>
     </section>
 

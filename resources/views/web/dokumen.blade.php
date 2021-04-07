@@ -1,5 +1,13 @@
 @extends('web/layouts/master')
 @section('content')
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".reset-btn").click(function(){
+        $("#myForm").trigger("reset");
+    });
+});
+</script> -->
 <div class="content-box content-page" style="padding-top: 110px !important;">
     <div class="container">
         <div class="breadcrumb">
@@ -21,7 +29,7 @@
                     </div>
                     <div class="card card-md mb-4">
                         <form action="/dokumen" method="get">
-
+                        @csrf
                             <div class="form-group">
                                 <label for="">Kategori</label>
                                 <select class="form-control" name="kategori">
@@ -58,7 +66,7 @@
                             </div>
                             <hr>
                             <button class="btn btn-primary btn-md w-100 mb-2" type="submit">Cari Dokumen</button>
-                            <button class="btn btn-secondary btn-md w-100" id="btn-reset" type="button">Reset</button>
+                            <!-- <button class="btn btn-secondary btn-md w-100" type="submit">Reset</button> -->
                         </form>
                     </div>
 
@@ -103,7 +111,7 @@
                             </div>
 
                             <div class="mb-2">
-                                <a href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan" class="btn btn-primary btn-lg">Permohonan Informasi</a>
+                                <a href="{{route('tambah-info')}}" class="btn btn-primary btn-lg">Permohonan Informasi</a>
                             </div>
                         </div>
 

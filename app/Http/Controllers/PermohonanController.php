@@ -7,6 +7,7 @@ use App\Permohonan;
 use App\Provinsi;
 use File;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 
 class PermohonanController extends Controller
@@ -205,7 +206,7 @@ class PermohonanController extends Controller
      */
     public function show(Permohonan $permohonan)
     {
-        //
+        
         return view('admin.informasi.pmasuk.detail', compact('permohonan'));
         
     }
