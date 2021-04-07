@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use App\Role;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -43,7 +44,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pengguna.tambah_pengguna');
     }
 
     /**
@@ -54,7 +55,38 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'nik' => 'required',
+            'email' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required',
+            'kota' => 'required',
+            'pos' => 'required',
+            'jenisKelamin' => 'required',
+            'tempatLahir' => 'required',
+            'tanggalLahir' => 'required',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'nik' => $request->nik,
+            'email' => $request->email,
+            'telepon' => $request->telepon,
+            'alamat' => $request->alamat,
+            'kota' => $request->kota,
+            'pos' => $request->pos,
+            'jenisKelamin' => $request->jenisKelamin,
+            'tempatLahir' => $request->tempatLahir,
+            'tanggalLahir' => $request->tanggalLahir,
+            'password' => bcrypt(11111),
+        ]);
+
+        $role = Role::select('id')->where('id',$request->role)->first();
+
+        $user->roles()->attach($role);
+
+        return redirect()->back()->with('success','Data Berhasil Disimpan');
     }
 
     /**
@@ -65,7 +97,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findorfail($id);
+        return view('admin/pengguna/detail', compact('user'));
     }
 
     /**
@@ -76,8 +109,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $berita = Berita::findorfail($id);
-        return view('admin.berita.edit', compact('berita'));
+       
     }
 
     /**
@@ -100,6 +132,18 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Auth::user()->id == $id){
+            return redirect()->route('dashboard.user.index')->with('warning','Tidak bisa menghapus diri sendiri');
+        }
+
+        $user = User::find($id);
+
+        if($user){
+            $user->roles()->detach();
+            $user->delete();
+            return redirect()->route('dashboard.user.index')->with('success','Data telah dihapus');
+        }
+        
+        return redirect()->route('dashboard.user.index')->with('warning','Data ini tidak bisa dihapus');
     }
 }

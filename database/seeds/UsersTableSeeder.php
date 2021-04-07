@@ -71,7 +71,7 @@ class UsersTableSeeder extends Seeder
         $petugas->roles()->attach($petugasRole);
         $user->roles()->attach($userRole);
 
-        factory(App\User::class,20)->create();
+        factory(App\User::class,3)->create();
 
     }
 }

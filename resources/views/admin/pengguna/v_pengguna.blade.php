@@ -10,6 +10,32 @@
         </div>
     </div>
 
+    @if(count($errors)>0)
+    @foreach($errors->all() as $error)
+    <div class="alert alert-danger alert-dismissible show fade">
+        <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            {{$error}}
+        </div>
+    </div>
+    @endforeach
+    @endif
+
+
+
+    @if(Session::has('success'))
+    <div class="alert alert-success alert-dismissible show fade">
+        <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            {{Session('success')}}
+        </div>
+    </div>
+    @endif
+
     <div class="section-body">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
@@ -24,20 +50,20 @@
                             <form>
                                 <div class="form-row">
                                     <form action="/dashboard/user" method="get">
-                                    <div class="form-row col-md-10 text-center">
-                                        <div class="form-group col-md-3">
-                                            <label>Berdasarkan ID</label>
-                                            <input type="text" name="id" class="form-control text-center" style="height: 42px;" placeholder="ID Pengguna">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label>Berdasarkan Nama</label>
-                                            <input type="text" name="name" class="form-control text-center" style="height: 42px;" placeholder="Nama Pengguna">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label>Berdasarkan Email</label>
-                                            <input type="text" name="email" class="form-control text-center" style="height: 42px;" placeholder="Email Pengguna">
-                                        </div>
-                                        <!-- <div class="form-group col-md-3">
+                                        <div class="form-row col-md-10 text-center">
+                                            <div class="form-group col-md-3">
+                                                <label>Berdasarkan ID</label>
+                                                <input type="text" name="id" class="form-control text-center" style="height: 42px;" placeholder="ID Pengguna">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label>Berdasarkan Nama</label>
+                                                <input type="text" name="name" class="form-control text-center" style="height: 42px;" placeholder="Nama Pengguna">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label>Berdasarkan Email</label>
+                                                <input type="text" name="email" class="form-control text-center" style="height: 42px;" placeholder="Email Pengguna">
+                                            </div>
+                                            <!-- <div class="form-group col-md-3">
                                             <label>Berdasarkan Peran</label>                                            
                                             <select class="form-control text-center" name='role'>
                                             @foreach ($role as $rol)
@@ -45,12 +71,12 @@
                                             @endforeach
                                             </select>                                            
                                         </div> -->
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <br>
-                                        <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
-                                        <!-- <button class="btn btn-secondary">Reset</button> -->
-                                    </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <br>
+                                            <button class="btn btn-primary">Cari <i class="fas fa-search"></i></button>
+                                            <!-- <button class="btn btn-secondary">Reset</button> -->
+                                        </div>
                                     </form>
                                 </div>
 
@@ -64,18 +90,25 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Telepon</th>
-                                    <th>Alamat</th>
                                     <th>Role</th>
+                                    <th>ID</th>
+                                    <th>Action</th>
                                 </tr>
                                 @foreach($users as $user => $hasil)
                                 <tr>
                                     <td>{{ $user + $users->firstItem() }}</td>
                                     <td><a href="">{{$hasil->name}}</a></td>
                                     <td>{{$hasil->email}}</td>
-                                    <td>{{$hasil->telepon}}</td>
-                                    <td>{{$hasil->alamat}}</td>
                                     <td>{{implode(',', $hasil->roles()->get()->pluck('name')->toArray())}}</td>
+                                    <td>{{$hasil->id}}</td>
+                                    <td class="text-center" style="width: 20%;">
+                                        <form action="{{route('dashboard.user.destroy', $hasil->id)}}" method="POST">
+                                            {{method_field('DELETE')}}
+                                            @csrf
+                                            <a href="{{route('dashboard.user.show', $hasil->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </table>
@@ -87,4 +120,5 @@
         </div>
     </div>
 </section>
+
 @endsection

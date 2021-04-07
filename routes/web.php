@@ -21,7 +21,6 @@ Route::middleware(['auth', 'auth.all'])->group(function () {
     Route::get('/dashboard/dokumen/view', 'DokumenController@view');
     Route::get('/dashboard/dokumen/draft', 'DokumenController@draft');
     Route::get('/dashboard/dokumen/publish', 'DokumenController@publish');
-    Route::get('/dashboard/pengguna/view', 'Admin\UserController@index');
 });
 
 Route::middleware(['auth', 'auth.admin'])->group(function () {
@@ -49,9 +48,6 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('/dashboard/informasi/view-ditolak', 'PermohonanController@ditolak');
     Route::get('/dashboard/informasi/view-permohonan', 'PermohonanController@semuaPermohonan');
     Route::get('/dashboard/informasi/view-pemohon', 'PermohonanController@pemohon');
-    Route::get('/dashboard/pengguna/tambah-pengguna', function () {
-        return view('admin.pengguna.tambah_pengguna');
-    });
     Route::get('/dashboard/pengguna/edit-pengguna', function () {
         return view('admin.pengguna.edit_pengguna');
     });
@@ -61,6 +57,8 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('/dashboard/pengguna-publik/riwayat', function () {
         return view('admin.pengguna-publik.riwayat');
     });
+    Route::resource('/berita', 'BeritaController');
+    Route::resource('/profil', 'ProfilController');
 });
 
 Route::get('/akses-error','AdminController@aksesError');
@@ -77,8 +75,6 @@ Route::get('/berita/isiberita', function () {
     return view('web.berita');
 });
 Route::get('/dokumen', 'BerandaController@cariDok');
-Route::resource('/berita', 'BeritaController');
-Route::resource('/profil', 'ProfilController');
 Route::get('/profil-ppid', 'ProfilController@indexweb');
 
 Route::middleware(['auth'])->group(function () {
