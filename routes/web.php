@@ -61,6 +61,9 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::resource('/profil', 'ProfilController');
     Route::resource('/slider', 'SliderController');
     Route::resource('/dinas', 'OperasionalController');
+    Route::namespace('Admin')->prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::resource('/user', 'UserController');
+    });
 });
 
 Route::get('/akses-error','AdminController@aksesError');
@@ -94,9 +97,7 @@ Route::middleware(['auth','auth.user'])->group(function () {
     Route::get('/pengguna/profil', 'MenuController@showProfil')->name('pengguna.profil');
 });
 
-Route::namespace('Admin')->prefix('dashboard')->middleware('auth', 'auth.admin')->name('dashboard.')->group(function () {
-    Route::resource('/user', 'UserController');
-});
+
 
 Auth::routes();
 
