@@ -92,7 +92,7 @@
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>ID</th>
-                                    <th>Action</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                                 @foreach($users as $user => $hasil)
                                 <tr>
@@ -101,7 +101,7 @@
                                     <td>{{$hasil->email}}</td>
                                     <td>{{implode(',', $hasil->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td>{{$hasil->id}}</td>
-                                    <td class="text-center" style="width: 20%;">
+                                    <td class="text-center" style="width: 15%;">
                                         <form action="{{route('dashboard.user.destroy', $hasil->id)}}" method="POST">
                                             {{method_field('DELETE')}}
                                             @csrf

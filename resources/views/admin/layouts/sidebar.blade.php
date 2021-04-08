@@ -55,6 +55,15 @@
                 </ul>
             </li>
             @endhasrole
+            @hasrole('admin')
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder-plus"></i><span>Data Tambahan</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{route('slider.index')}}">Slider</a></li>
+                    <li><a class="nav-link" href="{{route('dinas.index')}}">Dinas</a></li>
+                </ul>
+            </li>
+            @endhasrole
         </ul>
     </aside>
 </div>

@@ -9,6 +9,7 @@ use App\Permohonan;
 use App\Kategori;
 use App\Jenis;
 use App\Dinas;
+use App\Slider;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class BerandaController extends Controller
         $dokumen = Dokumen::all();
         $permohonan = Permohonan::all();
         $users = User::all();
-        return view('web.beranda', compact('berita', 'dokumen', 'permohonan', 'users'));
+        $slider = Slider::all();
+        return view('web.beranda', compact('berita', 'dokumen', 'permohonan', 'users','slider'));
     }
 
     public function show($id)
@@ -28,6 +30,7 @@ class BerandaController extends Controller
         $berita = Berita::findorfail($id);
         return view('web.berita', compact('berita'));
     }
+
 
     public function cariDok(Request $request)
     {

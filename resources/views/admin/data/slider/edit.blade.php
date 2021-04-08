@@ -2,11 +2,11 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Edit Berita</h1>
+        <h1>Edit Slider</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{url('dashboard')}}">Dashboard</a></div>
-            <div class="breadcrumb-item"> <a href="{{route('berita.index')}}">Berita</a></div>
-            <div class="breadcrumb-item">Edit Berita</div>
+            <div class="breadcrumb-item"> <a href="{{route('slider.index')}}">Slider</a></div>
+            <div class="breadcrumb-item">Edit Slider</div>
         </div>
     </div>
 
@@ -41,30 +41,16 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form action="{{route('berita.update', $berita->id)}}" method="POST">
+                        <form action="{{route('slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <label>Judul</label>
-                                <input type="text" class="form-control" name="judul" value="{{$berita->judul}}">
-                            </div>
-                            <div class="form-group">
-                                <label>Author</label>
-                                <input type="text" class="form-control" name="author" value="{{$berita->author}}">
-                            </div>
-                            <div class="form-group">
-                                <label class="">Isi Berita</label>
-                                <div class="col-sm-12 col-md-12">
-                                    <textarea class="summernote" name="isi">{{$berita->isi}}</textarea>
-                                </div>
-                            </div>
-                            <!-- <div class="form-group">
                                 <label>File</label>
-                                <input type="file" class="form-control">
-                            </div> -->
+                                <input type="file" name="gambar" class="form-control">
+                            </div>
                             <div class="form-group">
                                 <button class="btn btn-primary">Update</button>
-                                <a href="{{route('berita.index')}}" class="btn btn-primary">Kembali</a>
+                                <a href="{{route('slider.index')}}" class="btn btn-primary">Kembali</a>
                             </div>
                         </form>
                     </div>

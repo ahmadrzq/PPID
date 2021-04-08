@@ -59,6 +59,8 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     });
     Route::resource('/berita', 'BeritaController');
     Route::resource('/profil', 'ProfilController');
+    Route::resource('/slider', 'SliderController');
+    Route::resource('/dinas', 'OperasionalController');
 });
 
 Route::get('/akses-error','AdminController@aksesError');
@@ -77,7 +79,7 @@ Route::get('/berita/isiberita', function () {
 Route::get('/dokumen', 'BerandaController@cariDok');
 Route::get('/profil-ppid', 'ProfilController@indexweb');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','auth.user'])->group(function () {
     Route::get('/menu', 'MenuController@index')->name('menu.index');
     Route::get('/menu/ajukan', 'MenuController@ajukan')->name('menu.ajukan');
     Route::post('/menu/ajukan', 'MenuController@tambahPengajuan')->name('menu.store');
