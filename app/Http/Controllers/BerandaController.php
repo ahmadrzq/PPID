@@ -12,6 +12,8 @@ use App\Dinas;
 use App\Slider;
 use Auth;
 use Illuminate\Http\Request;
+use File;
+use Response;
 
 class BerandaController extends Controller
 {
@@ -56,4 +58,19 @@ class BerandaController extends Controller
         
         return view('web.dokumen', compact('dokumen', 'kategori', 'jenis', 'dinas', 'berkala', 'sertamerta', 'setiapsaat', 'total'));
     }
+
+    public function detailDokumen(Dokumen $dokumen)
+    {
+        //
+        return view('web.detail', compact('dokumen'));
+    }
+
+    public function download($id)
+    {
+        //
+        $dokumen = Dokumen::find($id);
+        $download_path = ( public_path() . '/file/dokumen/' . $dokumen->file );
+        return( Response::download( $download_path ) );
+    }
+
 }

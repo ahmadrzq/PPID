@@ -36,31 +36,7 @@ class DokumenController extends Controller
         
         return view('admin.dokumen.view', compact('dokumen', 'kategori', 'jenis', 'dinas'));
     }
-
-    // public function view(Request $request) {
     
-    //     $dokumen = Dokumen::where( function($query) use($request){
-    //                     return $request->kategori_id ?
-    //                         $query->from('kategori')->where('id',$request->kategori_id) : '';
-    //                 })->where( function($query) use($request){
-    //                     return $request->jenis_id ?
-    //                         $query->from('jenis')->where('id',$request->jenis_id) : '';
-    //                 })->where( function($query) use($request){
-    //                     return $request->dinas_id ?
-    //                         $query->from('dinas')->where('id',$request->dinas_id) : '';
-    //                 })
-    //                 ->with('kategori', 'jenis', 'dinas')
-    //                 ->get();
-         
-    //     $selected_id = [];
-    //     $selected_id['kategori_id'] = $request->kategori_id;
-    //     $selected_id['jenis_id'] = $request->jenis_id;
-    //     $selected_id['dinas_id'] = $request->dinas_id;
-    
-    //     return view('admin.dokumen.view', compact('dokumen','selected_id'));
-    
-    // }
-
     public function draft()
     {
         //
