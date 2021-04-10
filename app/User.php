@@ -48,4 +48,12 @@ class User extends Authenticatable
     public function hasAnyRole($role){
         return null !== $this->roles()->where('name',$role)->first();
     }
+
+    public function permohonan(){
+        return $this->hasMany(Permohonan::class);
+    }
+
+    public function dokumen(){
+        return $this->hasMany(Dokumen::class);
+    }
 }

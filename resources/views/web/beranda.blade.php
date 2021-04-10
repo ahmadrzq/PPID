@@ -548,46 +548,18 @@
 
                     <div class="card">
                         <ul class="list-default">
+                        @foreach($dokumen as $dok)
                             <li>
                                 <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/500099161">
-                                    <p class="title">Laporan Pengelolaan Informasi PPID Ub. Februari 2021</p>
-                                    <p class="desc">Kabupaten Kotawaringin Barat - Dinas Kom...</p>
+                                    <p class="title">{{$dok->judul}}</p>
+                                    <p class="desc">{{$dok->dinas->nama}}</p>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/400099160">
-                                    <p class="title">Data Vaksinasi Covit-19 Kabupaten Ktw. Barat, 24 Maret 2021</p>
-                                    <p class="desc">Kabupaten Kotawaringin Barat - Dinas Kom...</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/400099159">
-                                    <p class="title">Data Covit-19 Kabupaten Ktw. Barat, 24 Maret 2021</p>
-                                    <p class="desc">Kabupaten Kotawaringin Barat - Dinas Kom...</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/400099158">
-                                    <p class="title">Update Data Kasus Covid-19 di Kabupaten Kapuas (24 Maret 2021)</p>
-                                    <p class="desc">Kabupaten Kapuas - Dinas Komunikasi dan ...</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/500099157">
-                                    <p class="title">PETA SUNGAI DAN DRAINASE KOTA CIREBON</p>
-                                    <p class="desc">Kota Cirebon - Dinas Pekerjaan Umum dan ...</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/300099156">
-                                    <p class="title">DATA SEBARAN COVID-19 DI TAPTENG PER TANGGAL 23 MARET 2021</p>
-                                    <p class="desc">Kabupaten Tapanuli Tengah - Dinas Komuni...</p>
-                                </a>
-                            </li>
+                            </li> 
+                        @endforeach
                         </ul>
                     </div>
                 </div>
-
+<!-- 
                 <div class="col-md-6 mb-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="icon-circle rgba-blue">
@@ -653,7 +625,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -720,7 +692,7 @@
         </div>
     </section>
 
-    <section class="content-blank blue-section" style="padding-top: 18rem;">
+    <section class="content-blank blue-section" style="padding-top: 10rem;">
         <div class="container">
 
         </div>

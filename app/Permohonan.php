@@ -14,4 +14,8 @@ class Permohonan extends Model
     public function provinsi(){
         return $this->belongsTo(Provinsi::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

@@ -14,6 +14,7 @@ class PermohonanTableSeeder extends Seeder
     {
         //
         \App\Permohonan::create([
+            'user_id' => 5,
             'provinsi_id' => 1,
             'nama' => 'dina',
             'kode' => '12212321',

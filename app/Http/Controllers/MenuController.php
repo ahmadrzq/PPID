@@ -28,11 +28,12 @@ class MenuController extends Controller
     }
 
 
-    public function tambahPengajuan(Request $request){
+    public function tambahPermohonan(Request $request){
 
         $user = User::all();
         $permohonan = Permohonan::create([
             'nama' => Auth::user()->name,
+            'user_id' => Auth::user()->id,
             'judul' => $request->judul,
             'kode' => '',
             'nik' => Auth::user()->nik,
@@ -54,7 +55,9 @@ class MenuController extends Controller
     public function permohonan()
     {
         $user = User::where('id', Auth::user()->id)->first();
-        return view('web.pengguna.permohonan', compact('user'));
+        $permohonan = Permohonan::all();
+        $mohon = Permohonan::where('user_id', Auth::user()->id)->get();
+        return view('web.pengguna.permohonan', compact('user', 'permohonan', 'mohon'));
     }
     public function keberatan()
     {

@@ -34,4 +34,8 @@ class Dokumen extends Model
     public function tipe(){
         return $this->belongsTo(Tipe::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

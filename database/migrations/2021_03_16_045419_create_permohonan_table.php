@@ -15,7 +15,8 @@ class CreatePermohonanTable extends Migration
     {
         Schema::create('permohonan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('provinsi_id');            
+            $table->integer('provinsi_id');
+            $table->integer('user_id');            
             $table->string('nama', 191);
             $table->string('judul', 191);
             $table->string('kode', 30);

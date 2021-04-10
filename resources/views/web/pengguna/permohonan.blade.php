@@ -36,13 +36,34 @@
                             <th>No.</th>
                             <th>Nomor Permohonan</th>
                             <th>Judul Permohonan</th>
-                            <th style="text-align: center;">Status</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($mohon as $no => $mhn)
                         <tr>
-                            <td colspan="4" align="center">Tidak ada permohonan yang tersedia</td>
+                            <td>{{ ++$no }}</td>
+                            <td>{{$mhn->id}}</td>
+                            <td>{{$mhn->judul}}</td>
+                            @if($mhn->status === 0 )
+                            <td>
+                                <badge class="badge badge-info">Menunggu dong</badge>
+                            </td>
+                            @elseif($pmhn->status === 1 )
+                                <td>
+                                    <badge class="badge badge-success">Diterima</badge>
+                                </td>
+                            @elseif($pmhn->status === 2 )
+                                <td>
+                                    <badge class="badge badge-warning">Proses</badge>
+                                </td>
+                            @elseif($pmhn->status === 3 )
+                                <td>
+                                    <badge class="badge badge-danger">Ditolak</badge>
+                                </td>
+                            @endif
                         </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

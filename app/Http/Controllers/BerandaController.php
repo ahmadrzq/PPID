@@ -20,7 +20,7 @@ class BerandaController extends Controller
     public function index()
     {
         $berita = Berita::all();
-        $dokumen = Dokumen::all();
+        $dokumen = Dokumen::orderBy('created_at', 'desc')->take(6)->get();
         $permohonan = Permohonan::all();
         $users = User::all();
         $slider = Slider::all();

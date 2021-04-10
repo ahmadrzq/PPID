@@ -29,7 +29,7 @@ class JenisTableSeeder extends Seeder
         ]);
 
         \App\Jenis::create([
-            'nama' => "Laporan dan prosedur akse..."
+            'nama' => "Laporan dan prosedur akses informasi"
         ]);
 
         \App\Jenis::create([
