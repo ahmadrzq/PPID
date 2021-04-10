@@ -21,9 +21,6 @@ Route::middleware(['auth', 'auth.all'])->group(function () {
     Route::get('/dashboard/dokumen/view', 'DokumenController@view');
     Route::get('/dashboard/dokumen/draft', 'DokumenController@draft');
     Route::get('/dashboard/dokumen/publish', 'DokumenController@publish');
-});
-
-Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('/dashboard/informasi/meja', 'PermohonanController@meja')->name('tambah-info');
     Route::post('/dashboard/informasi/meja', 'PermohonanController@store')->name('input-info');
     Route::get('/dashboard/informasi/masuk', 'PermohonanController@masuk');
@@ -48,6 +45,12 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('/dashboard/informasi/view-ditolak', 'PermohonanController@ditolak');
     Route::get('/dashboard/informasi/view-permohonan', 'PermohonanController@semuaPermohonan');
     Route::get('/dashboard/informasi/view-pemohon', 'PermohonanController@pemohon');
+    Route::get('/profil-user', 'Admin\UserController@viewProfil')->name('profil.user');
+    Route::post('/profil-user/{id}', 'Admin\UserController@updatePassword')->name('profil.user.update');
+
+});
+
+Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('/dashboard/pengguna/edit-pengguna', function () {
         return view('admin.pengguna.edit_pengguna');
     });
@@ -76,14 +79,13 @@ Route::get('/registered', function () {
 //     return view('web.dokumen');
 // });
 Route::resource('/beranda', 'BerandaController');
-Route::get('/berita/isiberita', function () {
-    return view('web.berita');
-});
+Route::get('/berita/isiberita/{id}', 'BerandaController@show')->name('berita.isi');
+Route::get('/berita-list', 'BeritaController@beritaList')->name('berita.list');
 // Route::get('/detail', function () {
 //     return view('web.detail');
 // });
 Route::get('/dokumen/detail/{dokumen}', 'BerandaController@detailDokumen')->name('detail-dok');
-Route::get('/dokumen', 'BerandaController@cariDok');
+Route::get('/dokumen', 'BerandaController@cariDok')->name('dokumen-view');
 Route::get('/dokumen/download/{id}', 'BerandaController@download')->name('download-dok');
 Route::get('/profil-ppid', 'ProfilController@indexweb');
 
@@ -95,6 +97,7 @@ Route::middleware(['auth','auth.user'])->group(function () {
     Route::get('/menu/dokumen', 'MenuController@dokumen')->name('menu.dokumen');
     Route::get('/menu/permohonan', 'MenuController@permohonan')->name('menu.permohonan');
     Route::get('/pengguna/profil', 'MenuController@showProfil')->name('pengguna.profil');
+    Route::post('/pengguna/profil/{id}', 'MenuController@updatePassword')->name('pengguna.profil.update');
 });
 
 

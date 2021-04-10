@@ -13,7 +13,6 @@
                 <a href="{{route('profil.index')}}" class="nav-link "><i class="fas fa-id-card"></i><span>Profil PPID</span></a>
             </li>
             @endhasrole
-            @hasrole('admin')
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-database"></i><span>Permohonan Informasi</span></a>
                 <ul class="dropdown-menu">
@@ -27,7 +26,6 @@
                     <li><a class="nav-link" href="{{url('dashboard/informasi/view-pemohon')}}">Data Pemohon</a></li>
                 </ul>
             </li>
-            @endhasrole
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-file-alt"></i><span>Dokumen Informasi Publik</span></a>
                 <ul class="dropdown-menu">

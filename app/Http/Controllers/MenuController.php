@@ -83,6 +83,20 @@ class MenuController extends Controller
         return view('web.pengguna.profil', compact('user'));
     }
 
+    public function updatePassword(Request $request, $id)
+    {
+        if($request->input('password')){
+            $user_data=[
+                'password' => bcrypt($request->password)
+            ];
+        }
+        
+        $user = User::find($id);
+        $user->update($user_data);
+        
+        return redirect()->route('pengguna.profil');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

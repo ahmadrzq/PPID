@@ -79,7 +79,7 @@ class UserController extends Controller
             'jenisKelamin' => $request->jenisKelamin,
             'tempatLahir' => $request->tempatLahir,
             'tanggalLahir' => $request->tanggalLahir,
-            'password' => bcrypt(11111),
+            'password' => bcrypt(123456),
         ]);
 
         $role = Role::select('id')->where('id',$request->role)->first();
@@ -99,6 +99,26 @@ class UserController extends Controller
     {
         $user = User::findorfail($id);
         return view('admin/pengguna/detail', compact('user'));
+    }
+
+    public function viewProfil()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('admin.profil', compact('user'));
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        if($request->input('password')){
+            $user_data=[
+                'password' => bcrypt($request->password)
+            ];
+        }
+        
+        $user = User::find($id);
+        $user->update($user_data);
+        
+        return redirect()->route('profil.user')->with('success','Password berhasil diupdate');
     }
 
     /**
@@ -121,7 +141,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

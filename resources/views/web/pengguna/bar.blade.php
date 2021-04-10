@@ -48,7 +48,7 @@
                 </a>
             </li>
 
-            <li>
+            <!-- <li>
                 <a href="{{route('menu.keberatan')}}" class="">
                     <div class="icon-circle cirlce-xl rgba-blue mb-3 ml-auto mr-auto">
                         <i class="fas fa-clipboard-list fa-3x"></i>
@@ -65,7 +65,7 @@
                     <p class="text-default">Dokumen Saya</p>
 
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

@@ -19,7 +19,7 @@ class BerandaController extends Controller
 {
     public function index()
     {
-        $berita = Berita::all();
+        $berita = Berita::orderBy('created_at', 'desc')->paginate(3);
         $dokumen = Dokumen::all();
         $permohonan = Permohonan::all();
         $users = User::all();
@@ -49,10 +49,11 @@ class BerandaController extends Controller
         ->orwhere('kategori_id','=','3')
         ->count();
 
-        if ($request->has('kategori', 'jenis', 'dinas')){
+        if ($request->has('kategori', 'jenis', 'dinas','judul')){
             $dokumen = Dokumen::where('kategori_id', '=', $request->kategori)
             ->orwhere('jenis_id', '=', $request->jenis)
             ->orwhere('dinas_id', '=', $request->dinas)
+            ->orwhere('judul', 'like', '%'.$request->judul.'%')
             ->paginate(10);
         }
         
