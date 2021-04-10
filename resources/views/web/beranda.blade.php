@@ -519,7 +519,7 @@
                         <ul class="list-default">
                         @foreach($dokumen as $dok)
                             <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/500099161">
+                                <a href="{{route('detail-dok', $dok->id)}}">
                                     <p class="title">{{$dok->judul}}</p>
                                     <p class="desc">{{$dok->dinas->nama}}</p>
                                 </a>
