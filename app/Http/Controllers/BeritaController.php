@@ -36,7 +36,7 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'judul' => 'required',
             'author' => 'required',
             'isi' => 'required',
@@ -44,18 +44,18 @@ class BeritaController extends Controller
         ]);
 
         $image = $request->image;
-        $new_image = time().$image->getClientOriginalName(); 
+        $new_image = time() . $image->getClientOriginalName();
 
         $berita = Berita::create([
             'judul' => $request->judul,
             'author' => $request->author,
             'isi' => $request->isi,
-            'image' => 'public/uploads/berita/'.$new_image
+            'image' => 'public/uploads/berita/' . $new_image
 
-            ]);
+        ]);
 
-            $image->move('public/uploads/berita/', $new_image);
-            return redirect()->back()->with('success','Data Berhasil Disimpan');
+        $image->move('public/uploads/berita/', $new_image);
+        return redirect()->back()->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -68,6 +68,12 @@ class BeritaController extends Controller
     {
         $berita = Berita::findorfail($id);
         return view('admin.berita.edit', compact('berita'));
+    }
+
+    public function beritaList()
+    {
+        $berita = Berita::orderBy('created_at', 'desc')->paginate(6);
+        return view('web.berita_list', compact('berita'));
     }
 
     /**
@@ -91,21 +97,21 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'judul' => 'required',
             'author' => 'required',
             'isi' => 'required',
         ]);
 
         $berita_data = [
-            'judul' =>$request->judul,
-            'author' =>$request->author,
-            'isi' =>$request->isi,
+            'judul' => $request->judul,
+            'author' => $request->author,
+            'isi' => $request->isi,
         ];
 
         Berita::whereId($id)->update($berita_data);
 
-        return redirect()->route('berita.index')->with('success','Data berhasil Diupdate');
+        return redirect()->route('berita.index')->with('success', 'Data berhasil Diupdate');
     }
 
     /**
@@ -119,6 +125,6 @@ class BeritaController extends Controller
         $berita = Berita::findorfail($id);
         $berita->delete();
 
-        return redirect()->back()->with('success','Data Berhasil Dihapus');
+        return redirect()->back()->with('success', 'Data Berhasil Dihapus');
     }
 }

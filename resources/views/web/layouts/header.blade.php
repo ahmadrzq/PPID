@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{route('menu.ajukan')}}">Permohonan Informasi</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan">Berita</a>
+                        <a class="nav-link" href="{{route('berita.list')}}">Berita</a>
                     </li>
                 </ul>
 
@@ -112,32 +112,67 @@
                 <img src="{{asset('web/images/logo.png')}}" width="40" class="img-fluid" alt="">
                 <div class="brand-text brand-mobile">
                     <div class="subtitle">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI</div>
-                    <div class="title">KEMENTERIAN DALAM NEGERI</div>
-                    <div class="address">JALAN MERDEKA UTARA NO 7 GAMBIR JAKARTA PUSAT, 021-3843222</div>
+                    <div class="title">KOTA PROBOLINGGO</div>
+                    <div class="address">Jl. Dr. Moch Saleh No. 5 Probolinggo</div>
                 </div>
             </div>
 
             <ul class="navbar-nav-mobile m-t-40">
                 <li class="">
-                    <a href="http://ppid.kemendagri.go.id">Beranda</a>
-                </li>
-                <li class="active">
-                    <a href="http://ppid.kemendagri.go.id/profil">Profil</a>
+                    <a href="{{url('beranda')}}">Beranda</a>
                 </li>
                 <li class="">
-                    <a href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan">Permohonan Informasi</a>
+                    <a href="{{url('profil-ppid')}}">Profil</a>
+                </li>
+                <li class="">
+                    <a href="{{route('menu.ajukan')}}">Permohonan Informasi</a>
                 </li>
             </ul>
 
             <hr>
 
+            @guest
             <div class="d-flex-center">
-                <p class="mb-0"><a href="http://ppid.kemendagri.go.id/login" class="text-white text-uppercase">Login</a></p>
+                <p class="mb-0"><a href="{{route('login')}}" class="text-white text-uppercase">Login</a></p>
                 <div class="text-white mr-3 ml-3">|</div>
                 <a class="search-icon-btn" href="javascript:void(0)">
                     <p class="mb-0"><i class="fa fa-search text-white" aria-hidden="true"></i></p>
                 </a>
             </div>
+            @else
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu Saya
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @hasrole('admin')
+                        <a class="dropdown-item" href="{{url('dashboard')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
+                        @endhasrole
+                        @hasrole('petugas')
+                        <a class="dropdown-item" href="{{url('dashboard')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
+                        @endhasrole
+                        @hasrole('user')
+                        <a class="dropdown-item" href="{{route('menu.index')}}"><i class="fa fa-database mr-2" aria-hidden="true"></i> Dashboard</a>
+                        @endhasrole
+                        <a class="dropdown-item" href="{{route('pengguna.profil')}}"><i class="fa fa-user-circle mr-2" aria-hidden="true"></i> Akun Saya</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="fa fa-power-off mr-2" aria-hidden="true"></i> Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link search-icon-btn" href="javascript:void(0)">
+                        <i class="fa fa-search search-circle" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            @endguest
         </div>
     </div>
 </div>
@@ -155,7 +190,7 @@
 
             <div class="row h-100">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <form action="http://ppid.kemendagri.go.id/front/dokumen/search" method="GET" class="form-search-section">
+                    <form action="" method="GET" class="form-search-section">
                         <h5 class="text-default font-600">Cari Dokumen dan Informasi</h5>
                         <input type="text" name="search" value="" id="term">
                         <input type="hidden" name="category" value="1" />

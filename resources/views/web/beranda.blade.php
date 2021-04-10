@@ -431,25 +431,13 @@
                                     <span>Permohonan Informasi</span>
                                 </a>
                             </li>
-
-                            <li class="nav-item">
-                                <a class="item" id="laporan-pelayanan-tab" data-toggle="tab" href="#LaporanPelayanan_Tabs" role="tab" aria-controls="LaporanPelayanan_Tabs" aria-selected="false">
-                                    <div class="head-icon">
-                                        <div class="tabs-icon">
-                                            <!-- laporan pelayanan -->
-                                            <i class="fas fa-user fa-2x"></i>
-                                        </div>
-                                    </div>
-                                    <span>Laporan Pelayanan</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
 
                     <div class="col-md-8 mb-3">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="DaftarInformasiPublik_Tabs" role="tabpanel" aria-labelledby="daftar-informasi-publik-tab">
-                                <form method="get" action="/dokumen">
+                                <form method="get" action="{{route('dokumen-view')}}">
                                     <h6 class="font-600 mb-3">Daftar Informasi Publik</h6>
                                     <p>
                                         Merupakan Daftar Informasi yang diumumkan kepada publik mengenai <br>
@@ -472,26 +460,6 @@
                                 </p>
                                 <a href="{{route('menu.ajukan')}}" class="btn btn-primary">Kunjungi</a>
                             </div>
-
-                            <div class="tab-pane fade" id="LaporanPelayanan_Tabs" role="tabpanel" aria-labelledby="laporan-pelayanan-tab">
-                                <h6 class="font-600 mb-3">Laporan Pelayanan</h6>
-                                <p>
-                                    Peraturan Komisi Informasi No. 1 Tahun 2008 tentang Standar Layanan Informasi Publik menyatakan bahwa
-                                    badan publik memiliki kewajiban membuat dan mengumumkan laporan tentang layanan informasi publik.
-                                    Melalui aplikasi PPID Kemendagri ini setiap aktifitas terkait pendokumentasian informasi publik serta
-                                    pelayanan informasi publik akan tercatat dan secara otomatis dan dapat dihasilkan laporan pelayanan
-                                    informasi publik.
-                                </p>
-                                <a href="http://ppid.kemendagri.go.id/permohonan/laporan" class="btn btn-primary">Kunjungi</a>
-                            </div>
-
-                            <div class="tab-pane fade" id="LayananKepuasanMasyarakat_Tabs" role="tabpanel" aria-labelledby="layanan-kepuasan-masyarakat-tab">
-                                <h6 class="font-600 mb-3">Layanan Kepuasan Masyarakat</h6>
-                                <p>
-                                    Partisipasi masyarakat untuk ikut mengawasi, memberikan masukan dan saran untuk peningkatan kualitas pelayanan pengelolaan informasi sangat dibutuhkan. Untuk itu Kementerian Dalam Negeri dan Pemerintah Daerah mengharapkan kesediaan seluruh pemohon dan pengguna informasi publik untuk dapat mengisi survey layanan kepuasan masyarakat.
-                                </p>
-                                <a href="http://ppid.kemendagri.go.id/survey-kepuasan" class="btn btn-primary">Kunjungi</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -511,20 +479,21 @@
                         <div class="row">
                             @foreach ($berita as $result)
                             <div class="card col-md-4 mb-2">
-                                <img class="" src="{{$result->image}}" alt="Card image cap" style="width: 249px; height:180px;">
+                                <img class="" src="{{$result->image}}" alt="Card image cap" style="max-width: 100%;height: 200px;">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$result->judul}}</h5>
-                                    <p class="card-text"><small class="text-muted">Diposting pada {{ Carbon\Carbon::parse($result->created_at)->format("d M Y") }}</small></p>
-                                    <!-- <p class="card-text">{!! Str::limit($result->isi,200)  !!}</p> -->
-                                    <a href="{{route('beranda.show', $result->id)}}">Read More</a>
+                                    <h5 class="card-title" style="font-size: 25px;"><a href="{{route('berita.isi', $result->id)}}"><strong> {{$result->judul}}</strong></a></h5>
+                                    <p class="card-text mb-0"><small class="text-muted"><i class="fas fa-clock"></i><em> {{ Carbon\Carbon::parse($result->created_at)->format("d/m/Y") }}</em></small></p>
+                                    <p class="card-text"><small class="text-muted"><i class="fas fa-user"></i><em> {{$result->author}}</em></small></p>
+                                    <p class="mb-4 pt-3" style="text-align: justify;">{!! str_limit(strip_tags($result->isi),$limit=200,$end="...") !!}</p>
+                                    <a href="{{route('berita.isi', $result->id)}}"><em> Read More</em></a>
                                 </div>
 
                             </div>
                             @endforeach
                         </div>
-
                     </div>
                 </div>
+                <a href="{{route('berita.list')}}" class="btn btn-sm" style="color: white;background-color: #022835;">Load More</a>
             </div>
 
         </div>
@@ -641,13 +610,12 @@
             <div class="card card-lg pd-auto m-t-70">
                 <div class="row">
                     <div class="col-sm">
-                        <h6 class="text-default font-600 mb-4 text-center">Statistik Seluruh Indonesia</h6>
                         <div class="row">
                             <div class="col-sm">
                                 <div class="d-flex align-items-center m-b-30">
                                     <div class="head-icon">
                                         <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/inbox.png" class="img-fluid" alt="" width="25">
+                                            <img src="" class="img-fluid" alt="" width="25">
                                         </div>
                                     </div>
                                     <div>
@@ -661,7 +629,7 @@
                                 <div class="d-flex align-items-center m-b-30">
                                     <div class="head-icon">
                                         <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/message.png" class="img-fluid" alt="" width="25">
+                                            <img src="" class="img-fluid" alt="" width="25">
                                         </div>
                                     </div>
                                     <div>
@@ -675,7 +643,7 @@
                                 <div class="d-flex align-items-center m-b-30">
                                     <div class="head-icon">
                                         <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/avatar.png" class="img-fluid" alt="" width="25">
+                                            <img src="" class="img-fluid" alt="" width="25">
                                         </div>
                                     </div>
                                     <div>
@@ -692,13 +660,11 @@
         </div>
     </section>
 
+
     <section class="content-blank blue-section" style="padding-top: 10rem;">
         <div class="container">
+    <section class="content-blank blue-section">
 
-        </div>
     </section>
-
-
-
 </div>
 @endsection

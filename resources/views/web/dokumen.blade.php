@@ -1,13 +1,13 @@
 @extends('web/layouts/master')
 @section('content')
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 $(document).ready(function(){
     $(".reset-btn").click(function(){
         $("#myForm").trigger("reset");
     });
 });
-</script> -->
+</script>
 <div class="content-box content-page" style="padding-top: 110px !important;">
     <div class="container">
         <div class="breadcrumb">
@@ -28,8 +28,7 @@ $(document).ready(function(){
                         <p class="text-default font-600 mb-0">Pencarian</p>
                     </div>
                     <div class="card card-md mb-4">
-                        <form action="/dokumen" method="get">
-                        @csrf
+                        <form action="{{route('dokumen-view')}}" method="get" id="myForm">
                             <div class="form-group">
                                 <label for="">Kategori</label>
                                 <select class="form-control" name="kategori">
@@ -66,7 +65,7 @@ $(document).ready(function(){
                             </div>
                             <hr>
                             <button class="btn btn-primary btn-md w-100 mb-2" type="submit">Cari Dokumen</button>
-                            <!-- <button class="btn btn-secondary btn-md w-100" type="submit">Reset</button> -->
+                            <button class="btn btn-secondary btn-md w-100" type="submit">Reset</button>
                         </form>
                     </div>
 
