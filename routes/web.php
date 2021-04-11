@@ -89,7 +89,7 @@ Route::get('/dokumen', 'BerandaController@cariDok')->name('dokumen-view');
 Route::get('/dokumen/download/{id}', 'BerandaController@download')->name('download-dok');
 Route::get('/profil-ppid', 'ProfilController@indexweb');
 
-Route::middleware(['auth','auth.user'])->group(function () {
+Route::middleware(['auth','auth.user','verified'])->group(function () {
     Route::get('/menu', 'MenuController@index')->name('menu.index');
     Route::get('/menu/ajukan', 'MenuController@ajukan')->name('menu.ajukan');
     Route::post('/menu/ajukan', 'MenuController@tambahPermohonan')->name('menu.store');
@@ -102,6 +102,6 @@ Route::middleware(['auth','auth.user'])->group(function () {
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');

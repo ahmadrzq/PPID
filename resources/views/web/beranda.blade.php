@@ -481,8 +481,8 @@
                             <div class="card col-md-4 mb-2">
                                 <img class="" src="{{$result->image}}" alt="Card image cap" style="max-width: 100%;height: 200px;">
                                 <div class="card-body">
-                                    <h5 class="card-title" style="font-size: 25px;"><a href="{{route('berita.isi', $result->id)}}"><strong> {{$result->judul}}</strong></a></h5>
-                                    <p class="card-text mb-0"><small class="text-muted"><i class="fas fa-clock"></i><em> {{ Carbon\Carbon::parse($result->created_at)->format("d/m/Y") }}</em></small></p>
+                                    <h5 class="card-title" style="font-size: 20px;"><a href="{{route('berita.isi', $result->id)}}"><strong> {{$result->judul}}</strong></a></h5>
+                                    <p class="card-text mb-0"><small class="text-muted"><i class="fas fa-calendar-week"></i><em> {{ Carbon\Carbon::parse($result->created_at)->format("d/m/Y") }}</em></small></p>
                                     <p class="card-text"><small class="text-muted"><i class="fas fa-user"></i><em> {{$result->author}}</em></small></p>
                                     <p class="mb-4 pt-3" style="text-align: justify;">{!! str_limit(strip_tags($result->isi),$limit=200,$end="...") !!}</p>
                                     <a href="{{route('berita.isi', $result->id)}}"><em> Read More</em></a>

@@ -22,7 +22,8 @@
                                 </div>
 
                                 <div class="blog-item-content bg-white p-4">
-                                    <p class="card-text" style="margin-bottom: 0;"><small class="text-muted"><i class="fas fa-clock"></i> {{ Carbon\Carbon::parse($result->created_at)->format("d/m/Y") }}</small></p>
+                                    <!-- <p class="card-text" style="margin-bottom: 0;"><small class="text-muted"><i class="fas fa-calendar-week"></i> {{ Carbon\Carbon::parse($result->created_at)->format("d/m/Y") }}</small></p> -->
+                                    <p class="card-text" style="margin-bottom: 0;"><small class="text-muted"><i class="fas fa-calendar-week"></i> {{ $result->created_at->formatLocalized("%A, %d %B %Y") }}</small></p>
                                     <p class="card-text"><small class="text-muted"><i class="fas fa-user"></i> {{$result->author}}</small></p>
                                     <h3 class="mt-0 mb-3"><a href="{{route('berita.isi', $result->id)}}">{{$result->judul}}</a></h3>
                                     <p class="mb-4" style="text-align: justify;">{!! str_limit(strip_tags($result->isi),$limit=200,$end="...") !!}</p>
