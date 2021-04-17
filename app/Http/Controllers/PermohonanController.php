@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Permohonan;
 use App\Provinsi;
 use File;
+use App\Dinas;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use PDF;
 
 
 class PermohonanController extends Controller
@@ -21,7 +23,7 @@ class PermohonanController extends Controller
     {
         //
         $permohonan = \App\Permohonan::all();
-        return view('admin.informasi.v_permohonan', compact('permohonan'));        
+        return view('admin.informasi.v_permohonan', compact('permohonan'));
     }
 
     /**
@@ -32,8 +34,9 @@ class PermohonanController extends Controller
     public function meja()
     {
         //
+        $dinas = Dinas::All();
         $provinsi = Provinsi::all();
-        return view('admin.informasi.meja', compact('provinsi'));
+        return view('admin.informasi.meja', compact('provinsi', 'dinas'));
     }
 
     // public function masuk(Request $request)
@@ -57,11 +60,11 @@ class PermohonanController extends Controller
     {
         //
         $menunggu = Permohonan::where('status', 0)->get();
-        
-        if ($request->has('judul', 'awal', 'akhir')){
+
+        if ($request->has('judul', 'awal', 'akhir')) {
             $menunggu = Permohonan::whereBetween('created_at', [$request->awal, $request->akhir])
-            ->where('judul', 'LIKE', '%'.$request->judul.'%')
-            ->get();
+                ->where('judul', 'LIKE', '%' . $request->judul . '%')
+                ->get();
         }
         return view('admin.informasi.pmasuk.masuk', compact('menunggu'));
     }
@@ -112,10 +115,10 @@ class PermohonanController extends Controller
     public function store(Request $request)
     {
         //
-        $permohonan = New Permohonan;
+        $permohonan = new Permohonan;
         $permohonan->nama = $request->nama;
         $permohonan->judul = $request->judul;
-        $permohonan->kode = $request->kode;
+        $permohonan->kode = mt_rand(10000, 99999);
         $permohonan->nik = $request->nik;
         $permohonan->jenisKelamin = $request->jenisKelamin;
         $permohonan->tempatLahir = $request->tempatLahir;
@@ -125,76 +128,86 @@ class PermohonanController extends Controller
         $permohonan->kota = $request->kota;
         $permohonan->pos = $request->pos;
         $permohonan->provinsi_id = $request->provinsi;
+        $permohonan->dinas_id = $request->dinas;
         $permohonan->telepon = $request->telepon;
+
 
         $permohonan->save();
 
         return redirect()->back();
     }
 
-    public function terima($id){
+    public function terima($id)
+    {
         $permohonan = Permohonan::find($id);
-        
+
         $status_sekarang = $permohonan->status;
- 
-        if($status_sekarang == 0){
+
+        if ($status_sekarang == 0) {
             Permohonan::find($id)->update([
-                'status'=>1
-            ]);        
-        }elseif($status_sekarang == 2){
-            Permohonan::find($id)->update([
-                'status'=>1
+                'status' => 1
             ]);
-        }elseif($status_sekarang == 3){
+        } elseif ($status_sekarang == 2) {
             Permohonan::find($id)->update([
-                'status'=>1
+                'status' => 1
+            ]);
+        } elseif ($status_sekarang == 3) {
+            Permohonan::find($id)->update([
+                'status' => 1
             ]);
         }
- 
+
         return view('admin.informasi.pmasuk.proses_terima', compact('permohonan'));
     }
 
-    public function proses($id){
-        $permohonan = Permohonan::find($id);
-        
-        $status_sekarang = $permohonan->status;
- 
-        if($status_sekarang == 0){
-            Permohonan::find($id)->update([
-                'status'=>2
-            ]);        
-        }elseif($status_sekarang == 1){
-            Permohonan::find($id)->update([
-                'status'=>2
-            ]);
-        }elseif($status_sekarang == 3){
-            Permohonan::find($id)->update([
-                'status'=>2
-            ]);
-        }
- 
-        return view('admin.informasi.v_permohonan', compact('permohonan'));
+    public function diterima(Permohonan $permohonan)
+    {
+        return view('admin.informasi.pmasuk.diterima', compact('permohonan'));
     }
 
-    public function tolak($id){
+    public function proses($id)
+    {
         $permohonan = Permohonan::find($id);
-        
+
         $status_sekarang = $permohonan->status;
- 
-        if($status_sekarang == 0){
+
+        if ($status_sekarang == 0) {
             Permohonan::find($id)->update([
-                'status'=>3
-            ]);        
-        }elseif($status_sekarang == 1){
-            Permohonan::find($id)->update([
-                'status'=>3
+                'status' => 2
             ]);
-        }elseif($status_sekarang == 2){
+        } elseif ($status_sekarang == 1) {
             Permohonan::find($id)->update([
-                'status'=>3
+                'status' => 2
+            ]);
+        } elseif ($status_sekarang == 3) {
+            Permohonan::find($id)->update([
+                'status' => 2
             ]);
         }
- 
+
+        return view('admin.informasi.pmasuk.proses_proses', compact('permohonan'));
+    }
+
+    public function tolak($id)
+    {
+        $permohonan = Permohonan::find($id);
+
+        $status_sekarang = $permohonan->status;
+
+        if ($status_sekarang == 0) {
+            Permohonan::find($id)->update([
+                'status' => 3
+            ]);
+        } elseif ($status_sekarang == 1) {
+            Permohonan::find($id)->update([
+                'status' => 3
+            ]);
+        } elseif ($status_sekarang == 2) {
+            Permohonan::find($id)->update([
+                'status' => 3
+            ]);
+        }
+
         return view('admin.informasi.pmasuk.proses_tolak', compact('permohonan'));
     }
 
@@ -206,9 +219,7 @@ class PermohonanController extends Controller
      */
     public function show(Permohonan $permohonan)
     {
-        
         return view('admin.informasi.pmasuk.detail', compact('permohonan'));
-        
     }
 
     /**
@@ -232,6 +243,20 @@ class PermohonanController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function cetak_pdf_proses(Permohonan $permohonan)
+    {
+
+        $pdf = PDF::loadview('admin/informasi/proses_pdf', ['permohonan' => $permohonan]);
+        return $pdf->stream();
+    }
+    
+    public function cetak_pdf_permohonan(Permohonan $permohonan)
+    {
+
+        $pdf = PDF::loadview('admin/informasi/permohonan_pdf', ['permohonan' => $permohonan]);
+        return $pdf->stream();
     }
 
     /**

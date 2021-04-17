@@ -28,80 +28,80 @@
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                    <form action="{{route('input-dokumen')}}" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                                <label>Judul</label>
-                                <input name="judul" type="text" class="form-control">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Kategori</label>
-                                <select class="form-control" name="kategori">
-                                @foreach ($kategori as $ktg)
-                                    <option value="{{$ktg->id}}">{{$ktg->nama}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label class="">Kandungan Informasi</label>
-                                <div class="col-sm-12 col-md-12">
-                                    <textarea name="kandunganInfo" class="summernote"></textarea>
+                        <form action="{{route('input-dokumen')}}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label>Judul</label>
+                                    <input name="judul" type="text" class="form-control">
                                 </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label>Jenis</label>
-                                    <select class="form-control" name="jenis">
-                                    @foreach ($jenis as $jns)
-                                        <option value="{{$jns->id}}">{{$jns->nama}}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Type</label>
-                                    <select class="form-control" name="tipe">
-                                    @foreach ($tipe as $tp)
-                                        <option value="{{$tp->id}}">{{$tp->nama}}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Filename</label>
-                                    <input name="file" type="file" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Keterangan</label>
-                                    <textarea name="keterangan" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Status Dokumen</label>
-                                    <select class="form-control" name="status_dokumen">
-                                    @foreach ($status_dokumen as $sd)
-                                        <option value="{{$sd->id}}">{{$sd->nama}}</option>
-                                    @endforeach
+                                <div class="form-group col-md-4">
+                                    <label>Kategori</label>
+                                    <select class="form-control" name="kategori">
+                                        @foreach ($kategori as $ktg)
+                                        <option value="{{$ktg->id}}">{{$ktg->nama}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label>Terbitkan Sebagai</label>
-                                <select class="form-control" name="dinas">
-                                @foreach ($dinas as $dn)
-                                    <option value="{{$dn->id}}">{{$dn->nama}}</option>
-                                @endforeach
-                                </select>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label class="">Kandungan Informasi</label>
+                                    <div class="col-sm-12 col-md-12">
+                                        <textarea name="kandunganInfo" class="summernote"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="form-group">
+                                        <label>Jenis</label>
+                                        <select class="form-control" name="jenis">
+                                            @foreach ($jenis as $jns)
+                                            <option value="{{$jns->id}}">{{$jns->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type</label>
+                                        <select class="form-control" name="tipe">
+                                            @foreach ($tipe as $tp)
+                                            <option value="{{$tp->id}}">{{$tp->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Filename</label>
+                                        <input name="file" type="file" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <textarea name="keterangan" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Status Dokumen</label>
+                                        <select class="form-control" name="status_dokumen">
+                                            @foreach ($status_dokumen as $sd)
+                                            <option value="{{$sd->id}}">{{$sd->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label>Terbitkan Sebagai</label>
+                                    <select class="form-control" name="dinas">
+                                        @foreach ($dinas as $dn)
+                                        <option value="{{$dn->id}}">{{$dn->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <button class="btn btn-primary" type="submit">Proses</button>
-                        </div>
-                    </form>
+                            <div class="form-row">
+                                <button class="btn btn-primary" type="submit">Proses</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

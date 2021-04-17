@@ -35,6 +35,7 @@ class UsersTableSeeder extends Seeder
             'tanggalLahir' => Carbon::now()->toDateTimeString(),
             'tempatLahir' => '',
             'jenisKelamin' => '',
+            'email_verified_at' => '2021-04-17 08:56:08'
         ]);
         $petugas = User::create([
             'name' => 'Ferry',
@@ -50,6 +51,7 @@ class UsersTableSeeder extends Seeder
             'tanggalLahir' => Carbon::now()->toDateTimeString(),
             'tempatLahir' => '',
             'jenisKelamin' => '',
+            'email_verified_at' => '2021-04-17 08:56:08'
         ]);
         $user = User::create([
             'name' => 'Amin',
@@ -65,6 +67,7 @@ class UsersTableSeeder extends Seeder
             'tanggalLahir' => Carbon::now()->toDateTimeString(),
             'tempatLahir' => '',
             'jenisKelamin' => '',
+            'email_verified_at' => '2021-04-17 08:56:08'
         ]);
 
         $admin->roles()->attach($adminRole);

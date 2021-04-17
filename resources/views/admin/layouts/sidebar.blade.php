@@ -16,11 +16,11 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-database"></i><span>Permohonan Informasi</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/meja')}}">Meja Layanan</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/masuk')}}">Permohonan Masuk</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/meja')}}">Pengajuan Permohonan</a></li>
+                    <!-- <li><a class="nav-link" href="{{url('dashboard/informasi/masuk')}}">Permohonan Masuk</a></li>
                     <li><a class="nav-link" href="{{url('dashboard/informasi/view-proses')}}">Permohonan Diproses</a></li>
                     <li><a class="nav-link" href="{{url('dashboard/informasi/view-selesai')}}">Permohonan Selesai</a></li>
-                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-ditolak')}}">Permohonan Ditolak</a></li>
+                    <li><a class="nav-link" href="{{url('dashboard/informasi/view-ditolak')}}">Permohonan Ditolak</a></li> -->
                     <!-- <li><a class="nav-link" href="{{url('dashboard/informasi/view-keberatan')}}">Keberatan</a></li> -->
                     <li><a class="nav-link" href="{{url('dashboard/informasi/view-permohonan')}}">Semua Permohonan</a></li>
                     <li><a class="nav-link" href="{{url('dashboard/informasi/view-pemohon')}}">Data Pemohon</a></li>

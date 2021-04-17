@@ -7,6 +7,7 @@ use App\Role;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class UserController extends Controller
 {
@@ -55,7 +56,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required',
             'nik' => 'required',
             'email' => 'required',
@@ -82,11 +83,11 @@ class UserController extends Controller
             'password' => bcrypt(123456),
         ]);
 
-        $role = Role::select('id')->where('id',$request->role)->first();
+        $role = Role::select('id')->where('id', $request->role)->first();
 
         $user->roles()->attach($role);
 
-        return redirect()->back()->with('success','Data Berhasil Disimpan');
+        return redirect()->back()->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -109,16 +110,16 @@ class UserController extends Controller
 
     public function updatePassword(Request $request, $id)
     {
-        if($request->input('password')){
-            $user_data=[
+        if ($request->input('password')) {
+            $user_data = [
                 'password' => bcrypt($request->password)
             ];
         }
-        
+
         $user = User::find($id);
         $user->update($user_data);
-        
-        return redirect()->route('profil.user')->with('success','Password berhasil diupdate');
+
+        return redirect()->route('profil.user')->with('success', 'Password berhasil diupdate');
     }
 
     /**
@@ -127,9 +128,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function cetak_pdf()
+    {
+        $users = User::all();
+
+        $pdf = PDF::loadview('admin/pengguna/user_pdf', ['users' => $users]);
+        return $pdf->stream();
+        // return $pdf->download('laporan-pegawai-pdf');
+    }
+
     public function edit($id)
     {
-       
     }
 
     /**
@@ -141,7 +151,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     /**
@@ -152,18 +161,18 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if(Auth::user()->id == $id){
-            return redirect()->route('dashboard.user.index')->with('warning','Tidak bisa menghapus diri sendiri');
+        if (Auth::user()->id == $id) {
+            return redirect()->route('dashboard.user.index')->with('warning', 'Tidak bisa menghapus diri sendiri');
         }
 
         $user = User::find($id);
 
-        if($user){
+        if ($user) {
             $user->roles()->detach();
             $user->delete();
-            return redirect()->route('dashboard.user.index')->with('success','Data telah dihapus');
+            return redirect()->route('dashboard.user.index')->with('success', 'Data telah dihapus');
         }
-        
-        return redirect()->route('dashboard.user.index')->with('warning','Data ini tidak bisa dihapus');
+
+        return redirect()->route('dashboard.user.index')->with('warning', 'Data ini tidak bisa dihapus');
     }
 }

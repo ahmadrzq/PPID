@@ -91,6 +91,7 @@ class DokumenController extends Controller
         $dokumen->status_dokumen_id = $request->status_dokumen;
         $dokumen->kandunganInfo = $request->kandunganInfo;
         $dokumen->dinas_id = $request->dinas;
+        $dokumen->user_id = 1;
 
         $dokumen->save();
 

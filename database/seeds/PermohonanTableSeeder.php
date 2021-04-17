@@ -19,6 +19,7 @@ class PermohonanTableSeeder extends Seeder
             'nama' => 'dina',
             'kode' => '12212321',
             'nik' => '1433543',
+            'dinas_id' => '1',
             'jenisKelamin' => 'Perempuan',
             'judul' => 'Laporan Pegawai',
             'tempatLahir' => 'Prob',

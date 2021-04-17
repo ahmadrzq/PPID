@@ -18,4 +18,8 @@ class Permohonan extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    
+    public function dinas(){
+        return $this->belongsTo(Dinas::class);
+    }
 }

@@ -12,6 +12,8 @@
 
     gtag('config', 'UA-94034622-3');
 </script>
+
+
 <!-- /END GA -->
 
 <section class="section">
@@ -32,7 +34,7 @@
                     <div class="form-row">
                         <div class="card col-xs-12 col-md-8 col-lg-8">
                             <div class="card-body">
-                            <div class="form-row">
+                                <div class="form-row">
                                     <label class="col-sm-3">Nomor Permohonan</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
@@ -51,7 +53,7 @@
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
                                         <label for="">{{$permohonan->created_at->addDays(7)->format('d F Y')}}</label>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3">Nomor DIP</label>
@@ -143,16 +145,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-danger col-12" disabled>Keputusan PPID Ditolak</button>
+                        <button type="submit" class="btn btn-warning col-12" disabled>Keputusan PPID Diproses</button>
                     </div>
                     <div class="form-group">
                         <div class="form-group col-8">
-                            <label>Alasan Penolakan</label>
-                            <select class="form-control">
-                                <option>Belum dikuasai</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                            </select>
+                            <label>Lampirkan Dokumen Baru</label>
+                            <input type="file" class="form-control">
                         </div>
                         <div class="col-4"></div>
                     </div>
@@ -160,10 +158,11 @@
                         <label class="">Catatan/Keterangan Petugas</label>
                         <div class="col-sm-12 col-md-12">
                             <textarea class="summernote"></textarea>
+                            
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-danger">Proses Penolakan</button>
+                        <button type="submit" class="btn btn-primary">Proses Permohonan</button>
                     </div>
                 </div>
             </div>

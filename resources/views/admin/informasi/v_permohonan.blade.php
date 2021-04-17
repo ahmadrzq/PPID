@@ -19,18 +19,18 @@
                             <table class="table table-striped table-md">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nomor</th>
+                                    <th>Nomor Registrasi</th>
                                     <th>Judul Informasi</th>
                                     <th>Status</th>
-                                    <th>Petugas</th>
+                                    <th>Komponen Yang Dituju</th>
                                     <th></th>
                                 </tr>
-                                @foreach ($permohonan as $pmhn)
+                                @foreach ($permohonan as $result => $pmhn)
                                 <tr>
                                     <td>{{$pmhn->id}}</td>
-                                    <td><label for="">{{$pmhn->kode}}<br><i class="fas fa-calendar-week"></i>{{$pmhn->created_at->format('d-m-Y')}}</label>
+                                    <td><label for="">{{$pmhn->kode}}<br><small><i class="fas fa-calendar-week"></i> {{$pmhn->created_at->format('d-m-Y')}} </small> </label>
                                     </td>
-                                    <td><label for="">{{$pmhn->judul}}<br><i class="fas fa-user"></i>{{$pmhn->nama}}<i class="fas fa-shield-alt"></i>{{$pmhn->tujuanInformasi}}</label>
+                                    <td><label for="">{{$pmhn->judul}}<br><small><i class="fas fa-user"></i> {{$pmhn->nama}} </small> </label>
                                     </td>
                                     @if($pmhn->status === 0 )
                                         <td>
@@ -49,30 +49,14 @@
                                             <badge class="badge badge-danger">Ditolak</badge>
                                         </td>
                                     @endif
-                                    <td>not set</td>
+                                    <td>{{$pmhn->dinas->nama}}</td>
                                     <td><a href="{{route('detail-info', $pmhn->id)}}"><i class="fas fa-folder-open"></i></a></td>
                                 </tr>
                                 @endforeach
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer text-right">
-                        <nav class="d-inline-block">
-                            <ul class="pagination mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+        
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Dinas;
 use Illuminate\Http\Request;
 use App\User;
 use App\Permohonan;
@@ -24,8 +25,9 @@ class MenuController extends Controller
 
     public function ajukan()
     {
+        $dinas = Dinas::all();
         $user = User::where('id', Auth::user()->id)->first();
-        return view('web.pengguna.ajukan', compact('user'));
+        return view('web.pengguna.ajukan', compact('user','dinas'));
     }
 
 
@@ -36,7 +38,8 @@ class MenuController extends Controller
             'nama' => Auth::user()->name,
             'user_id' => Auth::user()->id,
             'judul' => $request->judul,
-            'kode' => '',
+            'dinas_id' => $request->dinas,
+            'kode' => mt_rand(10000, 99999),
             'nik' => Auth::user()->nik,
             'jenisKelamin' => Auth::user()->jenisKelamin,
             'tempatLahir' => Auth::user()->tempatLahir,

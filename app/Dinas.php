@@ -13,4 +13,8 @@ class Dinas extends Model
     public function diskusi(){
         return $this->hasMany(Dokumen::class);
     }
+
+    public function permohonan(){
+        return $this->hasMany(Permohonan::class);
+    }
 }

@@ -22,49 +22,49 @@
                                     <label class="col-sm-3">Nomor Permohonan</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">12039810238123</label>
+                                        <label for="">{{$permohonan->id}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3">Tanggal</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">19 November 2016</label>
+                                        <label for="">{{$permohonan->created_at->format('d F Y')}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3">Jatuh Tempo</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">19 November 2016</label>
+                                        <label for="">{{$permohonan->created_at->addDays(7)->format('d F Y')}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <label class="col-sm-3">Nomor DIP</label>
+                                    <label class="col-sm-3">Nomor Registrasi</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">12039810238123</label>
+                                        <label for="">{{$permohonan->kode}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3">Judul Permohonan</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">Laporan keuangan Ditjen Otonomii Daerah Kemendagri Tahun 2015</label>
+                                        <label for="">{{$permohonan->judul}}</label>
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <label class="col-sm-3">Kandungan Informasi</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
                                         <label for="">Laporan keuangan Ditjen Otonomii Daerah Kemendagri Tahun 2015</label>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-row">
                                     <label class="col-sm-3">Tujuan Penggunaan</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">Untuk Penelitian Kampus</label>
+                                        <label for="">{{$permohonan->tujuanInformasi}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -99,43 +99,36 @@
                                     <label class="col-sm-3 col-md-4 col-lg-">Nama</label>
                                     <label class="col-sm-1 col-md-1 col-lg-">:</label>
                                     <div class="col-sm-5">
-                                        <label for="">Rizqi</label>
+                                        <label for="">{{$permohonan->nama}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3 col-md-4 col-lg-">Alamat</label>
                                     <label class="col-sm-1 col-md-1 col-lg-">:</label>
                                     <div class="col-sm-5">
-                                        <label for="">Jl. Raya Kuripan</label>
+                                        <label for="">{{$permohonan->alamat}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3 col-md-4 col-lg-">Telepon</label>
                                     <label class="col-sm-1 col-md-1 col-lg-">:</label>
                                     <div class="col-sm-5">
-                                        <label for="">01283123123</label>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <label class="col-sm-3 col-md-4 col-lg-">HP</label>
-                                    <label class="col-sm-1 col-md-1 col-lg-">:</label>
-                                    <div class="col-sm-5">
-                                        <label for="">01238123123</label>
+                                        <label for="">{{$permohonan->teleon}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3 col-md-4 col-lg-">Email</label>
                                     <label class="col-sm-1 col-md-1 col-lg-">:</label>
                                     <div class="col-sm-5 col-md- col-lg-">
-                                        <label for="">email@gmail.com</label>
+                                        <label for="">{{$permohonan->email}}</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <button type="submit" class="btn btn-success mr-1"><i class="fas fa-print"></i> Bukti Permohonan</button>
-                        <button type="submit" class="btn btn-primary mr-1"><i class="fas fa-print"></i> Bukti Proses</button>
+                        <a href="{{url('/permohonan/cetak_pdf/{permohonan}')}}" class="btn btn-success" target="_blank"><i class="fas fa-file-pdf"></i> Bukti Permohonan</a>
+                        <a href="{{url('/proses/cetak_pdf/{permohonan}')}}" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> Bukti Proses</a>
                     </div>
                 </div>
             </div>

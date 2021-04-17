@@ -40,9 +40,8 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="form-group">
-                    <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Ekspor PDF</button>
-                    <button class="btn btn-primary"><i class="fas fa-file-csv"></i> Ekspor CSV</button>
-                    <button class="btn btn-success"><i class="fas fa-user-plus"></i> Tambah</button>
+                    <a href="{{url('/user/cetak_pdf')}}" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> Cetak PDF</a>
+                    <a href="{{route('dashboard.user.create')}}" class="btn btn-success"><i class="fas fa-user-plus"></i> Tambah User</a>
                 </div>
                 <div class="card">
                     <div class="card-header">

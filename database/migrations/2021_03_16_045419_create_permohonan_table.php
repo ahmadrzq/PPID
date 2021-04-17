@@ -16,7 +16,7 @@ class CreatePermohonanTable extends Migration
         Schema::create('permohonan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('provinsi_id');
-            $table->integer('user_id');            
+            $table->integer('user_id')->nullable();            
             $table->string('nama', 191);
             $table->string('judul', 191);
             $table->string('kode', 30);
@@ -29,6 +29,7 @@ class CreatePermohonanTable extends Migration
             $table->string('kota', 30);
             $table->string('pos', 30);
             $table->string('telepon', 30);
+            $table->integer('dinas_id');
             $table->tinyInteger('status')->default('0');        
             $table->timestamps();
         });

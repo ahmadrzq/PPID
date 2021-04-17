@@ -16,20 +16,20 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="card-header-action col-12">
-                            <form action="/dashboard/informasi/masuk" method="get">
+                            <form action="{{url('dashboard/informasi/masuk')}}" method="get">
                                 <div class="form-row">                                    
                                     <div class="form-row col-md-10">
                                         <div class="form-group col-md-3">
                                             <label>Judul Permohonan</label>
-                                            <input name="judul" type="text" class="form-control" style="height: 42px;" required>
+                                            <input name="judul" type="text" class="form-control" style="height: 42px;" >
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Tanggal Awal</label>
-                                            <input name="awal" type="date" class="form-control" style="height: 42px;" required>
+                                            <input name="awal" type="date" class="form-control" style="height: 42px;" >
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Tanggal Akhir</label>
-                                            <input name="akhir" type="date" class="form-control" style="height: 42px;" required>
+                                            <input name="akhir" type="date" class="form-control" style="height: 42px;" >
                                         </div>
                                     </div>
                                     <div class="form-group col-md-2">
@@ -51,7 +51,7 @@
                                     <th>Nomor</th>
                                     <th>Judul Permohonan</th>
                                     <th>Pemohon</th>
-                                    <th>Komponen Tujuan</th>
+                                    <th>Komponen Yang Dituju</th>
                                     <th>Status</th>
                                     <th></th>
                                 </tr>
@@ -62,7 +62,7 @@
                                     <td>{{$pmhn->kode}}</td>
                                     <td>{{$pmhn->judul}}</td>
                                     <td>{{$pmhn->nama}}</td>
-                                    <td>Ditjen Otonomi Daerah</td>
+                                    <td>{{$pmhn->dinas->nama}}</td>
                                     @if($pmhn->status === 0 )
                                         <td>
                                             <badge class="badge badge-info">Menunggu dong</badge>

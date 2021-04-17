@@ -15,10 +15,10 @@
                                 <label>Nama</label>
                                 <input name="nama" type="text" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
+                            <!-- <div class="form-group col-md-6">
                                 <label>Kode Dokumen</label>
                                 <input name="kode" type="text" class="form-control">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
@@ -91,7 +91,13 @@
                                 <input name="telepon" type="text" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
-
+                                <label for="">Tujuan Permohonan</label>
+                                <select name="dinas" class="form-control">
+                                    <option value="">Pilih Tujuan</option>
+                                    @foreach($dinas as $result)
+                                    <option value="{{$result->id}}">{{$result->nama}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="card-footer text-right">

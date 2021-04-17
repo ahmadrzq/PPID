@@ -36,6 +36,8 @@ Route::middleware(['auth', 'auth.all'])->group(function () {
     Route::get('/dashboard/informasi/diterima', function () {
         return view('admin.informasi.pmasuk.diterima');
     });
+
+    Route::get('/dashboard/informasi/pmasuk/diterima/{permohonan}', 'PermohonanController@diterima')->name('diterima');
     Route::get('/dashboard/informasi/proses-tolak/status/{id}', 'PermohonanController@tolak')->name('tolak-info');
     Route::get('/dashboard/informasi/ditolak', function () {
         return view('admin.informasi.pmasuk.ditolak');
@@ -67,6 +69,9 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::namespace('Admin')->prefix('dashboard')->name('dashboard.')->group(function () {
         Route::resource('/user', 'UserController');
     });
+    Route::get('/user/cetak_pdf', 'Admin\UserController@cetak_pdf');
+    Route::get('/proses/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_proses');
+    Route::get('/permohonan/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_permohonan');
 });
 
 Route::get('/akses-error','AdminController@aksesError');

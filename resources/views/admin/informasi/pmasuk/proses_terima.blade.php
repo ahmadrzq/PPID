@@ -158,11 +158,10 @@
                         <label class="">Catatan/Keterangan Petugas</label>
                         <div class="col-sm-12 col-md-12">
                             <textarea class="summernote"></textarea>
-                            
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Proses Permohonan</button>
+                        <a href="{{route('diterima', $permohonan->id)}}" class="btn btn-primary">Proses Permohonan</a>
                     </div>
                 </div>
             </div>
