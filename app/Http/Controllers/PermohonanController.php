@@ -7,9 +7,11 @@ use App\Permohonan;
 use App\Provinsi;
 use File;
 use App\Dinas;
+use App\Dokumen;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use PDF;
+use Response;
 
 
 class PermohonanController extends Controller
@@ -160,8 +162,15 @@ class PermohonanController extends Controller
         return view('admin.informasi.pmasuk.proses_terima', compact('permohonan'));
     }
 
-    public function diterima(Permohonan $permohonan)
+    public function diterima(Request $request, $id)
     {
+        $permohonan = Permohonan::find($id);
+        $permohonan->catatan = $request->catatan;
+        if ($request->hasFile('file')) {
+            $request->file('file')->move('file/dokumen/', $request->file('file')->getClientOriginalName());
+            $permohonan->file = $request->file('file')->getClientOriginalName();
+        }
+        $permohonan->save();
         return view('admin.informasi.pmasuk.diterima', compact('permohonan'));
     }
 
@@ -211,6 +220,14 @@ class PermohonanController extends Controller
         return view('admin.informasi.pmasuk.proses_tolak', compact('permohonan'));
     }
 
+    public function ditolak2(Request $request, $id)
+    {
+        $permohonan = Permohonan::find($id);
+        $permohonan->catatan = $request->catatan;
+        $permohonan->save();
+        return view('admin.informasi.pmasuk.diterima', compact('permohonan'));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -221,6 +238,7 @@ class PermohonanController extends Controller
     {
         return view('admin.informasi.pmasuk.detail', compact('permohonan'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -245,17 +263,36 @@ class PermohonanController extends Controller
         //
     }
 
-    public function cetak_pdf_proses(Permohonan $permohonan)
+    public function cetak_pdf_diterima(Permohonan $permohonan)
     {
 
-        $pdf = PDF::loadview('admin/informasi/proses_pdf', ['permohonan' => $permohonan]);
+        $pdf = PDF::loadview('admin/informasi/diterima_pdf', ['permohonan' => $permohonan]);
         return $pdf->stream();
     }
-    
+
+    public function cetak_pdf_ditolak(Permohonan $permohonan)
+    {
+
+        $pdf = PDF::loadview('admin/informasi/ditolak_pdf', ['permohonan' => $permohonan]);
+        return $pdf->stream();
+    }
+
     public function cetak_pdf_permohonan(Permohonan $permohonan)
     {
 
         $pdf = PDF::loadview('admin/informasi/permohonan_pdf', ['permohonan' => $permohonan]);
+        return $pdf->stream();
+    }
+
+    public function laporan(Request $request){
+        $permohonan = Permohonan::all();
+        if ($request->input('awal', 'akhir','status')){
+            $permohonan = Permohonan::whereBetween('created_at', [$request->awal, $request->akhir])
+            ->where('status', '=', $request->status)
+            ->get();
+        }
+
+        $pdf = PDF::loadview('admin/informasi/laporan', ['permohonan' => $permohonan]);
         return $pdf->stream();
     }
 

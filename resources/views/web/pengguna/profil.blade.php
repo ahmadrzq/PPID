@@ -1,4 +1,7 @@
 @extends('web/layouts/master')
+@section('judul')
+Profil
+@endsection
 @section('content')
 <div class="content-box content-page" style="padding-top: 110px !important;">
 	<div class="container">

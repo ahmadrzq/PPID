@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="K4GH55mcTEUidWR4ViQFx2UyTvD8fdi8WLa4CP4e">
-    <title>PPID Kota Probolinggo</title>
+    <title>@yield('judul') - PPID Kota Probolinggo</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('web/assets_v1/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->

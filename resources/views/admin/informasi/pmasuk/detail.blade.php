@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Detail Permohonan
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">

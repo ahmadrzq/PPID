@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>BUKTI PERMOHONAN INFORMASI</title>
+    <title>BUKTI PROSES PERMOHONAN</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 </head>
@@ -33,12 +33,14 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="4" align="center" valign="top"><hr></td>
+                <td colspan="4" align="center" valign="top">
+                    <hr>
+                </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="center" valign="middle">BUKTI PERMOHONAN INFORMASI<br>
+                <td align="center" valign="middle">BUKTI PROSES PERMOHONAN<br>
                     Nomor registrasi : {{$permohonan->kode}}</td>
                 <td>&nbsp;</td>
             </tr>
@@ -98,7 +100,7 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td >Cara Memperoleh Informasi</td>
+                <td>Cara Memperoleh Informasi</td>
                 <td>:</td>
                 <td rowspan="2">
                     <del>1. Melihat/membaca/mendengarkan/mencatat </del> <br>
@@ -120,7 +122,10 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td align="center" valign="middle">Keputusan PPID<br>
+                    <span style="color:red;">PERMOHONAN DITOLAK
+                    </span>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>

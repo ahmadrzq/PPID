@@ -19,10 +19,10 @@ class BerandaController extends Controller
 {
     public function index()
     {
-        $berita = Berita::all();
-        $dokumen = Dokumen::orderBy('created_at', 'desc')->take(6)->get();
-        $berita = Berita::orderBy('created_at', 'desc')->paginate(3);
         $dokumen = Dokumen::all();
+        $berita = Berita::all();
+        $dokumen = Dokumen::orderBy('created_at', 'desc')->where('status_dokumen_id', 2)->take(6)->get();
+        $berita = Berita::orderBy('created_at', 'desc')->paginate(3);
         $permohonan = Permohonan::all();
         $users = User::all();
         $slider = Slider::all();
@@ -39,7 +39,7 @@ class BerandaController extends Controller
     public function cariDok(Request $request)
     {
         //
-        $dokumen = Dokumen::all();
+        $dokumen = Dokumen::where('status_dokumen_id', 2)->get();
         $dinas = Dinas::all();
         $jenis = Jenis::all();
         $kategori = Kategori::all();

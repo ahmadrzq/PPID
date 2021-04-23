@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Menu Slider
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">
@@ -53,6 +56,7 @@
                                 @foreach($slider as $result => $hasil)
                                 <tr>
                                     <td>{{ $result + $slider->firstItem() }}</td>
+                                    
                                     <td><img src="{{$hasil->gambar}}" alt="" style="width:100px;"></td>
                                     <td class="text-center" style="width: 20%;">
                                         <form action="{{route('slider.destroy', $hasil->id)}}" method="POST">

@@ -8,11 +8,13 @@ use App\User;
 use App\Permohonan;
 use App\Provinsi;
 use Illuminate\Support\Facades\Auth;
+use Response;
+
 
 class MenuController extends Controller
 {
 
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,11 +29,12 @@ class MenuController extends Controller
     {
         $dinas = Dinas::all();
         $user = User::where('id', Auth::user()->id)->first();
-        return view('web.pengguna.ajukan', compact('user','dinas'));
+        return view('web.pengguna.ajukan', compact('user', 'dinas'));
     }
 
 
-    public function tambahPermohonan(Request $request){
+    public function tambahPermohonan(Request $request)
+    {
 
         $user = User::all();
         $permohonan = Permohonan::create([
@@ -52,8 +55,9 @@ class MenuController extends Controller
             'telepon' => Auth::user()->telepon,
         ]);
 
-        return redirect()->back()->with('success','Data Berhasil Disimpan');
+        \Mail::to('emailbeta1.1@gmail.com')->send(new \App\Mail\PermohonanMail($request->judul, Auth::user()->name));
 
+        return redirect()->back()->with('success', 'Data Berhasil Disimpan');
     }
 
     public function permohonan()
@@ -74,6 +78,14 @@ class MenuController extends Controller
         return view('web.pengguna.dokumen', compact('user'));
     }
 
+    public function download($id)
+    {
+        //
+        $permohonan = Permohonan::find($id);
+        $download_path = (public_path() . '/file/dokumen/' . $permohonan->file);
+        return (Response::download($download_path));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -92,15 +104,15 @@ class MenuController extends Controller
 
     public function updatePassword(Request $request, $id)
     {
-        if($request->input('password')){
-            $user_data=[
+        if ($request->input('password')) {
+            $user_data = [
                 'password' => bcrypt($request->password)
             ];
         }
-        
+
         $user = User::find($id);
         $user->update($user_data);
-        
+
         return redirect()->route('pengguna.profil');
     }
 

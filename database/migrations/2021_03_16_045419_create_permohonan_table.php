@@ -29,6 +29,8 @@ class CreatePermohonanTable extends Migration
             $table->string('kota', 30);
             $table->string('pos', 30);
             $table->string('telepon', 30);
+            $table->string('file')->nullable();
+            $table->string('catatan')->nullable();
             $table->integer('dinas_id');
             $table->tinyInteger('status')->default('0');        
             $table->timestamps();

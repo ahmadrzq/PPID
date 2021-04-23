@@ -1,4 +1,7 @@
 @extends('web/layouts/master')
+@section('judul')
+Permohonan
+@endsection
 @section('content')
 <div class="content-box content-page" style="padding-top: 110px !important;">
     <div class="container">
@@ -23,7 +26,7 @@
                 </div>
 
                 <div class="mb-2">
-                    <a href="http://ppid.kemendagri.go.id/front/member/permohonan/ajukan" class="btn btn-primary btn-lg">Ajukan Permohonan</a>
+                    <a href="{{route('menu.ajukan')}}" class="btn btn-primary btn-lg">Ajukan Permohonan</a>
                 </div>
             </div>
 
@@ -37,33 +40,48 @@
                             <th>Nomor Permohonan</th>
                             <th>Judul Permohonan</th>
                             <th>Status</th>
+                            <th>Dokumen</th>
+                            <th>Catatan</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($mohon as $no => $mhn)
+                        @foreach($mohon as $no => $mhn)
                         <tr>
                             <td>{{ ++$no }}</td>
-                            <td>{{$mhn->id}}</td>
+                            <td>{{$mhn->kode}}</td>
                             <td>{{$mhn->judul}}</td>
                             @if($mhn->status === 0 )
                             <td>
                                 <badge class="badge badge-info">Menunggu dong</badge>
                             </td>
-                            @elseif($pmhn->status === 1 )
-                                <td>
-                                    <badge class="badge badge-success">Diterima</badge>
-                                </td>
-                            @elseif($pmhn->status === 2 )
-                                <td>
-                                    <badge class="badge badge-warning">Proses</badge>
-                                </td>
-                            @elseif($pmhn->status === 3 )
-                                <td>
-                                    <badge class="badge badge-danger">Ditolak</badge>
-                                </td>
+                            @elseif($mhn->status === 1 )
+                            <td>
+                                <badge class="badge badge-success">Diterima</badge>
+                            </td>
+                            @elseif($mhn->status === 2 )
+                            <td>
+                                <badge class="badge badge-warning">Proses</badge>
+                            </td>
+                            @elseif($mhn->status === 3 )
+                            <td>
+                                <badge class="badge badge-danger">Ditolak</badge>
+                            </td>
                             @endif
+
+                            @if(empty($mhn->file))
+                            <td><em>Tidak ada dokumen</em></td>
+                            @else
+                            <td><a href="{{route('download-dokumen-informasi', $mhn->id)}}"><i class="fas fa-download"></i> {{$mhn->file}}</a></td>
+                            @endif
+                            
+                            @if(empty($mhn->catatan))
+                            <td><em>Catatan tidak ada</em></td>
+                            @else
+                            <td>{!!$mhn->catatan!!}</td>
+                            @endif
+
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>

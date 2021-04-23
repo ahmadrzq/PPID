@@ -15,7 +15,7 @@ class CreateDokumenTable extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->integer('kategori_id');
             $table->integer('jenis_id');
             $table->integer('tipe_id');

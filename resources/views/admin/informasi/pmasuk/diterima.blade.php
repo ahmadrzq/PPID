@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Lihat Permohonan
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">
@@ -19,7 +22,7 @@
                         <div class="card col-xs-12 col-md-8 col-lg-8">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <label class="col-sm-3">Nomor Permohonan</label>
+                                    <label class="col-sm-3">Id</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
                                         <label for="">{{$permohonan->id}}</label>
@@ -78,14 +81,14 @@
                                     <label class="col-sm-3">Lampiran Data</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">logo-PPIDkotaProb.png</label>
+                                        <label for="">{{$permohonan->file}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <label class="col-sm-3">Cataan Petugas</label>
                                     <label class="col-sm-1">:</label>
                                     <div class="col-sm-8">
-                                        <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, veritatis nobis tempore optio cupiditate quae possimus incidunt a excepturi eveniet? Ex ipsam inventore distinctio at accusantium! Laborum perferendis dolor consequatur.</label>
+                                        <label for="">{!! $permohonan->catatan !!}</label>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +116,7 @@
                                     <label class="col-sm-3 col-md-4 col-lg-">Telepon</label>
                                     <label class="col-sm-1 col-md-1 col-lg-">:</label>
                                     <div class="col-sm-5">
-                                        <label for="">{{$permohonan->teleon}}</label>
+                                        <label for="">{{$permohonan->telepon}}</label>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -127,8 +130,8 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <a href="{{url('/permohonan/cetak_pdf/{permohonan}')}}" class="btn btn-success" target="_blank"><i class="fas fa-file-pdf"></i> Bukti Permohonan</a>
-                        <a href="{{url('/proses/cetak_pdf/{permohonan}')}}" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> Bukti Proses</a>
+                        <a href="{{route('permohonan.pdf', $permohonan)}}" class="btn btn-success mr-1" target="_blank"><i class="fas fa-file-pdf"></i> Bukti Permohonan</a>
+                        <a href="{{route('diterima.pdf', $permohonan)}}" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> Bukti Proses</a>
                     </div>
                 </div>
             </div>

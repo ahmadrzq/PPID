@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Profil
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">
@@ -34,14 +37,14 @@
         </div>
     </div>
     @endif
-    
+
     <div class="section-body">
         <h2 class="section-title">Hi, {{$user->name}}</h2>
         <div class="row mt-sm-4">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
-                    <form method="POST" action="{{route('profil.user.update', $user->id)}}" >
-                    @csrf
+                    <form method="POST" action="{{route('profil.user.update', $user->id)}}">
+                        @csrf
                         <div class="card-header">
                             <h4>Profil</h4>
                         </div>

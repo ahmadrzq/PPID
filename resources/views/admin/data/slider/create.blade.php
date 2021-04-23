@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Tambah Slider
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">

@@ -1,8 +1,11 @@
 @extends('admin/layouts/master')
+@section('judul')
+Pengajuan Permohonan
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Meja Layanan</h1>
+        <h1>Pengajuan Permohonan</h1>
     </div>
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">

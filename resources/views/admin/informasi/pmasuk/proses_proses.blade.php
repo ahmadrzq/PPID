@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Lihat Permohonan
+@endsection
 @section('content')
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
@@ -147,7 +150,7 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-warning col-12" disabled>Keputusan PPID Diproses</button>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="form-group col-8">
                             <label>Lampirkan Dokumen Baru</label>
                             <input type="file" class="form-control">
@@ -160,10 +163,10 @@
                             <textarea class="summernote"></textarea>
                             
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    <!-- <div class="form-group">
                         <button type="submit" class="btn btn-primary">Proses Permohonan</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

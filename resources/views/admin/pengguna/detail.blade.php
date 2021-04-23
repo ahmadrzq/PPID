@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Detail Pengguna
+@endsection
 @section('content')
 
 <section class="section">

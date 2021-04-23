@@ -1,4 +1,8 @@
 @extends('web/layouts/master')
+
+@section('judul')
+Selamat Datang
+@endsection
 @section('content')
 
 <!-- #region Jssor Slider Begin -->
@@ -528,73 +532,7 @@
                         </ul>
                     </div>
                 </div>
-<!-- 
-                <div class="col-md-6 mb-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-circle rgba-blue">
-                            <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/contract.png" class="img-fluid" alt="" width="20">
-                        </div>
-                        <p class="text-default font-600 mb-0">Informasi Paling Banyak Dimohon</p>
-                    </div>
 
-                    <div class="card">
-                        <ul class="list-default">
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/300010492">
-                                    <p class="title">SPIP DPPKBP3A Tahun 2017</p>
-                                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                        <p class="desc">Kabupaten Solok - Dinas Pengendalian Pen...</p>
-                                        <span class="fs-13 text-warning">151722 kali</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/300007625">
-                                    <p class="title">BUKU PEDOMAN EPIDEMIOLOGI PENYAKIT EDISI REVISI 2011</p>
-                                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                        <p class="desc">Kabupaten Tanah Datar - DINAS KESEHATAN</p>
-                                        <span class="fs-13 text-warning">118008 kali</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/500007446">
-                                    <p class="title">Kabupaten Dalam Angka Tahun 2012</p>
-                                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                        <p class="desc">Kabupaten Penajam Paser Utara - Dinas Ko...</p>
-                                        <span class="fs-13 text-warning">114361 kali</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/500059033">
-                                    <p class="title">PENGUMUMAN HASIL SELEKSI ADMINISTRASI PENGADAAN CALON PEGAWAI NEGERI SIPIL (CPNS) DI LINGKUNGAN PEMERINTAH KABUPATEN SUKAMARA TAHUN 2019</p>
-                                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                        <p class="desc">Kabupaten Sukamara - Badan Kepegawaian d...</p>
-                                        <span class="fs-13 text-warning">45636 kali</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/40010000093">
-                                    <p class="title">TUPOKSI KEPALA SATUAN SUB BAGIAN UMUM &amp; KEPEGAWAIAN POLISI PAMONG PRAJA DAN PEMADAM KEBAKARAN BANTAENG</p>
-                                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                        <p class="desc">Sulawesi Selatan - Satuan Pol PP dan Pem...</p>
-                                        <span class="fs-13 text-warning">35461 kali</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://ppid.kemendagri.go.id/front/dokumen/detail/300009947">
-                                    <p class="title">LAPORAN ADIWIYATA TH 2016</p>
-                                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                        <p class="desc">Kabupaten Solok - Dinas Lingkungan Hidup...</p>
-                                        <span class="fs-13 text-warning">32062 kali</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
         </div>

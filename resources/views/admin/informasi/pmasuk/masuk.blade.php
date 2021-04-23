@@ -1,4 +1,7 @@
 @extends('admin/layouts/master')
+@section('judul')
+Permohonan Masuk
+@endsection
 @section('content')
 <section class="section">
     <div class="section-header">
@@ -65,7 +68,7 @@
                                     <td>{{$pmhn->dinas->nama}}</td>
                                     @if($pmhn->status === 0 )
                                         <td>
-                                            <badge class="badge badge-info">Menunggu dong</badge>
+                                            <badge class="badge badge-info">Menunggu</badge>
                                         </td>
                                     @elseif($pmhn->status === 1 )
                                         <td>

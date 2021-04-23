@@ -37,7 +37,8 @@ Route::middleware(['auth', 'auth.all'])->group(function () {
         return view('admin.informasi.pmasuk.diterima');
     });
 
-    Route::get('/dashboard/informasi/pmasuk/diterima/{permohonan}', 'PermohonanController@diterima')->name('diterima');
+    Route::post('/dashboard/informasi/pmasuk/diterima/{id}', 'PermohonanController@diterima')->name('diterima');
+    Route::post('/dashboard/informasi/pmasuk/ditolak/{id}', 'PermohonanController@ditolak2')->name('ditolak');
     Route::get('/dashboard/informasi/proses-tolak/status/{id}', 'PermohonanController@tolak')->name('tolak-info');
     Route::get('/dashboard/informasi/ditolak', function () {
         return view('admin.informasi.pmasuk.ditolak');
@@ -69,9 +70,11 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::namespace('Admin')->prefix('dashboard')->name('dashboard.')->group(function () {
         Route::resource('/user', 'UserController');
     });
+    Route::get('/informasi/cetak_pdf', 'PermohonanController@laporan');
     Route::get('/user/cetak_pdf', 'Admin\UserController@cetak_pdf');
-    Route::get('/proses/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_proses');
-    Route::get('/permohonan/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_permohonan');
+    Route::get('/diterima/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_diterima')->name('diterima.pdf');
+    Route::get('/ditolak/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_ditolak')->name('ditolak.pdf');
+    Route::get('/permohonan/cetak_pdf/{permohonan}', 'PermohonanController@cetak_pdf_permohonan')->name('permohonan.pdf');
 });
 
 Route::get('/akses-error','AdminController@aksesError');
@@ -92,6 +95,7 @@ Route::get('/berita-list', 'BeritaController@beritaList')->name('berita.list');
 Route::get('/dokumen/detail/{dokumen}', 'BerandaController@detailDokumen')->name('detail-dok');
 Route::get('/dokumen', 'BerandaController@cariDok')->name('dokumen-view');
 Route::get('/dokumen/download/{id}', 'BerandaController@download')->name('download-dok');
+Route::get('/dashboard/informasi/download/{id}', 'MenuController@download')->name('download-dokumen-informasi');
 Route::get('/profil-ppid', 'ProfilController@indexweb');
 
 Route::middleware(['auth','auth.user','verified'])->group(function () {
