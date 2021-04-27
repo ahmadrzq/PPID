@@ -591,6 +591,22 @@ Selamat Datang
                                 </div>
                             </div>
 
+                            <div class="col-sm">
+                                <div class="d-flex align-items-center m-b-30">
+                                    <div class="head-icon">
+                                        <div class="icon-circle cirlce-lg rgba-blue m-r-25">
+                                            <img src="" class="img-fluid" alt="" width="25">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="mb-1">Jumlah Pengunjung</p>
+                                        <!-- <h5 class="font-700 mb-0">{{$users->count()}}</h5> -->
+                                        <a href='http://www.freevisitorcounters.com'>Counters</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=fbe8eee2505010e5943d1f7664205cc522d4796b'></script>
+                                        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/821099/t/3"></script>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
