@@ -83,22 +83,22 @@ Semua Permohonan
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Status</label>
-                        <select class="form-control" name="status">
-                            <option>- Pilih Status -</option>
+                        <select class="form-control" name="status" required>
+                            <option value="">- Pilih Status -</option>
                             <option value="0">Menunggu</option>
                             <option value="1">Diterima</option>
                             <option value="2">Diproses</option>
-                            <option value="3">Diolak</option>
+                            <option value="3">Ditolak</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label>Tanggal Awal</label>
-                            <input type="date" class="form-control" name="awal">
+                            <input type="date" class="form-control" name="awal" required>
                         </div>
                         <div class="form-group col-6">
                             <label>Tanggal Akhir</label>
-                            <input type="date" class="form-control" name="akhir">
+                            <input type="date" class="form-control" name="akhir" required>
                         </div>
                     </div>
                 </div>

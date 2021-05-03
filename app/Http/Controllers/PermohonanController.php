@@ -136,7 +136,7 @@ class PermohonanController extends Controller
 
         $permohonan->save();
 
-        return redirect()->back();
+        return redirect('/dashboard/informasi/view-permohonan');
     }
 
     public function terima($id)
@@ -236,7 +236,18 @@ class PermohonanController extends Controller
      */
     public function show(Permohonan $permohonan)
     {
-        return view('admin.informasi.pmasuk.detail', compact('permohonan'));
+        $status_sekarang = $permohonan->status;
+        
+        if ($status_sekarang == 0) {
+            return view('admin.informasi.pmasuk.detail', compact('permohonan'));    
+        } elseif ($status_sekarang == 1) {
+            return view('admin.informasi.pmasuk.diterima', compact('permohonan'));
+        } elseif ($status_sekarang == 2) {
+            return view('admin.informasi.pmasuk.proses_proses', compact('permohonan'));            
+        } elseif ($status_sekarang == 3) {
+            return view('admin.informasi.pmasuk.ditolak', compact('permohonan'));
+        }
+        // return view('admin.informasi.pmasuk.detail', compact('permohonan'));
     }
 
 
@@ -291,6 +302,13 @@ class PermohonanController extends Controller
             ->where('status', '=', $request->status)
             ->get();
         }
+
+        // if ($request->input('awal', 'akhir','status')){
+        //     $permohonan = Permohonan::where('created_at', '>=', $request->awal)
+        //     ->where('created_at', '<=', $request->akhir)
+        //     ->where('status', '=', $request->status)
+        //     ->get();
+        // }
 
         $pdf = PDF::loadview('admin/informasi/laporan', ['permohonan' => $permohonan]);
         return $pdf->stream();
