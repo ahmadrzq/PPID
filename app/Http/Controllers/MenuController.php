@@ -55,7 +55,7 @@ class MenuController extends Controller
             'telepon' => Auth::user()->telepon,
         ]);
 
-        \Mail::to('emailbeta1.1@gmail.com')->send(new \App\Mail\PermohonanMail($request->judul, Auth::user()->name));
+        \Mail::to('182410102053@students.unej.ac.id')->send(new \App\Mail\PermohonanMail($request->judul, Auth::user()->name));
 
         return redirect()->back()->with('success', 'Data Berhasil Disimpan');
     }

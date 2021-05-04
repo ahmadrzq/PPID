@@ -4,17 +4,17 @@ Detail Dokumen
 @endsection
 @section('content')
 <div class="content-box content-page" style="padding-top: 110px !important;">
-    <div class="container">
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="/beranda">Home</a></li>
-                <li><a href="#">Dokumen</a></li>
-                <li><a href="#">{{$dokumen->judul}}</a></li>
-            </ul>
-        </div>
+  <div class="container">
+    <div class="breadcrumb">
+      <ul>
+        <li><a href="{{url('beranda')}}">Home</a></li>
+        <li><a href="">Dokumen</a></li>
+        <li><a href="">{{$dokumen->judul}}</a></li>
+      </ul>
     </div>
+  </div>
 
-    <section class="content-blank blue-section">
+  <section class="content-blank blue-section">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-8 mb-4">
@@ -22,7 +22,7 @@ Detail Dokumen
             <div class="d-flex mb-1">
               <div class="d-none d-sm-block head-icon m-t-3">
                 <div class="icon-circle rgba-blue m-r-20">
-                  <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/inbox.png" class="img-fluid" alt="" width="18">
+                  <i class="fas fa-file fa-lg"></i>
                 </div>
               </div>
               <div>
@@ -50,7 +50,8 @@ Detail Dokumen
 
               <div class="col-12 col-sm-9">
                 <p class="text-default font-600 mb-0">
-                {{$dokumen->created_at->format('d F Y')}}</p>
+                  {{$dokumen->created_at->format('d F Y')}}
+                </p>
               </div>
             </div>
 
@@ -80,7 +81,7 @@ Detail Dokumen
               </div>
 
               <div class="col-12 col-sm-9">
-                                <p class="text-default font-600 mb-0">{{$dokumen->tipe->nama}}</p>
+                <p class="text-default font-600 mb-0">{{$dokumen->tipe->nama}}</p>
               </div>
             </div>
 
@@ -96,23 +97,23 @@ Detail Dokumen
 
             <hr>
             <div class="d-flex justify-content-end">
-                    <a href="{{route('download-dok', $dokumen->id)}}" class="btn btn-primary">
-                  <i class="fa fa-download mr-1" aria-hidden="true"></i> Download File
-                </a>
-                          </div>
+              <a href="{{route('download-dok', $dokumen->id)}}" class="btn btn-primary">
+                <i class="fa fa-download mr-1" aria-hidden="true"></i> Download File
+              </a>
+            </div>
 
           </div>
         </div>
         <div class="col-12 col-lg-4 mb-4">
           <div class="d-flex align-items-center mb-4">
             <div class="icon-circle rgba-blue">
-              <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/contract.png" class="img-fluid" alt="" width="20">
+            <i class="fas fa-info fa-lg"></i>
             </div>
             <p class="text-default font-600 mb-0">Kandungan Informasi</p>
           </div>
 
           <div class="card mb-4">
-            <p class="mb-0">{{$dokumen->kandunganInfo}}</p>
+            <p class="mb-0">{!!$dokumen->kandunganInfo!!}</p>
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@
                                     <h2 class="mt-3 mb-4">{{$berita->judul}}</h2>
                                     <div class="blog-item-meta bg-gray pt-2 pb-1 px-3">
                                         <span class="text-black text-capitalize mr-3"><i class="fas fa-user mr-1"></i>Oleh {{$berita->author}}</span>
-                                        <span class="text-black text-capitalize mr-3"><i class="fas fa-clock mr-1"></i>Pada {{ Carbon\Carbon::parse($berita->created_at)->format("l, d M Y") }}</span>
+                                        <span class="text-black text-capitalize mr-3"><i class="fas fa-clock mr-1"></i>Pada {{ Carbon\Carbon::parse($berita->created_at)->format("d/m/Y") }}</span>
                                     </div>
                                     <p class="lead mb-4">{!! $berita->isi !!}</p>
 

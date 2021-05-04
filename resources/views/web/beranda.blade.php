@@ -410,7 +410,7 @@ Selamat Datang
             </div>
             <div class="card">
                 <div class="row m-t-20">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-12 mb-3">
                         <ul class="nav tabs-vertical flex-column" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="item active" id="daftar-informasi-publik-tab" data-toggle="tab" href="#DaftarInformasiPublik_Tabs" role="tab" aria-controls="DaftarInformasiPublik_Tabs" aria-selected="true">
@@ -438,7 +438,7 @@ Selamat Datang
                         </ul>
                     </div>
 
-                    <div class="col-md-8 mb-3">
+                    <div class="col-md-12 mb-3 text-center">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="DaftarInformasiPublik_Tabs" role="tabpanel" aria-labelledby="daftar-informasi-publik-tab">
                                 <form method="get" action="{{route('dokumen-view')}}">
@@ -514,111 +514,111 @@ Selamat Datang
                 <div class="col-md-6 mb-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="icon-circle rgba-blue">
-                            <img src="http://ppid.kemendagri.go.id/assets_v1/images/icons/newspaper.png" class="img-fluid" alt="" width="20">
+                            <i class="fas fa-database fa-2x"></i>
                         </div>
                         <p class="text-default font-600 mb-0">Informasi Terbaru</p>
                     </div>
 
                     <div class="card">
                         <ul class="list-default">
-                        @foreach($dokumen as $dok)
+                            @foreach($dokumen as $dok)
                             <li>
                                 <a href="{{route('detail-dok', $dok->id)}}">
                                     <p class="title">{{$dok->judul}}</p>
                                     <p class="desc">{{$dok->dinas->nama}}</p>
                                 </a>
-                            </li> 
-                        @endforeach
+                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
-                </div>
             </div>
         </div>
-    </section>
+</div>
+</section>
 
-    <section class="content-blank blue-section  miring-300 ">
-        <div class="container">
-            <div class="title-section mb-3 text-center">
-                <h4 class="text-capitalize head-title">Statistik</h4>
-                <p class="head-sub-desc">Informasi statistik dokumen</p>
-            </div>
+<section class="content-blank blue-section  miring-300 ">
+    <div class="container">
+        <div class="title-section mb-3 text-center">
+            <h4 class="text-capitalize head-title">Statistik</h4>
+            <p class="head-sub-desc">Informasi statistik dokumen</p>
+        </div>
 
-            <div class="card card-lg pd-auto m-t-70">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="d-flex align-items-center m-b-30">
-                                    <div class="head-icon">
-                                        <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="" class="img-fluid" alt="" width="25">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-1">Jumlah Dokumen</p>
-                                        <h5 class="font-700 mb-0">{{$dokumen->count()}}</h5>
+        <div class="card card-lg pd-auto m-t-70">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="d-flex align-items-center m-b-30">
+                                <div class="head-icon">
+                                    <div class="icon-circle cirlce-lg rgba-blue m-r-25">
+                                        <i class="fas fa-file fa-lg"></i>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm">
-                                <div class="d-flex align-items-center m-b-30">
-                                    <div class="head-icon">
-                                        <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="" class="img-fluid" alt="" width="25">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-1">Jumlah Permohonan Informasi</p>
-                                        <h5 class="font-700 mb-0">{{$permohonan->count()}}</h5>
-                                    </div>
+                                <div>
+                                    <p class="mb-1">Jumlah Dokumen</p>
+                                    <h5 class="font-700 mb-0">{{$dokumen->count()}}</h5>
                                 </div>
                             </div>
-
-                            <div class="col-sm">
-                                <div class="d-flex align-items-center m-b-30">
-                                    <div class="head-icon">
-                                        <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="" class="img-fluid" alt="" width="25">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-1">Jumlah User</p>
-                                        <h5 class="font-700 mb-0">{{$users->count()}}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm">
-                                <div class="d-flex align-items-center m-b-30">
-                                    <div class="head-icon">
-                                        <div class="icon-circle cirlce-lg rgba-blue m-r-25">
-                                            <img src="" class="img-fluid" alt="" width="25">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-1">Jumlah Pengunjung</p>
-                                        <!-- <h5 class="font-700 mb-0">{{$users->count()}}</h5> -->
-                                        <a href='http://www.freevisitorcounters.com'>Counters</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=fbe8eee2505010e5943d1f7664205cc522d4796b'></script>
-                                        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/821099/t/3"></script>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div class="col-sm">
+                            <div class="d-flex align-items-center m-b-30">
+                                <div class="head-icon">
+                                    <div class="icon-circle cirlce-lg rgba-blue m-r-25">
+                                        <i class="fas fa-database fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="mb-1">Jumlah Permohonan Informasi</p>
+                                    <h5 class="font-700 mb-0">{{$permohonan->count()}}</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="d-flex align-items-center m-b-30">
+                                <div class="head-icon">
+                                    <div class="icon-circle cirlce-lg rgba-blue m-r-25">
+                                        <i class="fas fa-user fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="mb-1">Jumlah User</p>
+                                    <h5 class="font-700 mb-0">{{$users->count()}}</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="d-flex align-items-center m-b-30">
+                                <div class="head-icon">
+                                    <div class="icon-circle cirlce-lg rgba-blue m-r-25">
+                                        <i class="fas fa-users fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="mb-1">Jumlah Pengunjung</p>
+                                    <!-- <h5 class="font-700 mb-0">{{$users->count()}}</h5> -->
+                                    <a href='http://www.freevisitorcounters.com'>Counters</a>
+                                    <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=fbe8eee2505010e5943d1f7664205cc522d4796b'></script>
+                                    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/821099/t/3"></script>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <section class="content-blank blue-section" style="padding-top: 10rem;">
-        <div class="container">
-    <section class="content-blank blue-section">
+<section class="content-blank blue-section" style="padding-top: 10rem;">
 
-    </section>
+
+</section>
 </div>
 @endsection
