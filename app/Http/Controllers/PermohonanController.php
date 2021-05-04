@@ -243,7 +243,7 @@ class PermohonanController extends Controller
         } elseif ($status_sekarang == 1) {
             return view('admin.informasi.pmasuk.diterima', compact('permohonan'));
         } elseif ($status_sekarang == 2) {
-            return view('admin.informasi.pmasuk.proses_proses', compact('permohonan'));            
+            return view('admin.informasi.pmasuk.detail', compact('permohonan'));    
         } elseif ($status_sekarang == 3) {
             return view('admin.informasi.pmasuk.ditolak', compact('permohonan'));
         }
