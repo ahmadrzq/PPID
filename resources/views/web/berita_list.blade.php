@@ -17,6 +17,9 @@ List Berita
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
+                    @if ($berita->count() == 0)
+                        <h1>Berita Yang Anda Cari Tidak Ada</h1>
+                    @else
                         @foreach($berita as $result)
                         <div class="col-lg-4 col-md-4 mb-5">
                             <div class="blog-item">
@@ -30,13 +33,14 @@ List Berita
                                     <p class="card-text"><small class="text-muted"><i class="fas fa-user"></i> {{$result->author}}</small></p>
                                     <h3 class="mt-0 mb-3"><a href="{{route('berita.isi', $result->id)}}">{{$result->judul}}</a></h3>
                                     <p class="mb-4" style="text-align: justify;">{!! str_limit(strip_tags($result->isi),$limit=200,$end="...") !!}</p>
-                                    <a href="{{route('berita.isi', $result->id)}}" class="btn btn-sm" style="color: white;background-color: #022835;">Learn More</a>
+                                    <a href="{{route('berita.isi', $result->id)}}" class="btn btn-sm" style="color: white;background-color: #022835;">Read More</a>
                                 </div>
                             </div>
                         </div>
                         @endforeach                       
                     </div>
                     {{$berita->links()}}
+                @endif
                 </div>
             </div>
         </div>

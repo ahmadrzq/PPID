@@ -190,11 +190,9 @@
 
             <div class="row h-100">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <form action="" method="GET" class="form-search-section">
-                        <h5 class="text-default font-600">Cari Dokumen dan Informasi</h5>
-                        <input type="text" name="search" value="" id="term">
-                        <input type="hidden" name="category" value="1" />
-                        <input type="hidden" name="area" value="kemendagri" />
+                    <form action="{{route('berita.list')}}" method="GET" class="form-search-section">
+                        <h5 class="text-default font-600">Cari Berita</h5>
+                        <input type="text" name="judul">
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary btn-lg w-100">
                                 <i class="fa fa-search mr-1" aria-hidden="true"></i> Cari

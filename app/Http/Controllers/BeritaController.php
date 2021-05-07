@@ -70,9 +70,15 @@ class BeritaController extends Controller
         return view('admin.berita.edit', compact('berita'));
     }
 
-    public function beritaList()
+    public function beritaList(Request $request)
     {
         $berita = Berita::orderBy('created_at', 'desc')->paginate(6);
+
+        if ($request->has('judul')){
+            $berita = Berita::where('judul', 'like', '%'.$request->judul.'%')
+            ->paginate(10);
+        }
+
         return view('web.berita_list', compact('berita'));
     }
 
