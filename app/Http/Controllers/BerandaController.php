@@ -72,8 +72,12 @@ class BerandaController extends Controller
     {
         //
         $dokumen = Dokumen::find($id);
+        // $dokumen = new Dokumen;
+        $dokumen->download = $dokumen->download + 5;
+        
         $download_path = ( public_path() . '/file/dokumen/' . $dokumen->file );
         return( Response::download( $download_path ) );
+        $dokumen->update();
     }
 
 }

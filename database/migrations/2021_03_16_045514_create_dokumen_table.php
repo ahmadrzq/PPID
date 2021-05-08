@@ -25,6 +25,7 @@ class CreateDokumenTable extends Migration
             $table->string('file', 191);
             $table->string('keterangan', 191);
             $table->text('kandunganInfo');
+            $table->integer('download')->default('0');
             $table->timestamps();
         });
     }

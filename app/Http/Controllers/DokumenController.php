@@ -107,11 +107,19 @@ class DokumenController extends Controller
     {
         //
         $dokumen = Dokumen::find($id);
+        $dokumen->increment('download');
+        // $dokumen->update(['download' => DB::raw('download+1')]);
+// $user->cart_count--; // for decrement the count
+        // $dokumen->save()
+        // Dokuemen::where('id', $dokumen->id)->increment('download', 1);
+        // $dokumen->download = $dokumen->download + 1;
+        $dokumen->update();
         // $file= public_path() . "/file/dokumen/".$this->file;
         // return response()->download($dokumen->file);
         // return Storage::disk('file/dokumen/')->download($path, $file);
         $download_path = ( public_path() . '/file/dokumen/' . $dokumen->file );
         return( Response::download( $download_path ) );
+        // $dokumen->save();
     }
 
     /**
